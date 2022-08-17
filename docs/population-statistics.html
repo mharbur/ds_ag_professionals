@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Population Statistics | Data Science for Agricultural Professionals</title>
+  <meta name="description" content="Practical statistics for those involved in agronomy and related agricultural sciences." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Population Statistics | Data Science for Agricultural Professionals" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://mharbur.github.io/data-science-for-agricultural-professionals/" />
+  
+  <meta property="og:description" content="Practical statistics for those involved in agronomy and related agricultural sciences." />
+  <meta name="github-repo" content="https://github.com/mharbur/ds_ag_professionals" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Population Statistics | Data Science for Agricultural Professionals" />
+  
+  <meta name="twitter:description" content="Practical statistics for those involved in agronomy and related agricultural sciences." />
+  
+
+<meta name="author" content="Marin L. Harbur" />
+
+
+<meta name="date" content="2022-08-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="distributions-and-probability.html"/>
+<script src="libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="libs/leaflet-binding-2.1.0/leaflet.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science for Agricultural Professionals</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#preface">Preface<span></span></a>
+<ul>
+<li><a href="index.html#welcome">Welcome<span></span></a></li>
+<li><a href="index.html#r-language">R-language<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="population-statistics.html"><a href="population-statistics.html"><i class="fa fa-check"></i><b>1</b> Population Statistics<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="population-statistics.html"><a href="population-statistics.html#populations"><i class="fa fa-check"></i><b>1.1</b> Populations<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="population-statistics.html"><a href="population-statistics.html#case-study-yield-map"><i class="fa fa-check"></i><b>1.2</b> Case Study: Yield Map<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="population-statistics.html"><a href="population-statistics.html#distributions"><i class="fa fa-check"></i><b>1.3</b> Distributions<span></span></a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="population-statistics.html"><a href="population-statistics.html#histograms"><i class="fa fa-check"></i><b>1.3.1</b> Histograms<span></span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="population-statistics.html"><a href="population-statistics.html#percentiles"><i class="fa fa-check"></i><b>1.3.2</b> Percentiles<span></span></a></li>
+<li class="chapter" data-level="1.3.3" data-path="population-statistics.html"><a href="population-statistics.html#normal-distribution-model"><i class="fa fa-check"></i><b>1.3.3</b> Normal Distribution Model<span></span></a></li>
+<li class="chapter" data-level="1.3.4" data-path="population-statistics.html"><a href="population-statistics.html#measures-of-center"><i class="fa fa-check"></i><b>1.3.4</b> Measures of Center<span></span></a></li>
+<li class="chapter" data-level="1.3.5" data-path="population-statistics.html"><a href="population-statistics.html#measures-of-dispersion"><i class="fa fa-check"></i><b>1.3.5</b> Measures of Dispersion<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html"><i class="fa fa-check"></i><b>2</b> Distributions and Probability<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html#case-study"><i class="fa fa-check"></i><b>2.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html#the-normal-distribution-model"><i class="fa fa-check"></i><b>2.2</b> The Normal Distribution Model<span></span></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html#the-bell-curve"><i class="fa fa-check"></i><b>2.2.1</b> The Bell Curve<span></span></a></li>
+<li class="chapter" data-level="2.2.2" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html#distribution-and-probability"><i class="fa fa-check"></i><b>2.2.2</b> Distribution and Probability<span></span></a></li>
+<li class="chapter" data-level="2.2.3" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html#probability-and-the-normal-distribution-curve"><i class="fa fa-check"></i><b>2.2.3</b> Probability and the Normal Distribution Curve<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html#the-z-distribution"><i class="fa fa-check"></i><b>2.3</b> The Z-Distribution<span></span></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="distributions-and-probability.html"><a href="distributions-and-probability.html#important-numbers-95-and-5"><i class="fa fa-check"></i><b>2.3.1</b> Important Numbers: 95% and 5%<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="sample-statistics.html"><a href="sample-statistics.html"><i class="fa fa-check"></i><b>3</b> Sample Statistics<span></span></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="sample-statistics.html"><a href="sample-statistics.html#samples"><i class="fa fa-check"></i><b>3.1</b> Samples<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="sample-statistics.html"><a href="sample-statistics.html#case-study-1"><i class="fa fa-check"></i><b>3.2</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="3.3" data-path="sample-statistics.html"><a href="sample-statistics.html#distribution-of-sample-means"><i class="fa fa-check"></i><b>3.3</b> Distribution of Sample Means<span></span></a></li>
+<li class="chapter" data-level="3.4" data-path="sample-statistics.html"><a href="sample-statistics.html#central-limit-theorem"><i class="fa fa-check"></i><b>3.4</b> Central Limit Theorem<span></span></a></li>
+<li class="chapter" data-level="3.5" data-path="sample-statistics.html"><a href="sample-statistics.html#standard-error"><i class="fa fa-check"></i><b>3.5</b> Standard Error<span></span></a></li>
+<li class="chapter" data-level="3.6" data-path="sample-statistics.html"><a href="sample-statistics.html#degrees-of-freedom"><i class="fa fa-check"></i><b>3.6</b> Degrees of Freedom<span></span></a></li>
+<li class="chapter" data-level="3.7" data-path="sample-statistics.html"><a href="sample-statistics.html#the-t-distribution"><i class="fa fa-check"></i><b>3.7</b> The t-Distribution<span></span></a></li>
+<li class="chapter" data-level="3.8" data-path="sample-statistics.html"><a href="sample-statistics.html#confidence-interval"><i class="fa fa-check"></i><b>3.8</b> Confidence Interval<span></span></a></li>
+<li class="chapter" data-level="3.9" data-path="sample-statistics.html"><a href="sample-statistics.html#confidence-interval-and-probability"><i class="fa fa-check"></i><b>3.9</b> Confidence Interval and Probability<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="two-treatment-comparisons.html"><a href="two-treatment-comparisons.html"><i class="fa fa-check"></i><b>4</b> Two-Treatment Comparisons<span></span></a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="two-treatment-comparisons.html"><a href="two-treatment-comparisons.html#side-by-side-trials"><i class="fa fa-check"></i><b>4.1</b> Side-by-Side Trials<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="two-treatment-comparisons.html"><a href="two-treatment-comparisons.html#blocked-design"><i class="fa fa-check"></i><b>4.2</b> Blocked Design<span></span></a></li>
+<li class="chapter" data-level="4.3" data-path="two-treatment-comparisons.html"><a href="two-treatment-comparisons.html#case-study-2"><i class="fa fa-check"></i><b>4.3</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="4.4" data-path="two-treatment-comparisons.html"><a href="two-treatment-comparisons.html#confidence-interval-1"><i class="fa fa-check"></i><b>4.4</b> Confidence Interval<span></span></a></li>
+<li class="chapter" data-level="4.5" data-path="two-treatment-comparisons.html"><a href="two-treatment-comparisons.html#t-test"><i class="fa fa-check"></i><b>4.5</b> T-Test<span></span></a></li>
+<li class="chapter" data-level="4.6" data-path="two-treatment-comparisons.html"><a href="two-treatment-comparisons.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html"><i class="fa fa-check"></i><b>5</b> Understanding Statistical Tests<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#research-question"><i class="fa fa-check"></i><b>5.1</b> Research Question<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#the-model"><i class="fa fa-check"></i><b>5.2</b> The Model<span></span></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#treatment-effect"><i class="fa fa-check"></i><b>5.2.1</b> Treatment Effect<span></span></a></li>
+<li class="chapter" data-level="5.2.2" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#error-effect"><i class="fa fa-check"></i><b>5.2.2</b> Error Effect<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#hypotheses"><i class="fa fa-check"></i><b>5.3</b> Hypotheses<span></span></a></li>
+<li class="chapter" data-level="5.4" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#p-value"><i class="fa fa-check"></i><b>5.4</b> P-Value<span></span></a></li>
+<li class="chapter" data-level="5.5" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#the-p-value-and-errors"><i class="fa fa-check"></i><b>5.5</b> The P-Value and Errors<span></span></a></li>
+<li class="chapter" data-level="5.6" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#one-sided-vs-two-sided-hypotheses"><i class="fa fa-check"></i><b>5.6</b> One-Sided vs Two-Sided Hypotheses<span></span></a></li>
+<li class="chapter" data-level="5.7" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#exercise-linear-additive-model"><i class="fa fa-check"></i><b>5.7</b> Exercise: Linear Additive Model<span></span></a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#case-study-barley-effects"><i class="fa fa-check"></i><b>5.7.1</b> Case Study: Barley Effects<span></span></a></li>
+<li class="chapter" data-level="5.7.2" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#plotting-the-effects"><i class="fa fa-check"></i><b>5.7.2</b> Plotting the Effects<span></span></a></li>
+<li class="chapter" data-level="5.7.3" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#examining-individual-plots"><i class="fa fa-check"></i><b>5.7.3</b> Examining Individual Plots<span></span></a></li>
+<li class="chapter" data-level="5.7.4" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#practice-groudnut"><i class="fa fa-check"></i><b>5.7.4</b> Practice: Groudnut<span></span></a></li>
+<li class="chapter" data-level="5.7.5" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#plotting-the-effects-1"><i class="fa fa-check"></i><b>5.7.5</b> Plotting the Effects<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#exercise-one-sided-hypotheses"><i class="fa fa-check"></i><b>5.8</b> Exercise: One-Sided Hypotheses<span></span></a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#case-study-groundnut"><i class="fa fa-check"></i><b>5.8.1</b> Case Study: Groundnut<span></span></a></li>
+<li class="chapter" data-level="5.8.2" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#one-sided-t-test"><i class="fa fa-check"></i><b>5.8.2</b> One-Sided T-Test<span></span></a></li>
+<li class="chapter" data-level="5.8.3" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#practice-barley"><i class="fa fa-check"></i><b>5.8.3</b> Practice: Barley<span></span></a></li>
+<li class="chapter" data-level="5.8.4" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#practice-strawberry"><i class="fa fa-check"></i><b>5.8.4</b> Practice: Strawberry<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="5.9" data-path="understanding-statistical-tests.html"><a href="understanding-statistical-tests.html#exercise-type-i-and-type-ii-errors"><i class="fa fa-check"></i><b>5.9</b> Exercise: Type I and Type II Errors<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html"><i class="fa fa-check"></i><b>6</b> Multiple Treatment Trials<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#case-study-3"><i class="fa fa-check"></i><b>6.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#the-linear-additive-model"><i class="fa fa-check"></i><b>6.2</b> The Linear Additive Model<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#analysis-of-variance"><i class="fa fa-check"></i><b>6.3</b> Analysis of Variance<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#the-f-statistic"><i class="fa fa-check"></i><b>6.4</b> The F statistic<span></span></a></li>
+<li class="chapter" data-level="6.5" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#the-anova-table"><i class="fa fa-check"></i><b>6.5</b> The ANOVA Table<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#source-of-variation"><i class="fa fa-check"></i><b>6.5.1</b> Source of Variation<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#sum-of-squares-1"><i class="fa fa-check"></i><b>6.5.2</b> Sum of Squares<span></span></a></li>
+<li class="chapter" data-level="6.5.3" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#degrees-of-freedom-1"><i class="fa fa-check"></i><b>6.5.3</b> Degrees of Freedom<span></span></a></li>
+<li class="chapter" data-level="6.5.4" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#mean-square"><i class="fa fa-check"></i><b>6.5.4</b> Mean Square<span></span></a></li>
+<li class="chapter" data-level="6.5.5" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#f-value"><i class="fa fa-check"></i><b>6.5.5</b> F-Value<span></span></a></li>
+<li class="chapter" data-level="6.5.6" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#p-value-1"><i class="fa fa-check"></i><b>6.5.6</b> P-value<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#visualizing-how-the-anova-table-relates-to-variance"><i class="fa fa-check"></i><b>6.6</b> Visualizing How the Anova Table Relates to Variance<span></span></a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#case-study-barley"><i class="fa fa-check"></i><b>6.6.1</b> Case Study: Barley<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#anova"><i class="fa fa-check"></i><b>6.6.2</b> ANOVA<span></span></a></li>
+<li class="chapter" data-level="6.6.3" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#calculating-the-coefficient-of-variation"><i class="fa fa-check"></i><b>6.6.3</b> Calculating the Coefficient of Variation<span></span></a></li>
+<li class="chapter" data-level="6.6.4" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#practice-beet-data"><i class="fa fa-check"></i><b>6.6.4</b> Practice: Beet Data<span></span></a></li>
+<li class="chapter" data-level="6.6.5" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#practice-potato-data"><i class="fa fa-check"></i><b>6.6.5</b> Practice: Potato Data<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#exercise-treatment-means"><i class="fa fa-check"></i><b>6.7</b> Exercise: “Treatment Means”<span></span></a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#case-study-barley-1"><i class="fa fa-check"></i><b>6.7.1</b> Case Study: Barley<span></span></a></li>
+<li class="chapter" data-level="6.7.2" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#calculating-treatment-means"><i class="fa fa-check"></i><b>6.7.2</b> Calculating Treatment Means<span></span></a></li>
+<li class="chapter" data-level="6.7.3" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#plotting-the-means"><i class="fa fa-check"></i><b>6.7.3</b> Plotting the Means<span></span></a></li>
+<li class="chapter" data-level="6.7.4" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#practice-beet-data-1"><i class="fa fa-check"></i><b>6.7.4</b> Practice: Beet Data<span></span></a></li>
+<li class="chapter" data-level="6.7.5" data-path="multiple-treatment-trials.html"><a href="multiple-treatment-trials.html#practice-potato-data-1"><i class="fa fa-check"></i><b>6.7.5</b> Practice: Potato Data<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html"><i class="fa fa-check"></i><b>7</b> Multiple Treatment Designs<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#randomized-complete-block-design"><i class="fa fa-check"></i><b>7.1</b> Randomized Complete Block Design<span></span></a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#case-study-randomized-complete-block-design"><i class="fa fa-check"></i><b>7.1.1</b> Case Study: Randomized Complete Block Design<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#factorial-design"><i class="fa fa-check"></i><b>7.2</b> Factorial Design<span></span></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#case-study-1-1"><i class="fa fa-check"></i><b>7.2.1</b> Case Study 1<span></span></a></li>
+<li class="chapter" data-level="7.2.2" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#case-study-2-1"><i class="fa fa-check"></i><b>7.2.2</b> Case Study 2<span></span></a></li>
+<li class="chapter" data-level="7.2.3" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#discussing-interactions"><i class="fa fa-check"></i><b>7.2.3</b> Discussing Interactions<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#split-plot-design"><i class="fa fa-check"></i><b>7.3</b> Split-Plot Design<span></span></a></li>
+<li class="chapter" data-level="7.4" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#linear-additive-model-3"><i class="fa fa-check"></i><b>7.4</b> Linear Additive Model<span></span></a></li>
+<li class="chapter" data-level="7.5" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#conclusion-1"><i class="fa fa-check"></i><b>7.5</b> Conclusion<span></span></a></li>
+<li class="chapter" data-level="7.6" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#exercise-randomized-complete-block-design"><i class="fa fa-check"></i><b>7.6</b> Exercise: Randomized Complete Block Design<span></span></a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#case-study-4"><i class="fa fa-check"></i><b>7.6.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="7.6.2" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#anova-1"><i class="fa fa-check"></i><b>7.6.2</b> ANOVA<span></span></a></li>
+<li class="chapter" data-level="7.6.3" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#plotting-the-results"><i class="fa fa-check"></i><b>7.6.3</b> Plotting the Results<span></span></a></li>
+<li class="chapter" data-level="7.6.4" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#practice"><i class="fa fa-check"></i><b>7.6.4</b> Practice<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#exercise-factorial-anova"><i class="fa fa-check"></i><b>7.7</b> Exercise: Factorial ANOVA<span></span></a>
+<ul>
+<li class="chapter" data-level="7.7.1" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#case-study-biochar"><i class="fa fa-check"></i><b>7.7.1</b> Case Study: Biochar<span></span></a></li>
+<li class="chapter" data-level="7.7.2" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#anova-2"><i class="fa fa-check"></i><b>7.7.2</b> ANOVA<span></span></a></li>
+<li class="chapter" data-level="7.7.3" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#interaction-plots"><i class="fa fa-check"></i><b>7.7.3</b> Interaction Plots<span></span></a></li>
+<li class="chapter" data-level="7.7.4" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#testing-factors-individually"><i class="fa fa-check"></i><b>7.7.4</b> Testing Factors Individually<span></span></a></li>
+<li class="chapter" data-level="7.7.5" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#bar-plots"><i class="fa fa-check"></i><b>7.7.5</b> Bar Plots<span></span></a></li>
+<li class="chapter" data-level="7.7.6" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#practice-1"><i class="fa fa-check"></i><b>7.7.6</b> Practice<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.8" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#exercise-split-plot-design"><i class="fa fa-check"></i><b>7.8</b> Exercise: Split-Plot Design<span></span></a>
+<ul>
+<li class="chapter" data-level="7.8.1" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#case-study-corn-soybean-systems-trial"><i class="fa fa-check"></i><b>7.8.1</b> Case Study: Corn-Soybean Systems Trial<span></span></a></li>
+<li class="chapter" data-level="7.8.2" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#anova-4"><i class="fa fa-check"></i><b>7.8.2</b> ANOVA<span></span></a></li>
+<li class="chapter" data-level="7.8.3" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#interaction-plot"><i class="fa fa-check"></i><b>7.8.3</b> Interaction Plot<span></span></a></li>
+<li class="chapter" data-level="7.8.4" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#bar-plot"><i class="fa fa-check"></i><b>7.8.4</b> Bar plot<span></span></a></li>
+<li class="chapter" data-level="7.8.5" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#practice-2"><i class="fa fa-check"></i><b>7.8.5</b> Practice<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="7.9" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#exercise-experimental-design"><i class="fa fa-check"></i><b>7.9</b> Exercise: Experimental Design<span></span></a>
+<ul>
+<li class="chapter" data-level="7.9.1" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#completely-randomized-design"><i class="fa fa-check"></i><b>7.9.1</b> Completely Randomized Design<span></span></a></li>
+<li class="chapter" data-level="7.9.2" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#randomized-complete-block-design-1"><i class="fa fa-check"></i><b>7.9.2</b> Randomized Complete Block Design<span></span></a></li>
+<li class="chapter" data-level="7.9.3" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#factorial-design-1"><i class="fa fa-check"></i><b>7.9.3</b> Factorial Design<span></span></a></li>
+<li class="chapter" data-level="7.9.4" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#split-plot-design-1"><i class="fa fa-check"></i><b>7.9.4</b> Split-Plot Design<span></span></a></li>
+<li class="chapter" data-level="7.9.5" data-path="multiple-treatment-designs.html"><a href="multiple-treatment-designs.html#practice-3"><i class="fa fa-check"></i><b>7.9.5</b> Practice<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html"><i class="fa fa-check"></i><b>8</b> Means Separation and Data Presentation<span></span></a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#case-study-5"><i class="fa fa-check"></i><b>8.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="8.2" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#least-significant-difference"><i class="fa fa-check"></i><b>8.2</b> Least Significant Difference<span></span></a></li>
+<li class="chapter" data-level="8.3" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#lsd-output-in-r"><i class="fa fa-check"></i><b>8.3</b> LSD Output in R<span></span></a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#statistics-table"><i class="fa fa-check"></i><b>8.3.1</b> Statistics Table<span></span></a></li>
+<li class="chapter" data-level="8.3.2" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#means-table"><i class="fa fa-check"></i><b>8.3.2</b> Means Table<span></span></a></li>
+<li class="chapter" data-level="8.3.3" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#groups-table"><i class="fa fa-check"></i><b>8.3.3</b> Groups Table<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#comparisonwise-versus-experimentwise-error"><i class="fa fa-check"></i><b>8.4</b> Comparisonwise versus Experimentwise Error<span></span></a></li>
+<li class="chapter" data-level="8.5" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#tukeys-honest-significant-difference"><i class="fa fa-check"></i><b>8.5</b> Tukey’s Honest Significant Difference<span></span></a></li>
+<li class="chapter" data-level="8.6" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#linear-contrast"><i class="fa fa-check"></i><b>8.6</b> Linear Contrast<span></span></a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#coefficients"><i class="fa fa-check"></i><b>8.6.1</b> Coefficients<span></span></a></li>
+<li class="chapter" data-level="8.6.2" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#linear-contrasts-with-r"><i class="fa fa-check"></i><b>8.6.2</b> Linear Contrasts with R<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.7" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#means-presentation"><i class="fa fa-check"></i><b>8.7</b> Means Presentation<span></span></a>
+<ul>
+<li class="chapter" data-level="8.7.1" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#means-tables"><i class="fa fa-check"></i><b>8.7.1</b> Means Tables<span></span></a></li>
+<li class="chapter" data-level="8.7.2" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#plotting-means"><i class="fa fa-check"></i><b>8.7.2</b> Plotting Means<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.8" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#exercise-lsd-and-tukeys-hsd"><i class="fa fa-check"></i><b>8.8</b> Exercise: LSD and Tukey’s HSD<span></span></a>
+<ul>
+<li class="chapter" data-level="8.8.1" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#case-study-common-bean"><i class="fa fa-check"></i><b>8.8.1</b> Case Study: Common Bean<span></span></a></li>
+<li class="chapter" data-level="8.8.2" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#least-significant-difference-1"><i class="fa fa-check"></i><b>8.8.2</b> Least Significant Difference<span></span></a></li>
+<li class="chapter" data-level="8.8.3" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#tukey-hsd"><i class="fa fa-check"></i><b>8.8.3</b> Tukey HSD<span></span></a></li>
+<li class="chapter" data-level="8.8.4" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#practice-apple"><i class="fa fa-check"></i><b>8.8.4</b> Practice: Apple<span></span></a></li>
+<li class="chapter" data-level="8.8.5" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#practice-wheat-treatment-with-mildew"><i class="fa fa-check"></i><b>8.8.5</b> Practice: Wheat Treatment with Mildew<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.9" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#exercise-linear-contrasts"><i class="fa fa-check"></i><b>8.9</b> Exercise: Linear Contrasts<span></span></a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#case-study-winter-canola-cultivar-trial."><i class="fa fa-check"></i><b>8.9.1</b> Case Study: Winter Canola Cultivar Trial.<span></span></a></li>
+<li class="chapter" data-level="8.9.2" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#running-the-contrast"><i class="fa fa-check"></i><b>8.9.2</b> Running the Contrast<span></span></a></li>
+<li class="chapter" data-level="8.9.3" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#practice-corn-nitrogen-source-and-timing"><i class="fa fa-check"></i><b>8.9.3</b> Practice: Corn Nitrogen Source and Timing<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#exercise-means-tables"><i class="fa fa-check"></i><b>8.10</b> Exercise: Means Tables<span></span></a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#case-study-corn-nitrogen-source-and-timing"><i class="fa fa-check"></i><b>8.10.1</b> Case Study: Corn Nitrogen Source and Timing<span></span></a></li>
+<li class="chapter" data-level="8.10.2" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#practice-canola"><i class="fa fa-check"></i><b>8.10.2</b> Practice: Canola<span></span></a></li>
+<li class="chapter" data-level="8.10.3" data-path="means-separation-and-data-presentation.html"><a href="means-separation-and-data-presentation.html#practice-broccoli-lsd"><i class="fa fa-check"></i><b>8.10.3</b> Practice: Broccoli LSD<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html"><i class="fa fa-check"></i><b>9</b> Messy and Missing Data<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#inspecting-data-for-normal-distributions"><i class="fa fa-check"></i><b>9.1</b> Inspecting data for Normal Distributions<span></span></a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#histograms-1"><i class="fa fa-check"></i><b>9.1.1</b> Histograms<span></span></a></li>
+<li class="chapter" data-level="9.1.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#rank-percentile-plots"><i class="fa fa-check"></i><b>9.1.2</b> Rank Percentile Plots<span></span></a></li>
+<li class="chapter" data-level="9.1.3" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#box-plots"><i class="fa fa-check"></i><b>9.1.3</b> Box Plots<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#inspecting-data-for-equal-variances"><i class="fa fa-check"></i><b>9.2</b> Inspecting Data for Equal Variances<span></span></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#mean-variance-plot"><i class="fa fa-check"></i><b>9.2.1</b> Mean-Variance Plot<span></span></a></li>
+<li class="chapter" data-level="9.2.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#homogeneity-of-variance-tests"><i class="fa fa-check"></i><b>9.2.2</b> Homogeneity of Variance Tests<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#dealing-with-messy-data"><i class="fa fa-check"></i><b>9.3</b> Dealing with Messy Data<span></span></a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#outliers"><i class="fa fa-check"></i><b>9.3.1</b> Outliers<span></span></a></li>
+<li class="chapter" data-level="9.3.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#non-normal-data-and-unequal-variances"><i class="fa fa-check"></i><b>9.3.2</b> Non-normal Data and Unequal Variances<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#dealing-with-missing-data"><i class="fa fa-check"></i><b>9.4</b> Dealing with Missing Data<span></span></a></li>
+<li class="chapter" data-level="9.5" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#summary"><i class="fa fa-check"></i><b>9.5</b> Summary<span></span></a></li>
+<li class="chapter" data-level="9.6" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#exercise-visual-data-inspection"><i class="fa fa-check"></i><b>9.6</b> Exercise: Visual Data Inspection<span></span></a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#case-study-1-2"><i class="fa fa-check"></i><b>9.6.1</b> Case Study 1<span></span></a></li>
+<li class="chapter" data-level="9.6.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#histogram"><i class="fa fa-check"></i><b>9.6.2</b> Histogram<span></span></a></li>
+<li class="chapter" data-level="9.6.3" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#rank-percentile"><i class="fa fa-check"></i><b>9.6.3</b> Rank-Percentile<span></span></a></li>
+<li class="chapter" data-level="9.6.4" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#case-study-2-2"><i class="fa fa-check"></i><b>9.6.4</b> Case Study 2<span></span></a></li>
+<li class="chapter" data-level="9.6.5" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#box-plot"><i class="fa fa-check"></i><b>9.6.5</b> Box Plot<span></span></a></li>
+<li class="chapter" data-level="9.6.6" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#practice-4"><i class="fa fa-check"></i><b>9.6.6</b> Practice<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#exercise-identifying-unequal-variances"><i class="fa fa-check"></i><b>9.7</b> Exercise: Identifying Unequal Variances”<span></span></a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#case-study-grape-colapsis-in-seed-corn"><i class="fa fa-check"></i><b>9.7.1</b> Case Study: Grape Colapsis in Seed Corn<span></span></a></li>
+<li class="chapter" data-level="9.7.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#practice-pigweed-height"><i class="fa fa-check"></i><b>9.7.2</b> Practice: Pigweed Height<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#exercise-transforming-and-analyzing-data"><i class="fa fa-check"></i><b>9.8</b> Exercise: Transforming and Analyzing Data<span></span></a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#case-study-grape-colapsis-in-seed-corn-1"><i class="fa fa-check"></i><b>9.8.1</b> Case Study: Grape Colapsis in Seed Corn<span></span></a></li>
+<li class="chapter" data-level="9.8.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#practice-pigweed-height-1"><i class="fa fa-check"></i><b>9.8.2</b> Practice: Pigweed Height<span></span></a></li>
+<li class="chapter" data-level="9.8.3" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#practice-pigweed-biomass"><i class="fa fa-check"></i><b>9.8.3</b> Practice: Pigweed Biomass<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#exercise-imputing-missing-data"><i class="fa fa-check"></i><b>9.9</b> Exercise: Imputing Missing Data<span></span></a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#case-study-wheat-genotype-trial"><i class="fa fa-check"></i><b>9.9.1</b> Case Study: Wheat Genotype Trial<span></span></a></li>
+<li class="chapter" data-level="9.9.2" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#practice-1-1"><i class="fa fa-check"></i><b>9.9.2</b> Practice 1<span></span></a></li>
+<li class="chapter" data-level="9.9.3" data-path="messy-and-missing-data.html"><a href="messy-and-missing-data.html#practice-2-1"><i class="fa fa-check"></i><b>9.9.3</b> Practice 2<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html"><i class="fa fa-check"></i><b>10</b> Correlation and Simple Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#correlation"><i class="fa fa-check"></i><b>10.1</b> Correlation<span></span></a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#case-study-cucumber"><i class="fa fa-check"></i><b>10.1.1</b> Case Study: Cucumber<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#correlation-1"><i class="fa fa-check"></i><b>10.2</b> Correlation<span></span></a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#how-is-r-calcuated-optional-reading"><i class="fa fa-check"></i><b>10.2.1</b> How Is r Calcuated (optional reading)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#regression"><i class="fa fa-check"></i><b>10.3</b> Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#case-study-6"><i class="fa fa-check"></i><b>10.3.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="10.3.2" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#linear-equation"><i class="fa fa-check"></i><b>10.3.2</b> Linear Equation<span></span></a></li>
+<li class="chapter" data-level="10.3.3" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#calculating-the-regression-equation"><i class="fa fa-check"></i><b>10.3.3</b> Calculating the Regression Equation<span></span></a></li>
+<li class="chapter" data-level="10.3.4" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#least-squares-estimate"><i class="fa fa-check"></i><b>10.3.4</b> Least-Squares Estimate<span></span></a></li>
+<li class="chapter" data-level="10.3.5" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#significance-of-coefficients"><i class="fa fa-check"></i><b>10.3.5</b> Significance of Coefficients<span></span></a></li>
+<li class="chapter" data-level="10.3.6" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#analysis-of-variance-6"><i class="fa fa-check"></i><b>10.3.6</b> Analysis of Variance<span></span></a></li>
+<li class="chapter" data-level="10.3.7" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#measuring-model-fit-with-r-square"><i class="fa fa-check"></i><b>10.3.7</b> Measuring Model Fit with R-Square<span></span></a></li>
+<li class="chapter" data-level="10.3.8" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#checking-whether-the-linear-model-is-appropriate"><i class="fa fa-check"></i><b>10.3.8</b> Checking whether the Linear Model is Appropriate<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#extrapolation"><i class="fa fa-check"></i><b>10.4</b> Extrapolation<span></span></a></li>
+<li class="chapter" data-level="10.5" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#exercise-sccatterplots-and-regression"><i class="fa fa-check"></i><b>10.5</b> Exercise: Sccatterplots and Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#case-study-corn-data"><i class="fa fa-check"></i><b>10.5.1</b> Case Study: Corn Data<span></span></a></li>
+<li class="chapter" data-level="10.5.2" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-1-2"><i class="fa fa-check"></i><b>10.5.2</b> Practice 1<span></span></a></li>
+<li class="chapter" data-level="10.5.3" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-2-2"><i class="fa fa-check"></i><b>10.5.3</b> Practice 2<span></span></a></li>
+<li class="chapter" data-level="10.5.4" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-3-1"><i class="fa fa-check"></i><b>10.5.4</b> Practice 3<span></span></a></li>
+<li class="chapter" data-level="10.5.5" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-4-1"><i class="fa fa-check"></i><b>10.5.5</b> Practice 4<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.6" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#exercise-simple-linear-regression"><i class="fa fa-check"></i><b>10.6</b> Exercise: Simple Linear Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="10.6.1" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#case-study-corn-allometry"><i class="fa fa-check"></i><b>10.6.1</b> Case Study: Corn Allometry<span></span></a></li>
+<li class="chapter" data-level="10.6.2" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#fitting-the-regression-model"><i class="fa fa-check"></i><b>10.6.2</b> Fitting the regression model<span></span></a></li>
+<li class="chapter" data-level="10.6.3" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#examining-the-residuals"><i class="fa fa-check"></i><b>10.6.3</b> Examining the residuals<span></span></a></li>
+<li class="chapter" data-level="10.6.4" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#viewing-the-model-coefficients"><i class="fa fa-check"></i><b>10.6.4</b> Viewing the Model Coefficients<span></span></a></li>
+<li class="chapter" data-level="10.6.5" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#more-measures-of-model-fit"><i class="fa fa-check"></i><b>10.6.5</b> More measures of model fit<span></span></a></li>
+<li class="chapter" data-level="10.6.6" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-1-3"><i class="fa fa-check"></i><b>10.6.6</b> Practice 1<span></span></a></li>
+<li class="chapter" data-level="10.6.7" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-2-3"><i class="fa fa-check"></i><b>10.6.7</b> Practice 2<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="10.7" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#exercise-making-predictions-from-regression-models."><i class="fa fa-check"></i><b>10.7</b> Exercise: Making Predictions from Regression Models.<span></span></a>
+<ul>
+<li class="chapter" data-level="10.7.1" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#case-study-7"><i class="fa fa-check"></i><b>10.7.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="10.7.2" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#creating-and-testing-our-model"><i class="fa fa-check"></i><b>10.7.2</b> Creating and Testing our Model<span></span></a></li>
+<li class="chapter" data-level="10.7.3" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#visualizing-the-regression-model"><i class="fa fa-check"></i><b>10.7.3</b> Visualizing the Regression Model<span></span></a></li>
+<li class="chapter" data-level="10.7.4" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#making-predictions-with-the-regression-model"><i class="fa fa-check"></i><b>10.7.4</b> Making Predictions with the Regression Model<span></span></a></li>
+<li class="chapter" data-level="10.7.5" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-1-4"><i class="fa fa-check"></i><b>10.7.5</b> Practice 1<span></span></a></li>
+<li class="chapter" data-level="10.7.6" data-path="correlation-and-simple-regression.html"><a href="correlation-and-simple-regression.html#practice-2-4"><i class="fa fa-check"></i><b>10.7.6</b> Practice 2<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html"><i class="fa fa-check"></i><b>11</b> Nonlinear Relationships and Multiple Linear Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#multiplie-linear-regression"><i class="fa fa-check"></i><b>11.1</b> Multiplie Linear Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#case-study-modelling-yield-by-county"><i class="fa fa-check"></i><b>11.1.1</b> Case Study: Modelling Yield by County<span></span></a></li>
+<li class="chapter" data-level="11.1.2" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#beware-of-bloated-models"><i class="fa fa-check"></i><b>11.1.2</b> Beware of Bloated Models<span></span></a></li>
+<li class="chapter" data-level="11.1.3" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#methods-for-avoiding-bloated-models"><i class="fa fa-check"></i><b>11.1.3</b> Methods for Avoiding Bloated Models<span></span></a></li>
+<li class="chapter" data-level="11.1.4" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#tunning-and-comparing-models"><i class="fa fa-check"></i><b>11.1.4</b> Tunning and Comparing Models<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#nonlinear-relationships"><i class="fa fa-check"></i><b>11.2</b> Nonlinear Relationships<span></span></a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#fitting-nonlinear-responses-with-linear-regression"><i class="fa fa-check"></i><b>11.2.1</b> Fitting Nonlinear Responses with Linear Regression<span></span></a></li>
+<li class="chapter" data-level="11.2.2" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#fitting-nonlinear-responses-with-nonlinear-regression"><i class="fa fa-check"></i><b>11.2.2</b> Fitting Nonlinear Responses with Nonlinear Regression<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#summary-1"><i class="fa fa-check"></i><b>11.3</b> Summary<span></span></a></li>
+<li class="chapter" data-level="11.4" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#exercise-multiple-linear-regression"><i class="fa fa-check"></i><b>11.4</b> Exercise: Multiple Linear Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="11.4.1" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#case-study-country-corn-yields"><i class="fa fa-check"></i><b>11.4.1</b> Case Study: Country Corn Yields<span></span></a></li>
+<li class="chapter" data-level="11.4.2" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#fitting-the-model"><i class="fa fa-check"></i><b>11.4.2</b> Fitting the Model<span></span></a></li>
+<li class="chapter" data-level="11.4.3" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#inspecting-the-model"><i class="fa fa-check"></i><b>11.4.3</b> Inspecting the Model<span></span></a></li>
+<li class="chapter" data-level="11.4.4" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#practice-thompson-corn-data"><i class="fa fa-check"></i><b>11.4.4</b> Practice: Thompson Corn Data<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#exercise-avoiding-bloated-models"><i class="fa fa-check"></i><b>11.5</b> Exercise: Avoiding Bloated Models<span></span></a>
+<ul>
+<li class="chapter" data-level="11.5.1" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#case-study-8"><i class="fa fa-check"></i><b>11.5.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="11.5.2" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#covariance-matrix"><i class="fa fa-check"></i><b>11.5.2</b> Covariance Matrix<span></span></a></li>
+<li class="chapter" data-level="11.5.3" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#partial-correlation-1"><i class="fa fa-check"></i><b>11.5.3</b> Partial Correlation<span></span></a></li>
+<li class="chapter" data-level="11.5.4" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#cross-validation-1"><i class="fa fa-check"></i><b>11.5.4</b> Cross-Validation<span></span></a></li>
+<li class="chapter" data-level="11.5.5" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#practice-thompson-corn-data-1"><i class="fa fa-check"></i><b>11.5.5</b> Practice: Thompson Corn Data<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#exercise-tuning-the-model"><i class="fa fa-check"></i><b>11.6</b> Exercise: Tuning the Model<span></span></a>
+<ul>
+<li class="chapter" data-level="11.6.1" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#case-study-9"><i class="fa fa-check"></i><b>11.6.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="11.6.2" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#tuning-the-model"><i class="fa fa-check"></i><b>11.6.2</b> Tuning the Model<span></span></a></li>
+<li class="chapter" data-level="11.6.3" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#practice-5"><i class="fa fa-check"></i><b>11.6.3</b> Practice<span></span></a></li>
+<li class="chapter" data-level="11.6.4" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#practice-6"><i class="fa fa-check"></i><b>11.6.4</b> Practice<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#exercise-nonlinear-regression"><i class="fa fa-check"></i><b>11.7</b> Exercise: Nonlinear Regression<span></span></a>
+<ul>
+<li class="chapter" data-level="11.7.1" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#case-study-1-monomolecular-data"><i class="fa fa-check"></i><b>11.7.1</b> Case Study 1: Monomolecular Data<span></span></a></li>
+<li class="chapter" data-level="11.7.2" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#case-study-2-logistic-data"><i class="fa fa-check"></i><b>11.7.2</b> Case Study 2: Logistic Data<span></span></a></li>
+<li class="chapter" data-level="11.7.3" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#practice-1-5"><i class="fa fa-check"></i><b>11.7.3</b> Practice 1<span></span></a></li>
+<li class="chapter" data-level="11.7.4" data-path="nonlinear-relationships-and-multiple-linear-regression.html"><a href="nonlinear-relationships-and-multiple-linear-regression.html#practice-2-5"><i class="fa fa-check"></i><b>11.7.4</b> Practice 2<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="spatial-statistics.html"><a href="spatial-statistics.html"><i class="fa fa-check"></i><b>12</b> Spatial Statistics<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="spatial-statistics.html"><a href="spatial-statistics.html#projection-general"><i class="fa fa-check"></i><b>12.1</b> Projection (General)<span></span></a>
+<ul>
+<li class="chapter" data-level="12.1.1" data-path="spatial-statistics.html"><a href="spatial-statistics.html#wgs-84-epsg-4236"><i class="fa fa-check"></i><b>12.1.1</b> WGS 84 (EPSG: 4236)<span></span></a></li>
+<li class="chapter" data-level="12.1.2" data-path="spatial-statistics.html"><a href="spatial-statistics.html#mercator-epsg-3857"><i class="fa fa-check"></i><b>12.1.2</b> Mercator (EPSG: 3857)<span></span></a></li>
+<li class="chapter" data-level="12.1.3" data-path="spatial-statistics.html"><a href="spatial-statistics.html#us-national-atlas-equal-area-epsg-2163"><i class="fa fa-check"></i><b>12.1.3</b> US National Atlas Equal Area (EPSG: 2163)<span></span></a></li>
+<li class="chapter" data-level="12.1.4" data-path="spatial-statistics.html"><a href="spatial-statistics.html#utm-zone-11n-epsg-2955"><i class="fa fa-check"></i><b>12.1.4</b> UTM Zone 11N (EPSG: 2955)<span></span></a></li>
+<li class="chapter" data-level="12.1.5" data-path="spatial-statistics.html"><a href="spatial-statistics.html#projection-summary"><i class="fa fa-check"></i><b>12.1.5</b> Projection Summary<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.2" data-path="spatial-statistics.html"><a href="spatial-statistics.html#shape-files"><i class="fa fa-check"></i><b>12.2</b> Shape Files<span></span></a>
+<ul>
+<li class="chapter" data-level="12.2.1" data-path="spatial-statistics.html"><a href="spatial-statistics.html#case-study-soybean-yield-in-iowa"><i class="fa fa-check"></i><b>12.2.1</b> Case Study: Soybean Yield in Iowa<span></span></a></li>
+<li class="chapter" data-level="12.2.2" data-path="spatial-statistics.html"><a href="spatial-statistics.html#ssurgo"><i class="fa fa-check"></i><b>12.2.2</b> SSURGO<span></span></a></li>
+<li class="chapter" data-level="12.2.3" data-path="spatial-statistics.html"><a href="spatial-statistics.html#operations-with-shapes"><i class="fa fa-check"></i><b>12.2.3</b> Operations with Shapes<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.3" data-path="spatial-statistics.html"><a href="spatial-statistics.html#rasters"><i class="fa fa-check"></i><b>12.3</b> Rasters<span></span></a>
+<ul>
+<li class="chapter" data-level="12.3.1" data-path="spatial-statistics.html"><a href="spatial-statistics.html#interpolation"><i class="fa fa-check"></i><b>12.3.1</b> Interpolation<span></span></a></li>
+<li class="chapter" data-level="12.3.2" data-path="spatial-statistics.html"><a href="spatial-statistics.html#kriging"><i class="fa fa-check"></i><b>12.3.2</b> Kriging<span></span></a></li>
+<li class="chapter" data-level="12.3.3" data-path="spatial-statistics.html"><a href="spatial-statistics.html#operations-on-kriged-data"><i class="fa fa-check"></i><b>12.3.3</b> Operations on Kriged Data<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.4" data-path="spatial-statistics.html"><a href="spatial-statistics.html#exercise-shape-files"><i class="fa fa-check"></i><b>12.4</b> Exercise: Shape Files<span></span></a>
+<ul>
+<li class="chapter" data-level="12.4.1" data-path="spatial-statistics.html"><a href="spatial-statistics.html#case-study-10"><i class="fa fa-check"></i><b>12.4.1</b> Case Study<span></span></a></li>
+<li class="chapter" data-level="12.4.2" data-path="spatial-statistics.html"><a href="spatial-statistics.html#practice-7"><i class="fa fa-check"></i><b>12.4.2</b> Practice<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="12.5" data-path="spatial-statistics.html"><a href="spatial-statistics.html#exercise-ssurgo"><i class="fa fa-check"></i><b>12.5</b> Exercise: SSURGO<span></span></a></li>
+<li class="chapter" data-level="12.6" data-path="spatial-statistics.html"><a href="spatial-statistics.html#exercise-rasters"><i class="fa fa-check"></i><b>12.6</b> Exercise: Rasters<span></span></a>
+<ul>
+<li class="chapter" data-level="12.6.1" data-path="spatial-statistics.html"><a href="spatial-statistics.html#case-study-soil-test-data"><i class="fa fa-check"></i><b>12.6.1</b> Case Study: Soil Test Data<span></span></a></li>
+<li class="chapter" data-level="12.6.2" data-path="spatial-statistics.html"><a href="spatial-statistics.html#practice-1-6"><i class="fa fa-check"></i><b>12.6.2</b> Practice 1<span></span></a></li>
+<li class="chapter" data-level="12.6.3" data-path="spatial-statistics.html"><a href="spatial-statistics.html#practice-2-6"><i class="fa fa-check"></i><b>12.6.3</b> Practice 2<span></span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="machine-learning.html"><a href="machine-learning.html"><i class="fa fa-check"></i><b>13</b> Machine Learning<span></span></a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="machine-learning.html"><a href="machine-learning.html#machine-learning-1"><i class="fa fa-check"></i><b>13.1</b> Machine Learning<span></span></a></li>
+<li class="chapter" data-level="13.2" data-path="machine-learning.html"><a href="machine-learning.html#cluster-analyses"><i class="fa fa-check"></i><b>13.2</b> Cluster Analyses<span></span></a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="machine-learning.html"><a href="machine-learning.html#case-study-grouping-midwestern-environments"><i class="fa fa-check"></i><b>13.2.1</b> Case Study: Grouping Midwestern Environments<span></span></a></li>
+<li class="chapter" data-level="13.2.2" data-path="machine-learning.html"><a href="machine-learning.html#scaling"><i class="fa fa-check"></i><b>13.2.2</b> Scaling<span></span></a></li>
+<li class="chapter" data-level="13.2.3" data-path="machine-learning.html"><a href="machine-learning.html#clustering-animation"><i class="fa fa-check"></i><b>13.2.3</b> Clustering Animation<span></span></a></li>
+<li class="chapter" data-level="13.2.4" data-path="machine-learning.html"><a href="machine-learning.html#county-cluster-analysis"><i class="fa fa-check"></i><b>13.2.4</b> County Cluster Analysis<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="machine-learning.html"><a href="machine-learning.html#k-nearest-neighbors"><i class="fa fa-check"></i><b>13.3</b> k-Nearest-Neighbors<span></span></a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="machine-learning.html"><a href="machine-learning.html#case-study-guessing-county-yields-based-on-environmental-similarity"><i class="fa fa-check"></i><b>13.3.1</b> Case Study: Guessing County Yields based on Environmental Similarity<span></span></a></li>
+<li class="chapter" data-level="13.3.2" data-path="machine-learning.html"><a href="machine-learning.html#scaling-1"><i class="fa fa-check"></i><b>13.3.2</b> Scaling<span></span></a></li>
+<li class="chapter" data-level="13.3.3" data-path="machine-learning.html"><a href="machine-learning.html#k-nearest-neighbor-animation"><i class="fa fa-check"></i><b>13.3.3</b> k-Nearest-Neighbor Animation<span></span></a></li>
+<li class="chapter" data-level="13.3.4" data-path="machine-learning.html"><a href="machine-learning.html#choosing-k"><i class="fa fa-check"></i><b>13.3.4</b> Choosing <span class="math inline">\(k\)</span><span></span></a></li>
+<li class="chapter" data-level="13.3.5" data-path="machine-learning.html"><a href="machine-learning.html#model-cross-validation"><i class="fa fa-check"></i><b>13.3.5</b> Model Cross-Validation<span></span></a></li>
+<li class="chapter" data-level="13.3.6" data-path="machine-learning.html"><a href="machine-learning.html#yield-prediction-with-nearest-neighbor-analysis"><i class="fa fa-check"></i><b>13.3.6</b> Yield Prediction with Nearest Neighbor Analysis<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="machine-learning.html"><a href="machine-learning.html#classification-trees"><i class="fa fa-check"></i><b>13.4</b> Classification Trees<span></span></a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="machine-learning.html"><a href="machine-learning.html#features"><i class="fa fa-check"></i><b>13.4.1</b> Features<span></span></a></li>
+<li class="chapter" data-level="13.4.2" data-path="machine-learning.html"><a href="machine-learning.html#quantitative-categorical-data"><i class="fa fa-check"></i><b>13.4.2</b> Quantitative (Categorical) Data<span></span></a></li>
+<li class="chapter" data-level="13.4.3" data-path="machine-learning.html"><a href="machine-learning.html#quanatitiative-continuous-data"><i class="fa fa-check"></i><b>13.4.3</b> Quanatitiative (Continuous) Data<span></span></a></li>
+<li class="chapter" data-level="13.4.4" data-path="machine-learning.html"><a href="machine-learning.html#overfitting-1"><i class="fa fa-check"></i><b>13.4.4</b> Overfitting<span></span></a></li>
+<li class="chapter" data-level="13.4.5" data-path="machine-learning.html"><a href="machine-learning.html#cross-validation-2"><i class="fa fa-check"></i><b>13.4.5</b> Cross Validation<span></span></a></li>
+<li class="chapter" data-level="13.4.6" data-path="machine-learning.html"><a href="machine-learning.html#random-forest"><i class="fa fa-check"></i><b>13.4.6</b> Random Forest<span></span></a></li>
+<li class="chapter" data-level="13.4.7" data-path="machine-learning.html"><a href="machine-learning.html#feature-importance"><i class="fa fa-check"></i><b>13.4.7</b> Feature Importance<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="machine-learning.html"><a href="machine-learning.html#summary-2"><i class="fa fa-check"></i><b>13.5</b> Summary<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html"><i class="fa fa-check"></i><b>14</b> Putting it all Together<span></span></a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-1-yield-map-population-summary-and-z-distribution"><i class="fa fa-check"></i><b>14.1</b> Scenario 1: Yield Map (Population Summary and Z-Distribution)<span></span></a></li>
+<li class="chapter" data-level="14.2" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-2-yield-estimate-sampling-t-distribution"><i class="fa fa-check"></i><b>14.2</b> Scenario 2: Yield Estimate (Sampling t-Distribution)<span></span></a></li>
+<li class="chapter" data-level="14.3" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-3-side-by-side-t-test"><i class="fa fa-check"></i><b>14.3</b> Scenario 3: Side-By-Side (t-Test)<span></span></a></li>
+<li class="chapter" data-level="14.4" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-4-fungicide-trial-anova-crd-or-rcbd"><i class="fa fa-check"></i><b>14.4</b> Scenario 4: Fungicide Trial (ANOVA CRD or RCBD)<span></span></a></li>
+<li class="chapter" data-level="14.5" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-5-hybrid-response-to-fungicide-trial-anova-factorial-or-split-plot"><i class="fa fa-check"></i><b>14.5</b> Scenario 5: Hybrid Response to Fungicide Trial (ANOVA Factorial or Split Plot)<span></span></a></li>
+<li class="chapter" data-level="14.6" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-6-foliar-rate-response-trial-linear-or-non-linear-regression"><i class="fa fa-check"></i><b>14.6</b> Scenario 6: Foliar Rate-Response Trial (Linear or Non-Linear Regression)<span></span></a></li>
+<li class="chapter" data-level="14.7" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-7-application-map-shapefiles-and-rasters"><i class="fa fa-check"></i><b>14.7</b> Scenario 7: Application Map (Shapefiles and Rasters)<span></span></a></li>
+<li class="chapter" data-level="14.8" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#scenario-8-yield-prediction-multiple-linear-regression-and-other-predictive-models"><i class="fa fa-check"></i><b>14.8</b> Scenario 8: Yield Prediction (Multiple Linear Regression and other Predictive Models)<span></span></a></li>
+<li class="chapter" data-level="14.9" data-path="putting-it-all-together.html"><a href="putting-it-all-together.html#summary-3"><i class="fa fa-check"></i><b>14.9</b> Summary<span></span></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Science for Agricultural Professionals</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="population-statistics" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Population Statistics<a href="population-statistics.html#population-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="populations" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Populations<a href="population-statistics.html#populations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Almost every statistics text begins with the concept of a
+<strong>population</strong>. A population is the complete set of individuals to which
+you want to predict values. Let’s dwell on this concept, as it is
+something that did not hit home for me right away in my career. Again,
+the population is all of the individuals for which you are interested in
+making a prediction. What do we mean by individuals? Not just people –
+individuals can plants, insects, disease, livestock or, indeed, farmers.</p>
+<p>Just as important as what individuals are in a population is its extent.
+What do you want the individuals to represent? If you are a farmer, do
+you want to apply the data from these individuals directly to
+themselves, or will you use them to make management decisions for the
+entire field, or all the fields in your farm? Will you use the results
+this season or to make predictions for future seasons? If you are an
+animal nutritionist, will you use rations data to support dairy
+Herefords, or beef Angus?</p>
+<p>If you are a sales agronomist, will you use the data to support sales on
+one farm, a group of farms in one area, or across your entire sales
+territory? If you are in Extension, will the individuals you measure be
+applicable to your entire county, group of counties, or state? If you
+are in industry like me, will your results be applicable to several
+states?</p>
+<p>This is a very, very critical question, as you design experiments – or
+as you read research conducted by others. To what do or will the results
+apply? Obviously, an Iowa farmer should not follow the optimum planting
+date determined for a grower in North Carolina, nor should an Ohio
+farmer assume our pale clays will be as forgiving as the dark, mellow
+loam of southern Minnesota.</p>
+<p>Drilling down, you might further consider whether research was conducted
+in areas that have similar temperature or rainfall, how different the
+soil texture might be to the areas to which you want to apply results.
+At the farm level, you might ask how similar the crop rotation, tillage,
+or planting methods were to that operation. At the field level, you
+might wonder about planting date or the hybrid that was sown.</p>
+<p>When you use the results from set of individuals to make predictions
+about other individuals, you are making inferences – you are using
+those data to make predictions, whether it be for that same field next
+month or next year, or for other locations (areas in a field, fields in
+a farm, counties, or states). When we speak of an inference space, then,
+that is the total group of individuals to which you will apply your
+results. Or, in another word, your population.</p>
+<p>In summary, one of the most critical skills you can apply with data
+science has no formula and, indeed, little to do with math (at least in
+our application). It is to ask yourself, will my experiment represent
+the entire population in which I am interested? Indeed, one field trial
+likely will not address the entire population in which you are
+interested – it is up to you to determine the population to which you
+are comfortable applying those results.</p>
+<p>In fact, statistics or data science done without this “domain” knowledge
+whether a dataset is useful or experimental results are reasonable can
+be disastrous. Just because a model fits one dataset very well or
+treatments are significantly different does not mean they should be used
+to make decisions. Your competency as an agronomic data scientist
+depends on everything you learn in your program of study. Soil science,
+crop physiology, and integrated pest management, to name just a few
+subjects, are as much a prerequisite as any math course you have taken.</p>
+<p>In some cases all of the individuals in a population can be measured –
+in such case, we will use the basic statistics described in this unit.
+The yield map we will analyze in this unit is a loose example of a case
+where we can measure</p>
+<p>In most cases, however, it is not physically or financially feasible to
+measure all individuals in a population. In that case, subsets of the
+population, called samples, are used to estimate the range of
+individuals in a population.</p>
+</div>
+<div id="case-study-yield-map" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Case Study: Yield Map<a href="population-statistics.html#case-study-yield-map" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>For our first case study, we will use a situation where every individual
+in our population can be measured: a single soybean field in central
+Iowa. In this case, yield data were gathered using a combine monitor. In
+case you don’t live and breathe field crops like me, combines (the
+machines that harvest grain) are usually equipped with a scale that
+repeatedly weighs grain as the combine moves across the field. The
+moisture of the grain is also recorded. These data are combined with
+measures of the combine speed and knowledge of the number of rows
+harvested at once to calculate the yield per area of grain, adjusted to
+the market standard for grain moisture.</p>
+<p>Almost all of you have seen a yield map somewhat like the one below. In
+this map, blue circles represent lower yields, while yellow and orange
+circles represent higher yields.</p>
+<p><img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>We will learn in the Exercises portion of this lesson how to create a
+map like this using just a few lines of code.</p>
+<p>Each dataset has a structure – the way data are organized in columns
+and rows. To get a sense of the structure of our soybean dataset, we can
+examine the first 6 rows of the dataset using R.</p>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+DISTANCE
+</th>
+<th style="text-align:right;">
+SWATHWIDTH
+</th>
+<th style="text-align:right;">
+VRYIELDVOL
+</th>
+<th style="text-align:right;">
+Crop
+</th>
+<th style="text-align:right;">
+WetMass
+</th>
+<th style="text-align:right;">
+Moisture
+</th>
+<th style="text-align:left;">
+Time
+</th>
+<th style="text-align:right;">
+Heading
+</th>
+<th style="text-align:left;">
+VARIETY
+</th>
+<th style="text-align:right;">
+Elevation
+</th>
+<th style="text-align:left;">
+IsoTime
+</th>
+<th style="text-align:right;">
+yield_bu
+</th>
+<th style="text-align:left;">
+geometry
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.9202733
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+57.38461
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+3443.652
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:left;">
+9/19/2016 4:45:46 PM
+</td>
+<td style="text-align:right;">
+300.1584
+</td>
+<td style="text-align:left;">
+23A42
+</td>
+<td style="text-align:right;">
+786.8470
+</td>
+<td style="text-align:left;">
+2016-09-19T16:45:46.001Z
+</td>
+<td style="text-align:right;">
+65.97034
+</td>
+<td style="text-align:left;">
+POINT (-93.15026 41.66641)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.6919269
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+55.88097
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+3353.411
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:left;">
+9/19/2016 4:45:48 PM
+</td>
+<td style="text-align:right;">
+303.6084
+</td>
+<td style="text-align:left;">
+23A42
+</td>
+<td style="text-align:right;">
+786.6140
+</td>
+<td style="text-align:left;">
+2016-09-19T16:45:48.004Z
+</td>
+<td style="text-align:right;">
+64.24158
+</td>
+<td style="text-align:left;">
+POINT (-93.15028 41.66641)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.6263101
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+80.83788
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+4851.075
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:left;">
+9/19/2016 4:45:49 PM
+</td>
+<td style="text-align:right;">
+304.3084
+</td>
+<td style="text-align:left;">
+23A42
+</td>
+<td style="text-align:right;">
+786.1416
+</td>
+<td style="text-align:left;">
+2016-09-19T16:45:49.007Z
+</td>
+<td style="text-align:right;">
+92.93246
+</td>
+<td style="text-align:left;">
+POINT (-93.15028 41.66642)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.7575437
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+71.76773
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+4306.777
+</td>
+<td style="text-align:right;">
+6.22
+</td>
+<td style="text-align:left;">
+9/19/2016 4:45:51 PM
+</td>
+<td style="text-align:right;">
+306.2084
+</td>
+<td style="text-align:left;">
+23A42
+</td>
+<td style="text-align:right;">
+785.7381
+</td>
+<td style="text-align:left;">
+2016-09-19T16:45:51.002Z
+</td>
+<td style="text-align:right;">
+77.37348
+</td>
+<td style="text-align:left;">
+POINT (-93.1503 41.66642)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2.3966513
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+91.03274
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+5462.851
+</td>
+<td style="text-align:right;">
+12.22
+</td>
+<td style="text-align:left;">
+9/19/2016 4:45:54 PM
+</td>
+<td style="text-align:right;">
+309.2284
+</td>
+<td style="text-align:left;">
+23A42
+</td>
+<td style="text-align:right;">
+785.5937
+</td>
+<td style="text-align:left;">
+2016-09-19T16:45:54.002Z
+</td>
+<td style="text-align:right;">
+91.86380
+</td>
+<td style="text-align:left;">
+POINT (-93.15032 41.66644)
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.1840529
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+65.59037
+</td>
+<td style="text-align:right;">
+174
+</td>
+<td style="text-align:right;">
+3951.056
+</td>
+<td style="text-align:right;">
+13.33
+</td>
+<td style="text-align:left;">
+9/19/2016 4:45:55 PM
+</td>
+<td style="text-align:right;">
+309.7584
+</td>
+<td style="text-align:left;">
+23A42
+</td>
+<td style="text-align:right;">
+785.7512
+</td>
+<td style="text-align:left;">
+2016-09-19T16:45:55.005Z
+</td>
+<td style="text-align:right;">
+65.60115
+</td>
+<td style="text-align:left;">
+POINT (-93.15033 41.66644)
+</td>
+</tr>
+</tbody>
+</table>
+<p>Each row in the above dataset is a <strong>case</strong>, sometimes called an
+<strong>instance</strong>. It is an single observation taken within a soybean field.
+That case may contain one or more <strong>variables</strong>: specific measurements
+or observations recorded for each case. In the dataset above, variables
+include <em>DISTANCE</em>, <em>SWATHWIDTH</em>, <em>VRYIELDVOL</em>, <em>Crop</em>, <em>WetMass</em>, and
+many others.</p>
+<p>The two most important to us in this lesson are <em>yield_bu</em> and
+<em>geometry</em>. That this dataset has a column named geometry indicates it
+is a special kind of dataset called a <strong>shape file</strong> – a dataset in
+which the measures are geo-referenced. That is, we know where on Earth
+these measurements were taken. The geometry column in this case
+identifies a point with each observation.</p>
+</div>
+<div id="distributions" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Distributions<a href="population-statistics.html#distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>At this point, we have two options any time we want to know about
+soybean yield in this field. We can pull out this map or the complete
+dataset (which has over 6,500 observations) and look at try to
+intuitively understand the data. Or we can use statistics which, in a
+sense, provide us a formula for approximating the values in our dataset
+with just a few numbers.</p>
+<p>A <strong>distribution</strong> describes the range of values that occur within a
+given variable. What is the range of values in our measured values? In
+this example, what are the highest and lowest yields we observed? What
+ranges of values occur more frequently? Many times, we want to see
+whether the distribution of one</p>
+<div id="histograms" class="section level3 hasAnchor" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Histograms<a href="population-statistics.html#histograms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Before we get into the math required to generate these statistics,
+however, we should look at the shape of our data. What is the range of
+values in our measured values? In this example, what are the highest and
+lowest yields we observed? What ranges of values occur more frequently?
+Do the observed values make general sense?</p>
+<p>One of the easiest and most informative things for us to do is to create
+a particular bar chart known as a <strong>histogram</strong>.</p>
+<p><img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>In the histogram above, each bar represents range of values. This range
+is often referred to as a <em>bin</em>. The lowest bin includes values from 50
+to 59.0000. The next bin includes values from 60 to 69.9999. And so on.
+The height of each bar represents the <strong>frequency</strong> within each range:
+the number of individuals in that population that have values within
+that range.</p>
+<p>Each bin can also be defined by its <strong>midpoint</strong>. The midpoint is the
+middle value in each range. For the bin that includes values from 50 to
+50.9999, the midpoint is 55. For the bin that includes values from 60 to
+60.9999, the midpoint is 65.</p>
+<p>In the plot above, the midpoint for each bar is indicated by the orange
+bar beneath it.</p>
+<p><img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>There are many ways in which we can draw a histogram – and other
+visualizations – in R. We will learn more in this course about an R
+package called <code>ggplot2</code>, which can create just about any plot you might
+imagine. Here is a simple taste:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="population-statistics.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>yield, <span class="fu">aes</span>(<span class="at">x=</span>yield_bu)) <span class="sc">+</span></span>
+<span id="cb3-2"><a href="population-statistics.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">50</span>, <span class="dv">110</span>, <span class="dv">10</span>), <span class="at">fill=</span><span class="st">&quot;tomato&quot;</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Varying the <em>bin width</em> provides us with different perspectives on our
+distribution. Wide bins, which each include a greater range of values,
+will provide more gross representations of the data, while narrower bins
+will provide greater detail. When bins are too narrow, however, there
+may be gaps in our histogram where no values occur within particular
+bins.</p>
+<p>Throughout this course, I have created interactive exercises to help you
+better visualize statistical concepts. Often, they will allow you to
+observe how changing the variables or the number of observations can
+affect a statistical test or visualization.</p>
+<p>These exercises are located outside of this textbook. To access them,
+please follow links like that below. The exercises may take several
+seconds to launch and run in your browser. I apologize for their
+slowness – this is the best platform I have found to date.</p>
+<p>Please click on the link below to open an application where you can vary
+the bin width and see how it changes your perspective:</p>
+<p><a href="https://marin-harbur.shinyapps.io/01-app-histogram/" class="uri">https://marin-harbur.shinyapps.io/01-app-histogram/</a></p>
+</div>
+<div id="percentiles" class="section level3 hasAnchor" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Percentiles<a href="population-statistics.html#percentiles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can also use <strong>percentiles</strong> to describe the values of a variable
+more numerically. Percentiles describe how values the proportional
+spread of values, from lowest to highest, within a distribution. To
+identify percentiles, the data are numerically ordered (ranked) from
+lowest to highest. Each percentile is associated with a number; the
+percentile is the percentage of all data equal to or less than that
+number. We can quickly generate the 0th, 25th, 50th, and 75th, and 100th
+percentile in R:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="population-statistics.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(yield<span class="sc">$</span>yield_bu)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   55.12   74.96   80.62   80.09   85.44  104.95</code></pre>
+<p>This returns six numbers. The 0th percentile (alternatively referred to
+as the minimum) is 55.12 – this is the lowest yield measured in the
+field. The 25th percentile (also called the 1st Quartile) is 74.96. This
+means that 25% of all observations were equal to 74.96 bushels or less.
+The 50th percentile (also known as the median) was 80.62, meaning half
+of all observations were equal to 80.62 bushels or less. 75% of
+observations were less than 85.44, the 75th percentile (or 3rd
+quartile). Finally, the 100th percentile (or maximum yield) recorded for
+this field was 104.95.</p>
+<p>We are now gaining a better sense of the range of observations that were
+most common. But we can describe this distribution with even fewer
+numbers.</p>
+</div>
+<div id="normal-distribution-model" class="section level3 hasAnchor" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Normal Distribution Model<a href="population-statistics.html#normal-distribution-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s overlay a curve, representing the <strong>normal distribution</strong>, on our
+histogram. You have probably seen or heard of this curve before. Often
+it is called a <em>bell curve</em>; in school, it is the <em>Curve</em> that many
+students count on to bring up their grades. We will learn more about
+this distribution in <em>Lesson 2</em>.</p>
+<p><img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>In a perfect scenario, our curve would pass through the midpoint of each
+bar. This rarely happens with real-world data, and especially in
+agriculture. The data may be slightly <strong>skewed</strong>, meaning there are more
+individuals that measure above the mean than below, or vice versa.</p>
+<p>In this example, our data do not appear skewed. Our curve seems a little
+too short and wide to exactly fit the data. This is a condition called
+<strong>kurtosis</strong>. No, kurtosis doesn’t mean that our data stink; they are
+just more spread out or compressed than in a “perfect” situation.</p>
+<p>No problem. We can – and should – conclude it is appropriate to fit
+these data with a normal distribution. If we had even more data, the
+curve would likely fit them even better.</p>
+<p>Many populations can be handily summarized with the normal distribution
+curve, but we need to know a couple of statistics about the data. First,
+we need to know where the center of the curve should be. Second, we need
+to know the width or dispersion of the curve.</p>
+</div>
+<div id="measures-of-center" class="section level3 hasAnchor" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Measures of Center<a href="population-statistics.html#measures-of-center" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To mathamatically describe our distribution, we first need a <strong>measure
+of center</strong>. The two most common measures of center are the arithmetic
+mean and median. The <strong>mean</strong> is the sum of all observations divided by
+the number of observations.</p>
+<p><span class="math display">\[\displaystyle \mu = \frac{\sum x_i}{n}\]</span> The <span class="math inline">\(\mu\)</span> symbol (a u with a
+tail) signifies the true mean of a population. The <span class="math inline">\(\sum\)</span> symbol (the
+character next to <span class="math inline">\(x_i\)</span> which looks like the angry insect alien from <em>A
+Quiet Place</em>) means “sum”. Thus, anytime you see the <span class="math inline">\(\sum\)</span> symbol, we
+are summing the variable(s) to its right. <span class="math inline">\(x_i\)</span> is the value <span class="math inline">\(x\)</span> of the
+ith individual in the population. Finally, n is the number of
+individuals in the population.</p>
+<p>For example, if we have a set of number from 1:5, their mean can be
+calculated as:</p>
+<p><span class="math display">\[
+\frac{1+2+3+4+5}{5} = 3
+\]</span></p>
+<p>The mean yield for our field is about 80.09 bushels per acre. This
+isrepresented by the red line in the histogram below.</p>
+<p><img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>Earlier, you were introduced to the median. As discussed, the <strong>median</strong>
+is a number such that half of the individuals in the population are
+greater and half are less. If we have an odd number of individuals, the
+median is the “middle” number as the individuals are ranked from
+greatest to least.</p>
+<p><span class="math display">\[ \{1,2,3,4,5\} \\ median = 3 \]</span></p>
+<p>If we have an even number of measures, the median is the average of the
+middle two individuals in the ranking:</p>
+<p><span class="math display">\[\{1,2,3,4,5,6\} \\ median = 3.5 \]</span></p>
+<p>Let’s add a blue line to our histogram to represent the median.</p>
+<p><img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<p>As you can see, they are practically identical. When the mean and median
+are similar, the number of individuals measuring greater and less than
+the mean are roughly equivalent. In this case, our data can be
+represented using the normal distribution.</p>
+<p>We also need a statistic that tells us how wide to draw the curve. That
+statistic is called a measure of dispersion, and we will learn about it
+next.</p>
+</div>
+<div id="measures-of-dispersion" class="section level3 hasAnchor" number="1.3.5">
+<h3><span class="header-section-number">1.3.5</span> Measures of Dispersion<a href="population-statistics.html#measures-of-dispersion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To describe the spread of a population, we use one of three related
+<strong>measures of disperson</strong>: sum of squares, variance, and standard
+deviation. Although there is a little math involved in these three
+statistics, please make yourself comfortable with their concepts because
+they are <em>very</em> important in this course. Almost every statistical test
+we will learn during this course is rooted in these measures of
+population width.</p>
+<div id="sum-of-squares" class="section level4 hasAnchor" number="1.3.5.1">
+<h4><span class="header-section-number">1.3.5.1</span> Sum of Squares<a href="population-statistics.html#sum-of-squares" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The first measure of population width is the <strong>sum of squares</strong>. This is
+the sum of the squared differences between each observation and the
+mean. The sum of squares of a measurement x is:</p>
+<p><span class="math display">\[\displaystyle S_{xx} = (x_i - \mu)^2\]</span></p>
+<p>Where again <span class="math inline">\(x_i\)</span> is the value <span class="math inline">\(x\)</span> of the <span class="math inline">\(ith\)</span> individual in the
+population and <span class="math inline">\(\mu\)</span> is the true mean of a population.</p>
+<p>Why do we square the differences between the observations and means?
+Simply, if we were to add the unsquared differences they would add to
+exactly zero. Let’s prove this to ourselves. Let’s again use the set of
+numbers (1, 2, 3, 4, 5). We can measure the distance of each individual
+from the mean by subtracting the mean from it. This difference is called
+the residual.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="population-statistics.html#cb6-1" aria-hidden="true" tabindex="-1"></a>sample_data <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">individuals =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>))</span>
+<span id="cb6-2"><a href="population-statistics.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="population-statistics.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;janitor&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     chisq.test, fisher.test</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="population-statistics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>first_resid_table <span class="ot">=</span> sample_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="population-statistics.html#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="population-statistics.html#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> individuals <span class="sc">-</span> mean) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="population-statistics.html#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean =</span> <span class="fu">as.character</span>(mean)) </span>
+<span id="cb9-5"><a href="population-statistics.html#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="population-statistics.html#cb9-6" aria-hidden="true" tabindex="-1"></a>first_resid_totals <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">individuals =</span> <span class="st">&quot;Total&quot;</span>,</span>
+<span id="cb9-7"><a href="population-statistics.html#cb9-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">mean =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb9-8"><a href="population-statistics.html#cb9-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">residual =</span> <span class="fu">sum</span>(first_resid_table<span class="sc">$</span>residual))</span>
+<span id="cb9-9"><a href="population-statistics.html#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="population-statistics.html#cb9-10" aria-hidden="true" tabindex="-1"></a>first_resid_table <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="population-statistics.html#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(first_resid_totals) <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a href="population-statistics.html#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+individuals
+</th>
+<th style="text-align:left;">
+mean
+</th>
+<th style="text-align:right;">
+residual
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+-2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+-1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>The first column of the above dataset contains the individual
+observations. The second column contains the population mean, repeated
+for each observation. The third column is the residuals, which are
+calculated by subtracting each observed value from the population mean.</p>
+<p>And if we sum these residuals we get zero.</p>
+<p><span class="math display">\[ (-2) + (-1) + (0) + (+1) + (+2) = 0 \]</span></p>
+<p>Let’s now do this with our field data. The number of residuals (almost
+6800) is too many to visualize at once, so we will pick 20 at random.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="population-statistics.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">080921</span>)</span>
+<span id="cb10-2"><a href="population-statistics.html#cb10-2" aria-hidden="true" tabindex="-1"></a>yield_sample <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">yield =</span> <span class="fu">sample</span>(yield<span class="sc">$</span>yield_bu, <span class="dv">10</span>))</span>
+<span id="cb10-3"><a href="population-statistics.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="population-statistics.html#cb10-4" aria-hidden="true" tabindex="-1"></a>second_resid_table <span class="ot">=</span> yield_sample <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="population-statistics.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">yield =</span> <span class="fu">round</span>(yield,<span class="dv">2</span>),</span>
+<span id="cb10-6"><a href="population-statistics.html#cb10-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">mean =</span> <span class="fu">round</span>(<span class="fu">mean</span>(yield),<span class="dv">2</span>),</span>
+<span id="cb10-7"><a href="population-statistics.html#cb10-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">residual =</span> yield<span class="sc">-</span>mean) </span>
+<span id="cb10-8"><a href="population-statistics.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="population-statistics.html#cb10-9" aria-hidden="true" tabindex="-1"></a>second_resid_totals <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">yield =</span> <span class="st">&quot;Total&quot;</span>,</span>
+<span id="cb10-10"><a href="population-statistics.html#cb10-10" aria-hidden="true" tabindex="-1"></a>                                <span class="at">mean =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb10-11"><a href="population-statistics.html#cb10-11" aria-hidden="true" tabindex="-1"></a>                                <span class="at">residual =</span> <span class="fu">sum</span>(second_resid_table<span class="sc">$</span>residual))</span>
+<span id="cb10-12"><a href="population-statistics.html#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="population-statistics.html#cb10-13" aria-hidden="true" tabindex="-1"></a>second_resid_table <span class="sc">%&gt;%</span></span>
+<span id="cb10-14"><a href="population-statistics.html#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(second_resid_totals) <span class="sc">%&gt;%</span></span>
+<span id="cb10-15"><a href="population-statistics.html#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+yield
+</th>
+<th style="text-align:left;">
+mean
+</th>
+<th style="text-align:right;">
+residual
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+83.61
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+7.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+86.82
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+10.30
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+68.39
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+-8.13
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+81.91
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+5.39
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+80.75
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+4.23
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+57.06
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+-19.46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+62.58
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+-13.94
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+86.6
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+10.08
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+80.05
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+3.53
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+77.42
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:right;">
+0.90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+-0.01
+</td>
+</tr>
+</tbody>
+</table>
+<p>If we sum up all the yield residuals, we get -0.04. Not exactly zero,
+but close. The difference from zero is the result of rounding errors
+during the calculation.</p>
+<p>The sum of squares is calculated by squaring each residual and then
+summing the residuals. For our example using the set (1, 2, 3, 4, 5):</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="population-statistics.html#cb11-1" aria-hidden="true" tabindex="-1"></a>first_squares_table <span class="ot">=</span> first_resid_table <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="population-statistics.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">square =</span> residual<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb11-3"><a href="population-statistics.html#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="population-statistics.html#cb11-4" aria-hidden="true" tabindex="-1"></a>first_squares_totals <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">individuals =</span> <span class="st">&quot;Total&quot;</span>,</span>
+<span id="cb11-5"><a href="population-statistics.html#cb11-5" aria-hidden="true" tabindex="-1"></a>                                <span class="at">mean =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb11-6"><a href="population-statistics.html#cb11-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">residual =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb11-7"><a href="population-statistics.html#cb11-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">square =</span> <span class="fu">sum</span>(first_squares_table<span class="sc">$</span>square))</span>
+<span id="cb11-8"><a href="population-statistics.html#cb11-8" aria-hidden="true" tabindex="-1"></a>first_squares_table <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="population-statistics.html#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(first_squares_totals) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="population-statistics.html#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+individuals
+</th>
+<th style="text-align:left;">
+mean
+</th>
+<th style="text-align:left;">
+residual
+</th>
+<th style="text-align:right;">
+square
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+-2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+-1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+</tbody>
+</table>
+<p>And for our yield data:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="population-statistics.html#cb12-1" aria-hidden="true" tabindex="-1"></a>second_squares_table <span class="ot">=</span> second_resid_table <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="population-statistics.html#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">square =</span> <span class="fu">round</span>(residual<span class="sc">^</span><span class="dv">2</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="population-statistics.html#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">residual =</span> <span class="fu">round</span>(residual, <span class="dv">2</span>))</span>
+<span id="cb12-4"><a href="population-statistics.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="population-statistics.html#cb12-5" aria-hidden="true" tabindex="-1"></a>second_squares_totals <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">yield =</span> <span class="st">&quot;Total&quot;</span>,</span>
+<span id="cb12-6"><a href="population-statistics.html#cb12-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">mean =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb12-7"><a href="population-statistics.html#cb12-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">residual =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb12-8"><a href="population-statistics.html#cb12-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">square =</span> <span class="fu">sum</span>(second_squares_table<span class="sc">$</span>square))</span>
+<span id="cb12-9"><a href="population-statistics.html#cb12-9" aria-hidden="true" tabindex="-1"></a>second_squares_table <span class="sc">%&gt;%</span></span>
+<span id="cb12-10"><a href="population-statistics.html#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(second_squares_totals) <span class="sc">%&gt;%</span></span>
+<span id="cb12-11"><a href="population-statistics.html#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+yield
+</th>
+<th style="text-align:left;">
+mean
+</th>
+<th style="text-align:left;">
+residual
+</th>
+<th style="text-align:right;">
+square
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+83.61
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+7.09
+</td>
+<td style="text-align:right;">
+50.27
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+86.82
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+10.3
+</td>
+<td style="text-align:right;">
+106.09
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+68.39
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+-8.13
+</td>
+<td style="text-align:right;">
+66.10
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+81.91
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+5.39
+</td>
+<td style="text-align:right;">
+29.05
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+80.75
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+4.23
+</td>
+<td style="text-align:right;">
+17.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+57.06
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+-19.46
+</td>
+<td style="text-align:right;">
+378.69
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+62.58
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+-13.94
+</td>
+<td style="text-align:right;">
+194.32
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+86.6
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+10.08
+</td>
+<td style="text-align:right;">
+101.61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+80.05
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+3.53
+</td>
+<td style="text-align:right;">
+12.46
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+77.42
+</td>
+<td style="text-align:left;">
+76.52
+</td>
+<td style="text-align:left;">
+0.9
+</td>
+<td style="text-align:right;">
+0.81
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+957.29
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="variance" class="section level4 hasAnchor" number="1.3.5.2">
+<h4><span class="header-section-number">1.3.5.2</span> Variance<a href="population-statistics.html#variance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The sum of squares helps quantify spread: the larger the sum of squares,
+the greater the spread of observations around the population mean. There
+is one issue with the sum of squares, though: since the sum of square is
+derived from the differences between each observation and the mean, it
+is also related to the number of individuals overall in our population.
+In our example above, the sum of squares was 10.</p>
+<p>Now, let’s generate a dataset with two 1s, two 2s, two 3s, two 4s, and
+two 5s:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="population-statistics.html#cb13-1" aria-hidden="true" tabindex="-1"></a>first_squares_table <span class="ot">=</span> first_resid_table <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="population-statistics.html#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">square =</span> residual<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb13-3"><a href="population-statistics.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="population-statistics.html#cb13-4" aria-hidden="true" tabindex="-1"></a>double_squares_table <span class="ot">=</span> first_squares_table <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="population-statistics.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(first_squares_table)</span>
+<span id="cb13-6"><a href="population-statistics.html#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="population-statistics.html#cb13-7" aria-hidden="true" tabindex="-1"></a>double_squares_totals <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">individuals =</span> <span class="st">&quot;Total&quot;</span>,</span>
+<span id="cb13-8"><a href="population-statistics.html#cb13-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">mean =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb13-9"><a href="population-statistics.html#cb13-9" aria-hidden="true" tabindex="-1"></a>                                <span class="at">residual =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb13-10"><a href="population-statistics.html#cb13-10" aria-hidden="true" tabindex="-1"></a>                                <span class="at">square =</span> <span class="fu">sum</span>(double_squares_table<span class="sc">$</span>square))</span>
+<span id="cb13-11"><a href="population-statistics.html#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="population-statistics.html#cb13-12" aria-hidden="true" tabindex="-1"></a>double_squares_table <span class="sc">%&gt;%</span></span>
+<span id="cb13-13"><a href="population-statistics.html#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rbind</span>(double_squares_totals) <span class="sc">%&gt;%</span></span>
+<span id="cb13-14"><a href="population-statistics.html#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>()</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+individuals
+</th>
+<th style="text-align:left;">
+mean
+</th>
+<th style="text-align:left;">
+residual
+</th>
+<th style="text-align:right;">
+square
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+-2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+-1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+-2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+-1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+</tbody>
+</table>
+<p>You will notice the sum of squares increases to 20. The spread of the
+data did not change: we recorded the same five values. The only
+difference is that we observed each value twice.</p>
+<p>The moral of this story is this: given any distribution, the sum of
+squares will always increase with the number of observations. Thus, if
+we want to compare the spread of two different populations with
+different numbers of individuals, we need to adjust our interpretation
+to allow for the number of observations.</p>
+<p>We do this by dividing the sum of squares, <span class="math inline">\(S_{xx}\)</span> by the number of
+observations, <span class="math inline">\(n\)</span>. In essence, we are calculating an “average” of the
+sum of squares. This value is the variance, <span class="math inline">\(\sigma^2\)</span>.</p>
+<p><span class="math display">\[\sigma^2 = \frac{S_{xx}}{n}\]</span> We can calculate the variance as
+follows.</p>
+<p>In our first example, the set {1,2,3,4,5} had a sum of squares of 10. in
+that case, the variance would be:</p>
+<p><span class="math display">\[\frac{10}{5} = 2
+\]</span></p>
+<p>In our second example, the set {1,2,3,4,5,1,2,3,4,5} had a sum of
+squares of 20. In that example, the variance would be</p>
+<p><span class="math display">\[
+\frac{20}{10} = 2
+\]</span></p>
+<p>As you can see, the variance is not affected by the size of the dataset,
+only by the distribution of its values.</p>
+<p>Later on in this course, we will calculate the variance a little
+differently:</p>
+<p><span class="math display">\[\sigma^2 = \frac{S_{xx}}{n-1}\]</span> <em>n-1</em> is referred to as the <strong>degrees
+of freedom</strong>. We use degrees of freedom when we work with samples
+(subsets) of a population. In this unit, however, we are working with
+populations, so we will not worry about those.</p>
+</div>
+<div id="standard-deviation" class="section level4 hasAnchor" number="1.3.5.3">
+<h4><span class="header-section-number">1.3.5.3</span> Standard Deviation<a href="population-statistics.html#standard-deviation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Our challenge in using the variance to describe population spread is
+it’s units are not intuitive. When we square the measure we also square
+the units of measure. For example the variance of our yield is measured
+in units of bushels<sup>2</sup>. Wrap your head around that one. Our solution is
+to report our final estimate of population spread in the original units
+of measure. To do this, we calculate the square root of the variance.
+This statistic is called the standard deviation, <span class="math inline">\(\sigma\)</span>.</p>
+<p><span class="math display">\[\sigma = \sqrt{(\sigma^2)}\]</span></p>
+<p>For the dataset {1,2,3,4,5}, the sum of squares is 10, the variance 2,
+and the standard deviation is:</p>
+<p><span class="math display">\[\sigma = \sqrt{2} = 1.4 \]</span></p>
+<p>For our yield dataset, the sum of squares is 957.29, and based on 10
+observations. Our variance is therefore:</p>
+<p><span class="math display">\[\sigma^2 = \frac{957.29}{10} = 9.57 \text{ bushels}^2 \text{ / acre}^2\]</span></p>
+<p>Our sum of squares is :</p>
+<p><span class="math display">\[ \sqrt{9.57 \text{ bushels}^2 \text{ / acre}^2} = 3.09
+\text{ bushels / acre }\]</span></p>
+<p>That is enough theory for this first week of class. The remainder of
+this lesson will focus on introducing you to <strong>RStudioCloud</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="distributions-and-probability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-Introduction-and-Population-Statistics.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
