@@ -20,13 +20,15 @@ library(tidyverse)
 library(sf)
 library(leaflet)
 library(grDevices)
+library(htmlwidgets)
+library(webshot2)
 
 logan = st_read("data-unit-14/Young North Corn 20.shp", quiet=TRUE) %>%
   filter(Yld_Vol_Dr >=50 & Yld_Vol_Dr <=350)
 
 pal = colorBin("RdYlGn", logan$Yld_Vol_Dr) 
 
-logan %>%
+m <- logan %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -36,6 +38,10 @@ logan %>%
     fillOpacity = 1,
     popup = as.character(logan$Yld_Vol_Dr)
   )
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 
 ```
 
@@ -425,7 +431,7 @@ pal_k = colorBin("RdYlGn", k_only$measure)
 
 We then create our map using the leaflet() function, just as we learned in Unit 12.
 ```{r}
-k_only %>%
+m <- k_only %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -436,6 +442,11 @@ k_only %>%
   ) %>%
   addLegend(values = ~measure,
             pal = pal_k)
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 Next, we want to create a raster map that predicts soil potassium levels throughout our field.  We first need to define the field boundary, which we do by loading a shapefile that defines a single polygon that outlines our field.
@@ -481,11 +492,16 @@ We finish by plotting our kriged data using leaflet().
 library(RColorBrewer)
 library(leafem)
 
-kriged_data %>%
+m <- kriged_data %>%
   leaflet() %>%
   addTiles() %>%
   addStarsImage(opacity = 0.5,
                 colors="RdYlGn") 
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 
@@ -525,7 +541,7 @@ First, lets plot the locations of our hybrid trials:
 ```{r, echo=FALSE}
 pal_yld = colorBin("RdYlGn", hybrid_wide$bu_acre)
 
-hybrid_wide %>%
+m <- hybrid_wide %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -534,18 +550,28 @@ hybrid_wide %>%
     weight=0,
     fillOpacity = 1
   )
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 We see our trials were conducted mostly in northern Iowa and southern Minnesota, but also in several other states.  We will want to constrain our predictions to counties in this general area.  That requires a few steps that we didn't cover this semester (the very curious can look up "convex hulls").  Our county dataset has been limited to the appropriate counties for our predictions:
 
 ```{r, echo=FALSE}
 
-county_climates_wide %>%
+m <- county_climates_wide %>%
   leaflet() %>%
   addTiles() %>%
   addPolygons(
     color="black",
     weight=1
   )
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 Our next step is to develop our random forest model to predict yield.  Recall that the predictor variables in a random forest model are called features.  Our data has the following features:
@@ -617,7 +643,7 @@ Finally, we can plot the results.  We will again use a red-yellow-gree scheme to
 ```{r}
 pal_yield = colorBin("RdYlGn", county_climates_wide$yield)
 
-county_climates_wide %>%
+m <- county_climates_wide %>%
   leaflet() %>%
   addTiles() %>%
   addPolygons(
@@ -630,8 +656,9 @@ county_climates_wide %>%
   addLegend(values = ~yield,
             pal = pal_yield)
       
-  
-
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 
 ```
 Our hybrid is predicted to yield best in northern Iowa, southern Minnesota, Wisconsin, and Northern Illinois.  It is predicted to perform less well in Western Ohio and Kansas.

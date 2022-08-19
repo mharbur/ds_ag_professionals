@@ -58,7 +58,6 @@ This is a complex dataset, so we will use the Minnesota state boundary as an exa
 
 ```{r echo=FALSE}
 library(leaflet)
-library(mapview)
 library(htmlwidgets)
 library(webshot2)
 
@@ -70,7 +69,7 @@ origin = data.frame(x=0, y=0, id=1) %>%
   st_as_sf(coords = c("x", "y")) %>%
   st_set_crs(4326)
 
-mn %>%
+m <- mn %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -82,16 +81,11 @@ mn %>%
     data=origin
   )
 
-# above code won't knit -- created static image for markdown
-# saveWidget(m, "temp.html", selfcontained = FALSE)
-# webshot("temp.html", file = "data-unit-12/images/wgs_84.png",
-#         cliprect = "viewport")
-
-
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 
 ```
-
-
 
 Zoom in on Minnesota and click around its borders.  You will notice two things.  First, each point is specified in latitude and longitude. Second, longitude (the first number) is always negative while latitude (the second number) is always positive.
 
@@ -104,16 +98,16 @@ origin = data.frame(x=0, y=0, id=1) %>%
   st_as_sf(coords = c("x", "y")) %>%
   st_set_crs(4326)
 
-origin %>%
+m <- origin %>%
   leaflet() %>%
   addTiles() %>%
   setView(0,0, zoom=1) %>%
   addCircleMarkers()
 
-# above code won't knit -- created static image for markdown
-# saveWidget(m, "temp.html", selfcontained = FALSE)
-# webshot("temp.html", file = "data-unit-12/images/wgs_84.png",
-#         cliprect = "viewport")
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 ### Mercator (EPSG: 3857)
@@ -166,15 +160,18 @@ origin = data.frame(x=0, y=0, id=1) %>%
 
 origin=st_transform(origin, 4326)
 
-origin %>%
+m <- origin %>%
   leaflet() %>%
   addTiles() %>%
   setView(-100,45, zoom=3) %>%
   addCircleMarkers()
 
-
-
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
+
+
 
 
 
@@ -207,13 +204,17 @@ origin = data.frame(x=0 , y=-117, id=1) %>%
 
 origin = st_transform(origin, 4326)
 
-origin %>%
+m <- origin %>%
   leaflet() %>%
   addTiles() %>%
   setView(0,0, zoom=1) %>%
   addCircleMarkers()
 
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
+
 
 ### Projection Summary
 It is good to know some of these basic projections, but by far the most important concept of this unit is that it is important you are aware of the projection system that accompanies your spatial data. If you are assembing data from multiple shapefiles, as we will do below with soil and yield maps, you will need to account for the projections of each shapefile, to make sure they all have the same projection system.
@@ -248,12 +249,12 @@ Second, look at the geographic CRS.  CRS stands for Coordinate Reference System.
 
 One of the things we will learn this lesson is to use *Leaflet* to create maps.  Leaflet is an awesome applet whose true appreciation would require using four-letter conjunctions inappropiate for the classroom.  It creates interactive maps that can zoom in, zoom out, and identify the values of individual points.
 
-```{r}
+```{r echo=FALSE}
 library(RColorBrewer)
-# library(htmlwidgets)
+library(htmlwidgets)
 pal_yield = colorBin(palette = "RdYlGn", corn_yield$yield_bu)
 
-corn_yield %>%
+m <- corn_yield %>%
   leaflet() %>%
   addTiles() %>%
     addCircleMarkers(
@@ -264,9 +265,11 @@ corn_yield %>%
     fillOpacity = 1
   ) 
 
-
-
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
+
 
 ### SSURGO
 The Soil Survey Geographic Database (SSURGO) is maintained by the United States Department of Agriculture.  It contains extensive soil surveys: soil evaluations for properties, susceptibility to weather extremes, suitability for agriculture, recreation, and buildings.  The soil survey used to only be available in county books, which only special libraries had.  Now, you can access all these data through R in seconds and match them precisely to a given map location.
@@ -354,7 +357,7 @@ library(htmlwidgets)
 
 pal_om = colorNumeric("RdYlGn", complete_soil_data$om.r)
 
-complete_soil_data %>%
+m <- complete_soil_data %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -365,15 +368,17 @@ complete_soil_data %>%
     popup = as.character(complete_soil_data$om.r)
   )
 
-
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
+
 
 Here is another map, this time with the percent clay.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 pal_om = colorNumeric("RdYlGn", complete_soil_data$claytotal.r)
 
-complete_soil_data %>%
+m <- complete_soil_data %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -384,7 +389,10 @@ complete_soil_data %>%
     popup = as.character(complete_soil_data$claytotal.r)
   )
 
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
+
 
 Now that we have our SSURGO data, we can join it with our yield data and ask questions how yields were grouped by quantitative descriptors, such as soil map unit name ("muname"), texture ("texdesc"), drainage class ("drainagecl"), or parent material ("pmkind").
 
@@ -450,7 +458,7 @@ tempfile(tmpdir="temp")
 
 pal_yield = colorBin(palette = "RdYlGn", corn_yield$yield_bu)
 
-corn_yield %>%
+m <- corn_yield %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -462,17 +470,18 @@ corn_yield %>%
   ) %>%
     addPolygons(data=field_plot_sf)
 
-
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 
 ```
 
 How might we find out statistics for yield measures within that applied area?
-```{r}
+```{r echo=FALSE}
 field_yield_only = st_intersection(field_plot_sf, corn_yield)
 
 pal_yield = colorBin(palette = "RdYlGn", field_yield_only$yield_bu)
 
-field_yield_only %>%
+m <- field_yield_only %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -485,17 +494,19 @@ field_yield_only %>%
     addPolygons(data=field_plot_sf)
 
 mean(field_yield_only$yield_bu)
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 #### Difference
 What about the yields outside that area?
-```{r}
-
+```{r echo=FALSE}
 field_yield_outside = st_difference(corn_yield, field_plot_sf)
 
 pal_yield = colorBin(palette = "RdYlGn", field_yield_outside$yield_bu)
 
-field_yield_outside %>%
+m <- field_yield_outside %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -507,8 +518,14 @@ field_yield_outside %>%
   ) %>%
     addPolygons(data=field_plot_sf)
 
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", file = "data-unit-12/images/leaflet_map10.png",
+        cliprect = "viewport")
+
+```
 
 
+```{r}
 mean(field_yield_outside$yield_bu)
 ```
 
@@ -537,7 +554,7 @@ field_plot_sf2 = sps2 %>%
 
 pal_yield = colorBin(palette = "RdYlGn", corn_yield$yield_bu)
 
-corn_yield %>%
+m <- corn_yield %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -554,16 +571,19 @@ corn_yield %>%
                 fillOpacity = 0.35) 
 
 
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
-If we wanted to analyze two areas together, we could use st_union to combine them:
+If we wanted to analyze two areas together, we could use st_union() to combine them:
 
-```{r}
+```{r echo=FALSE}
 field_plots_unioned = st_union(field_plot_sf, field_plot_sf2)
 
 pal_yield = colorBin(palette = "RdYlGn", corn_yield$yield_bu)
 
-corn_yield %>%
+m <- corn_yield %>%
   leaflet() %>%
   addTiles() %>%
   addCircleMarkers(
@@ -579,8 +599,12 @@ corn_yield %>%
                 fillOpacity = 0.35) 
 
 
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+```
 
 
+```{r}
 mean(corn_yield$yield_bu)
 
 ```
@@ -623,7 +647,6 @@ empty_raster = leaflet(crime_agg2) %>%
   addTiles() %>%
   addPolygons(stroke = TRUE, opacity = 1,fillOpacity = 0.2, smoothFactor = 0.5,
               color="white", fillColor = "none", weight = 1) 
-
 
 ```
 
@@ -727,7 +750,10 @@ p_raster_with_values = leaflet(crime_agg2) %>%
                                                     "color" = "white"
                                                   )) )
 
-p_raster_with_values
+m <- p_raster_with_values
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 
 ```
 
@@ -822,15 +848,19 @@ A raster is a grid system that we use to describe spatial variation.  In essence
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
-empty_raster
+m <- empty_raster
 
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 If you think it looks a little like we took a spreadsheet and trimmed it to fit our field, you are exactly right.  Taking this analogy further, just as a spreadsheet is composed of cells, each containing a different value, so is a raster.  Here it is, filled in with values representing predicted soil P test values:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-P_rec_raster_map
+m <- P_rec_raster_map
 
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 Often, the cells would be colored along a given gradient (say red-yellow-green) according to their values.  This helps us to see spatial trends.
@@ -840,17 +870,19 @@ Often, the cells would be colored along a given gradient (say red-yellow-green) 
 To create a raster that represents continuous soil trends across a field, however, we need to do a little modelling.  You see, we start out with a set of soil cores like this:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-p_soil_cores_map
+m <- p_soil_cores_map
 
-
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 But we are trying to make predictions for each cell of our raster:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-p_soil_cores_w_raster_map
+m <- p_soil_cores_w_raster_map
 
-
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 Some cells above one measure, others split a measure with a neighboring cell, and yet others contain no measure at all.  In addition, even cells that contain a measure may have it in different locations relative to the cell center.
 
@@ -953,9 +985,10 @@ When we produced our initial raster, the cell size was especially large for simp
 Here is our soil phosphorus test map, interpolated by R, using kriging. The red areas are areas of lower P test values.  The green and blue areas have the greatest test values, and the yellow areas are intermediate.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-soil_p_map
+m <- soil_p_map
 
-
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 ### Operations on Kriged Data
@@ -970,9 +1003,10 @@ $$ P _2 O _5 \text{ recommended rate} = [0.700 - .035 (17)] (\text{200}) = 21$$
 Here is the rate recommendation map.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-P_prescription_map
+m <- P_prescription_map
 
-
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 The blue areas now have the highest recommended rates.  Yellow are intermediate.  Red areas should receive no P fertilizer.
@@ -1027,12 +1061,15 @@ We can then color code our points by adding the *fillColor* argument to our plot
 ```{r}
 library(leaflet)
 
-single_attribute_data %>%   # starts with om dataset
+m <- single_attribute_data %>%   # starts with om dataset
   leaflet() %>%    # starts leaflet
   addCircleMarkers(
     fillColor = ~palette_om(measure)
   ) %>%    # adds markers as points
   addTiles()
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1040,20 +1077,23 @@ single_attribute_data %>%   # starts with om dataset
 
 Let's make a few more tweaks.  First, the colors are so transparent the wash out, so let's increase their opacity using the argument of that name.
 ```{r}
-single_attribute_data %>%   # starts with om dataset
+m <- single_attribute_data %>%   # starts with om dataset
   leaflet() %>%    # starts leaflet
   addCircleMarkers(
     fillColor = ~palette_om(measure),
     fillOpacity = 0.8
   ) %>%    # adds markers as points
   addTiles()
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
 Next, the blue border detracts from the cells.  We can set its weight to zero so it disappears.
 
 ```{r}
-single_attribute_data %>%   # starts with om dataset
+m <- single_attribute_data %>%   # starts with om dataset
   leaflet() %>%    # starts leaflet
   addCircleMarkers(
     fillColor = ~palette_om(measure),
@@ -1062,13 +1102,14 @@ single_attribute_data %>%   # starts with om dataset
   ) %>%    # adds markers as points
   addTiles()
 
-
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
 Let's make the points a little smaller using the *radius* argument, so they don't so overwhelm the field.
 ```{r}
-single_attribute_data %>%   # starts with om dataset
+m <- single_attribute_data %>%   # starts with om dataset
   leaflet() %>%    # starts leaflet
   addCircleMarkers(
     fillColor = ~palette_om(measure),
@@ -1077,6 +1118,9 @@ single_attribute_data %>%   # starts with om dataset
     radius=6
   ) %>%    # adds markers as points
   addTiles()
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1084,7 +1128,7 @@ single_attribute_data %>%   # starts with om dataset
 Finally, let's add a legend.  We provide a minimum of two arguments to it.  First *values* tells it that the legend will correspond to the values of measure in our dataset.  Second, *pal =* tells R to use the palette we developed for organic matter.
 
 ```{r}
-single_attribute_data %>%   # starts with om dataset
+m <- single_attribute_data %>%   # starts with om dataset
   leaflet() %>%    # starts leaflet
   addCircleMarkers(
     fillColor = ~palette_om(measure),
@@ -1096,6 +1140,8 @@ single_attribute_data %>%   # starts with om dataset
   addLegend(values = ~measure,
             pal = palette_om)
 
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 There are thousands of other ways to modify this plot, but this little bit should get you far!
@@ -1114,7 +1160,7 @@ Experiment with plugging and playing with the above code. (There is *never* sham
 
 palette_soil = colorBin(palette = "RdYlGn", single_attribute_data$measure)
 
-single_attribute_data %>%   # starts with om dataset
+m <- single_attribute_data %>%   # starts with om dataset
   leaflet() %>%    # starts leaflet
   addCircleMarkers(
     fillColor = ~palette_soil(measure),
@@ -1125,6 +1171,9 @@ single_attribute_data %>%   # starts with om dataset
   addTiles() %>%
   addLegend(values = ~measure,
             pal = palette_soil)
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1154,7 +1203,7 @@ First, let's create a yield map, just as we learned to in the "shapefile" exerci
 ```{r}
 palette_yield = colorBin("RdYlGn", field$Yld_Vol_Dr)
 
-field %>%   # starts with om dataset
+m <- field %>%   # starts with om dataset
   leaflet() %>%    # starts leaflet
   addCircleMarkers(
     fillColor = ~palette_yield(Yld_Vol_Dr),
@@ -1165,6 +1214,9 @@ field %>%   # starts with om dataset
   addTiles() %>%
   addLegend(values = ~Yld_Vol_Dr,
             pal = palette_yield)
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1262,7 +1314,7 @@ We can then create a leaflet plot as we have elsewhere in this unit.
 library(grDevices)
 pal_om = colorNumeric("RdYlGn", complete_soil_data$om.r)
 
-complete_soil_data %>%
+m <- complete_soil_data %>%
   leaflet()  %>%
   addCircleMarkers(
     radius = 4,
@@ -1272,6 +1324,9 @@ complete_soil_data %>%
     popup = as.character(complete_soil_data$om.r)
   ) %>%
   addTiles()
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 
 ```
 
@@ -1321,10 +1376,13 @@ selected_data = point_data %>%
 Without going through all the trouble of building out a map, we can still check the location of our points using leaflet().
 
 ```{r}
-selected_data %>%
+m <- selected_data %>%
   leaflet() %>%
   addCircleMarkers() %>%
   addTiles()
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1351,10 +1409,13 @@ grd = st_bbox(boundary) %>%
 
 We can plot the grid using leaflet.  We create a generic map using the *addProviderTiles()* function.  Lastly, we add the grid using *addStarsImage()*.
 ```{r}
-grd %>%
+m <- grd %>%
   leaflet()  %>%
   addTiles() %>%
   addStarsImage()
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 We won't be able to see the individual cells -- they are tiny -- but we can see it matches the shape of our field.
@@ -1403,9 +1464,12 @@ finished_data = kriged_data[1]
 We will again use leaflet to map our data.  We will start out by creating our map and adding provider tiles.
 
 ```{r}
-finished_data %>%
+m <- finished_data %>%
   leaflet() %>%
   addTiles()
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 We can now add our raster (stars) image to the map using addStarsImage.  We will set the opacity=0.5 so we can see both the field and the test zones.
@@ -1414,11 +1478,14 @@ We will also set the colors to RdYlGn; we need to load the *RColorBrewer* packag
 ```{r}
 library(RColorBrewer)
 
-finished_data %>%
+m <- finished_data %>%
   leaflet() %>%
   addTiles() %>%
   addStarsImage(opacity = 0.5,
                 colors="RdYlGn")
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1456,10 +1523,13 @@ In the line above, we revise the value of the rec column.  If it is less than 30
 Finally, we can map the recommendation, similar to how we mapped the test levels above.
 
 ```{r}
-leaflet(finished_data["rec"]) %>%
+m <- leaflet(finished_data["rec"]) %>%
   addTiles() %>%
   addStarsImage(opacity = 0.5,
                 colors = "RdYlGn")
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1500,11 +1570,14 @@ finished_data = kriged_data[1]
 
 5) Create the map of soil K values!
 ```{r}
-finished_data %>%
+m <- finished_data %>%
   leaflet() %>%
   addTiles() %>%
   addStarsImage(opacity = 0.5,
                 colors="RdYlGn")
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1523,10 +1596,13 @@ finished_data$rec = if_else(finished_data$rec<3000, 0, finished_data$rec)
 
 7) Plot the recommendated rates:
 ```{r}
-leaflet(finished_data["rec"]) %>%
+m <- leaflet(finished_data["rec"]) %>%
   addTiles() %>%
   addStarsImage(opacity = 0.5,
                 colors = "RdYlGn")
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 
 
@@ -1535,20 +1611,44 @@ leaflet(finished_data["rec"]) %>%
 ### Practice 2
 Take the map above and see if you can create soil test pH raster for the data above.  You should only need to change "selected_data" to select "Ph".  There is no recommendation rate to create.
 
+1) Filter the attribute for "pH".
+```{r}
+selected_data = point_data %>%
+  filter(attribute=="Ph")
+```
 
-1) Krige the data and extract the predicted (or interpolated) values.
+2) Create the raster framework.
+```{r}
+### make grid
+grd = st_bbox(boundary) %>%
+  st_as_stars() %>%
+  st_crop(boundary)
+
+```
+
+3) Create and examine the variogram.  The model should roughly fit the variances.
+```{r}
+v = variogram(measure~1, selected_data)
+m = fit.variogram(v, vgm("Sph"))
+plot(v, model = m)
+```
+
+4) Krige the data and extract the predicted (or interpolated) values.
 ```{r}
 kriged_data = gstat::krige(formula = measure~1, selected_data, grd, model=m)
 
 finished_data = kriged_data[1]
 ```
 
-2) Create the map of soil K values!
+5) Create the map of soil Ph values!
 ```{r}
-finished_data %>%
+m <- finished_data %>%
   leaflet() %>%
   addTiles() %>%
   addStarsImage(opacity = 0.5,
                 colors="RdYlGn")
+
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 ```
 

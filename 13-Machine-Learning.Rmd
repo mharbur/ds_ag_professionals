@@ -43,6 +43,9 @@ library(tidyverse)
 library(sf)
 library(leaflet)
 library(RColorBrewer)
+library(htmlwidgets)
+library(webshot2)
+
 
 clean_data_w_geo <- st_read("data-unit-13/midwest_county_data.shp", quiet=TRUE) 
 
@@ -50,7 +53,7 @@ clean_data_w_geo <- st_read("data-unit-13/midwest_county_data.shp", quiet=TRUE)
 
 pal_ppt = colorBin("RdYlGn", bins=5, clean_data_w_geo$ppt)
 
-clean_data_w_geo %>%
+m <- clean_data_w_geo %>%
   leaflet() %>%
   addTiles() %>%
   addPolygons(
@@ -63,6 +66,10 @@ clean_data_w_geo %>%
             values = ~ppt
   )
 
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 Next up, here is a plot of percentage sand. This is a fascinating map.  We can see the path of the glaciers down through Iowa and the Des Moines lobe.  Areas with low sand (red below) are largely below the southern reach of the glacier.  These areas tend to be high in silt.  Conversely, we can see the outwash areas (green below) of the Nebraska Sand Hills, central Minnesota, northern Wisconsin, and Western Michigan, where rapid glacial melting sorted parent material, leaving them higher in sand and rock fragments.
@@ -70,7 +77,7 @@ Next up, here is a plot of percentage sand. This is a fascinating map.  We can s
 ```{r}
 pal_sand = colorBin("RdYlGn", bins = 5, clean_data_w_geo$sand)
 
-clean_data_w_geo %>%
+m <- clean_data_w_geo %>%
   leaflet() %>%
   addTiles() %>%
   addPolygons(
@@ -82,6 +89,11 @@ clean_data_w_geo %>%
   addLegend(pal = pal_sand,
             values = ~sand
   )
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 We can continue looking at different variables, and through that process might arrive at a general conclusions.  Counties that are further south or east tend to receive greater precipitation and more growing degree days (GDD). Counties that are further north and east tend to have more sand and less silt or clay in their soils.
@@ -249,7 +261,7 @@ classified_data_w_geo = st_transform(classified_data_w_geo, 4326)
 
 pal_ppt = colorFactor("RdYlGn", classified_data_w_geo$cluster)
 
-classified_data_w_geo %>%
+m <- classified_data_w_geo %>%
   leaflet() %>%
   addTiles() %>%
   addPolygons(
@@ -268,6 +280,11 @@ classified_data_w_geo %>%
   addLegend(pal = pal_ppt,
             values = ~cluster
   )
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 
@@ -309,7 +326,7 @@ trainPartition = st_transform(trainPartition, 4326)
 
 pal_corn = colorBin("RdYlGn", bins=5, trainPartition$corn)
 
-trainPartition %>%
+m <- trainPartition %>%
   leaflet() %>%
   addTiles() %>%
   addPolygons(
@@ -322,6 +339,11 @@ trainPartition %>%
   addLegend(pal = pal_corn,
             values = ~ppt
   )
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
+
 ```
 
 ### Scaling
@@ -529,7 +551,7 @@ Finally, we can fill in the missing county yields in the map with which we start
 ```{r}
 pal_corn = colorBin("RdYlGn", bins=5, complete_dataset$corn)
 
-complete_dataset %>%
+m <- complete_dataset %>%
   leaflet() %>%
   addTiles() %>%
   addPolygons(
@@ -541,6 +563,10 @@ complete_dataset %>%
   ) %>%
   addLegend(pal = pal_corn,
             values = ~corn)
+
+#above code won't knit -- created static image for markdown
+saveWidget(m, "temp.html", selfcontained = FALSE)
+webshot("temp.html", cliprect = "viewport")
 
 ```
 
