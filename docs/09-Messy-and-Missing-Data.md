@@ -81,7 +81,7 @@ norm_data %>%
         geom_histogram(breaks = seq(160,200,2), fill="darkolivegreen", color="black")
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 
 The summary data are shown below.  We can see that the median and mean are both approximately 180 bushels per acre.  We can also see the 1st and 3rd quantiles (equal to the 25th and 75th percentiles) are a little over three bushels from the median.  The minimum and maximum observations are also similarly spaced from the median.
 
@@ -123,7 +123,7 @@ velvetleaf_skewed %>%
   geom_histogram(fill="darkolivegreen", color="black", binwidth = 1) 
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 When we look at the histogram, the data are skewed to the right.  The histogram is not symmetrical.  
 
@@ -157,7 +157,7 @@ norm_data %>%
   geom_point()
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 Our skewed data, however, shows up quite differently in the rank percentile plot.  We can see that most of the data closely fit a line.  But starting around the 75th percentile, the observed values are much greater than the predicted values -- almost twice as much.  This means the distribution is much wider to the right of the distribution curve than to the left, and that the data are non-normal 
 
@@ -168,7 +168,7 @@ velvetleaf_skewed %>%
         geom_point() 
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 
 ### Box Plots
@@ -197,7 +197,7 @@ norm_data_mult_trts %>%
         stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 The boxplots help us understand the distribution of the data.  Lets start with the box, which tells about the spread of the data.  The left side of the box is the 25th percentile, the line in the middle is the 50th percentile (or median), and the right side of the box is the 75th percentile.  So the box shows us the spread of the middle half of the observations for each treatment.
 
@@ -231,7 +231,7 @@ ggplot(data=norm_stats, aes(x=mean, y=var)) +
         geom_point(aes(color=trt), size=3)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 We can see the variance of treatment B is many times greater than that of the other treatments.  In general, we like to see the variances differ by no more than a factor of 2.
 
@@ -278,7 +278,7 @@ norm_data_prop_var %>%
         stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 In this case, the mean-variance plot may show a linear relationship between variance and mean.  
 
@@ -294,7 +294,7 @@ norm_data_prop_var_stats %>%
         geom_point(aes(color=trt), size=3)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 Finally, we may observe a dataset in which the distributions not only increase with means, but seem to do so exponentially.
 
@@ -333,7 +333,7 @@ norm_data_prop_sd %>%
         stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
 
 
 In this case, the mean-variance plot may show a curved relationship between variance and mean.  
@@ -351,7 +351,7 @@ ggplot(data=s_norm_stats, aes(x=mean, y=var)) +
         geom_point(aes(color=trt), size=3)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
 
 We may want to check whether the standard deviation has a more linear relationship to mean.
 
@@ -361,7 +361,7 @@ ggplot(data=s_norm_stats, aes(x=mean, y=sd)) +
         geom_point(aes(color=trt), size=3)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
 The largest mean has a significant difference of 6.9, while the smallest mean has a significant difference of 0.3.  In other words, the largest significant difference is 23 times the smallest significant difference.  
 
 
@@ -687,7 +687,7 @@ more_norm_data %>%
         stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
 
 Here is the table with the treatment and error effects broken out.  Unlike previous effects tables, I have also added the within treatment variance.
 
@@ -707,25 +707,43 @@ knitr::kable(more_norm_data_effects)
 ```
 
 
-
-| plot|trt | yield|       mu|   trt_var| trt_effect| error_effect|
-|----:|:---|-----:|--------:|---------:|----------:|------------:|
-|    1|A   | 166.8| 168.3938| 16.190000|   -2.24375|        0.650|
-|    2|C   | 169.9| 168.3938| 39.922500|   -0.66875|        2.175|
-|    3|B   | 170.6| 168.3938| 28.996667|   -2.44375|        4.650|
-|    4|C   | 174.9| 168.3938| 39.922500|   -0.66875|        7.175|
-|    5|B   | 161.8| 168.3938| 28.996667|   -2.44375|       -4.150|
-|    6|A   | 168.3| 168.3938| 16.190000|   -2.24375|        2.150|
-|    7|A   | 169.2| 168.3938| 16.190000|   -2.24375|        3.050|
-|    8|C   | 159.9| 168.3938| 39.922500|   -0.66875|       -7.825|
-|    9|B   | 160.8| 168.3938| 28.996667|   -2.44375|       -5.150|
-|   10|C   | 166.2| 168.3938| 39.922500|   -0.66875|       -1.525|
-|   11|A   | 160.3| 168.3938| 16.190000|   -2.24375|       -5.850|
-|   12|D   | 172.1| 168.3938|  3.416667|    5.35625|       -1.650|
-|   13|D   | 175.4| 168.3938|  3.416667|    5.35625|        1.650|
-|   14|D   | 175.3| 168.3938|  3.416667|    5.35625|        1.550|
-|   15|B   | 170.6| 168.3938| 28.996667|   -2.44375|        4.650|
-|   16|D   | 172.2| 168.3938|  3.416667|    5.35625|       -1.550|
+\begin{tabular}{r|l|r|r|r|r|r}
+\hline
+plot & trt & yield & mu & trt\_var & trt\_effect & error\_effect\\
+\hline
+1 & A & 166.8 & 168.3938 & 16.190000 & -2.24375 & 0.650\\
+\hline
+2 & C & 169.9 & 168.3938 & 39.922500 & -0.66875 & 2.175\\
+\hline
+3 & B & 170.6 & 168.3938 & 28.996667 & -2.44375 & 4.650\\
+\hline
+4 & C & 174.9 & 168.3938 & 39.922500 & -0.66875 & 7.175\\
+\hline
+5 & B & 161.8 & 168.3938 & 28.996667 & -2.44375 & -4.150\\
+\hline
+6 & A & 168.3 & 168.3938 & 16.190000 & -2.24375 & 2.150\\
+\hline
+7 & A & 169.2 & 168.3938 & 16.190000 & -2.24375 & 3.050\\
+\hline
+8 & C & 159.9 & 168.3938 & 39.922500 & -0.66875 & -7.825\\
+\hline
+9 & B & 160.8 & 168.3938 & 28.996667 & -2.44375 & -5.150\\
+\hline
+10 & C & 166.2 & 168.3938 & 39.922500 & -0.66875 & -1.525\\
+\hline
+11 & A & 160.3 & 168.3938 & 16.190000 & -2.24375 & -5.850\\
+\hline
+12 & D & 172.1 & 168.3938 & 3.416667 & 5.35625 & -1.650\\
+\hline
+13 & D & 175.4 & 168.3938 & 3.416667 & 5.35625 & 1.650\\
+\hline
+14 & D & 175.3 & 168.3938 & 3.416667 & 5.35625 & 1.550\\
+\hline
+15 & B & 170.6 & 168.3938 & 28.996667 & -2.44375 & 4.650\\
+\hline
+16 & D & 172.2 & 168.3938 & 3.416667 & 5.35625 & -1.550\\
+\hline
+\end{tabular}
 
 Plot 8 has a greater error effect than most other plots.  Let's treat it as an outlier, delete it, and recalculate the treatment means.  Let's delete it and see how that changes the treatment effect for treatment C.
 
@@ -750,25 +768,43 @@ knitr::kable(more_norm_data_interp)
 ```
 
 
-
-| plot|trt | yield|     mu|   trt_var| trt_effect| error_effect|
-|----:|:---|-----:|------:|---------:|----------:|------------:|
-|    1|A   | 166.8| 168.96| 16.190000|  -2.810000|    0.6500000|
-|    2|C   | 169.9| 168.96| 19.063333|   1.373333|   -0.4333333|
-|    3|B   | 170.6| 168.96| 28.996667|  -3.010000|    4.6500000|
-|    4|C   | 174.9| 168.96| 19.063333|   1.373333|    4.5666667|
-|    5|B   | 161.8| 168.96| 28.996667|  -3.010000|   -4.1500000|
-|    6|A   | 168.3| 168.96| 16.190000|  -2.810000|    2.1500000|
-|    7|A   | 169.2| 168.96| 16.190000|  -2.810000|    3.0500000|
-|    8|C   |    NA| 168.96| 19.063333|   1.373333|           NA|
-|    9|B   | 160.8| 168.96| 28.996667|  -3.010000|   -5.1500000|
-|   10|C   | 166.2| 168.96| 19.063333|   1.373333|   -4.1333333|
-|   11|A   | 160.3| 168.96| 16.190000|  -2.810000|   -5.8500000|
-|   12|D   | 172.1| 168.96|  3.416667|   4.790000|   -1.6500000|
-|   13|D   | 175.4| 168.96|  3.416667|   4.790000|    1.6500000|
-|   14|D   | 175.3| 168.96|  3.416667|   4.790000|    1.5500000|
-|   15|B   | 170.6| 168.96| 28.996667|  -3.010000|    4.6500000|
-|   16|D   | 172.2| 168.96|  3.416667|   4.790000|   -1.5500000|
+\begin{tabular}{r|l|r|r|r|r|r}
+\hline
+plot & trt & yield & mu & trt\_var & trt\_effect & error\_effect\\
+\hline
+1 & A & 166.8 & 168.96 & 16.190000 & -2.810000 & 0.6500000\\
+\hline
+2 & C & 169.9 & 168.96 & 19.063333 & 1.373333 & -0.4333333\\
+\hline
+3 & B & 170.6 & 168.96 & 28.996667 & -3.010000 & 4.6500000\\
+\hline
+4 & C & 174.9 & 168.96 & 19.063333 & 1.373333 & 4.5666667\\
+\hline
+5 & B & 161.8 & 168.96 & 28.996667 & -3.010000 & -4.1500000\\
+\hline
+6 & A & 168.3 & 168.96 & 16.190000 & -2.810000 & 2.1500000\\
+\hline
+7 & A & 169.2 & 168.96 & 16.190000 & -2.810000 & 3.0500000\\
+\hline
+8 & C & NA & 168.96 & 19.063333 & 1.373333 & NA\\
+\hline
+9 & B & 160.8 & 168.96 & 28.996667 & -3.010000 & -5.1500000\\
+\hline
+10 & C & 166.2 & 168.96 & 19.063333 & 1.373333 & -4.1333333\\
+\hline
+11 & A & 160.3 & 168.96 & 16.190000 & -2.810000 & -5.8500000\\
+\hline
+12 & D & 172.1 & 168.96 & 3.416667 & 4.790000 & -1.6500000\\
+\hline
+13 & D & 175.4 & 168.96 & 3.416667 & 4.790000 & 1.6500000\\
+\hline
+14 & D & 175.3 & 168.96 & 3.416667 & 4.790000 & 1.5500000\\
+\hline
+15 & B & 170.6 & 168.96 & 28.996667 & -3.010000 & 4.6500000\\
+\hline
+16 & D & 172.2 & 168.96 & 3.416667 & 4.790000 & -1.5500000\\
+\hline
+\end{tabular}
 
 We can see that removing the yield data from plot 4 causes the treatment effect of treatment C to change -- in fact, it has gone from negative to positive.  The other treatment effects have also changed.   The within-treatment variance for treatment C has also decreased by about one-third.  When we re-run our analysis of variance, we see the treatment effect is 0.062 -- almost significant at the P=0.05 level.
 
@@ -812,25 +848,43 @@ knitr::kable(more_norm_data_interp_8)
 ```
 
 
-
-| plot|trt |  yield|       mu|   trt_var| trt_effect| error_effect|
-|----:|:---|------:|--------:|---------:|----------:|------------:|
-|    1|A   | 166.80| 169.0456| 16.190000|  -2.895625|       0.6500|
-|    2|C   | 169.90| 169.0456| 12.708892|   1.286875|      -0.4325|
-|    3|B   | 170.60| 169.0456| 28.996667|  -3.095625|       4.6500|
-|    4|C   | 174.90| 169.0456| 12.708892|   1.286875|       4.5675|
-|    5|B   | 161.80| 169.0456| 28.996667|  -3.095625|      -4.1500|
-|    6|A   | 168.30| 169.0456| 16.190000|  -2.895625|       2.1500|
-|    7|A   | 169.20| 169.0456| 16.190000|  -2.895625|       3.0500|
-|    8|C   | 170.33| 169.0456| 12.708892|   1.286875|      -0.0025|
-|    9|B   | 160.80| 169.0456| 28.996667|  -3.095625|      -5.1500|
-|   10|C   | 166.20| 169.0456| 12.708892|   1.286875|      -4.1325|
-|   11|A   | 160.30| 169.0456| 16.190000|  -2.895625|      -5.8500|
-|   12|D   | 172.10| 169.0456|  3.416667|   4.704375|      -1.6500|
-|   13|D   | 175.40| 169.0456|  3.416667|   4.704375|       1.6500|
-|   14|D   | 175.30| 169.0456|  3.416667|   4.704375|       1.5500|
-|   15|B   | 170.60| 169.0456| 28.996667|  -3.095625|       4.6500|
-|   16|D   | 172.20| 169.0456|  3.416667|   4.704375|      -1.5500|
+\begin{tabular}{r|l|r|r|r|r|r}
+\hline
+plot & trt & yield & mu & trt\_var & trt\_effect & error\_effect\\
+\hline
+1 & A & 166.80 & 169.0456 & 16.190000 & -2.895625 & 0.6500\\
+\hline
+2 & C & 169.90 & 169.0456 & 12.708892 & 1.286875 & -0.4325\\
+\hline
+3 & B & 170.60 & 169.0456 & 28.996667 & -3.095625 & 4.6500\\
+\hline
+4 & C & 174.90 & 169.0456 & 12.708892 & 1.286875 & 4.5675\\
+\hline
+5 & B & 161.80 & 169.0456 & 28.996667 & -3.095625 & -4.1500\\
+\hline
+6 & A & 168.30 & 169.0456 & 16.190000 & -2.895625 & 2.1500\\
+\hline
+7 & A & 169.20 & 169.0456 & 16.190000 & -2.895625 & 3.0500\\
+\hline
+8 & C & 170.33 & 169.0456 & 12.708892 & 1.286875 & -0.0025\\
+\hline
+9 & B & 160.80 & 169.0456 & 28.996667 & -3.095625 & -5.1500\\
+\hline
+10 & C & 166.20 & 169.0456 & 12.708892 & 1.286875 & -4.1325\\
+\hline
+11 & A & 160.30 & 169.0456 & 16.190000 & -2.895625 & -5.8500\\
+\hline
+12 & D & 172.10 & 169.0456 & 3.416667 & 4.704375 & -1.6500\\
+\hline
+13 & D & 175.40 & 169.0456 & 3.416667 & 4.704375 & 1.6500\\
+\hline
+14 & D & 175.30 & 169.0456 & 3.416667 & 4.704375 & 1.5500\\
+\hline
+15 & B & 170.60 & 169.0456 & 28.996667 & -3.095625 & 4.6500\\
+\hline
+16 & D & 172.20 & 169.0456 & 3.416667 & 4.704375 & -1.5500\\
+\hline
+\end{tabular}
 
 And here is the kicker, wait for it...
 
@@ -912,25 +966,43 @@ knitr::kable(more_norm_data_interp_8_sd)
 ```
 
 
-
-| plot|trt |  yield|     mu|   trt_var| trt_effect| error_effect|
-|----:|:---|------:|------:|---------:|----------:|------------:|
-|    1|A   | 166.80| 168.71| 16.190000|      -2.56|         0.65|
-|    2|C   | 169.90| 168.71| 19.927067|       0.28|         0.91|
-|    3|B   | 170.60| 168.71| 28.996667|      -2.76|         4.65|
-|    4|C   | 174.90| 168.71| 19.927067|       0.28|         5.91|
-|    5|B   | 161.80| 168.71| 28.996667|      -2.76|        -4.15|
-|    6|A   | 168.30| 168.71| 16.190000|      -2.56|         2.15|
-|    7|A   | 169.20| 168.71| 16.190000|      -2.56|         3.05|
-|    8|C   | 164.96| 168.71| 19.927067|       0.28|        -4.03|
-|    9|B   | 160.80| 168.71| 28.996667|      -2.76|        -5.15|
-|   10|C   | 166.20| 168.71| 19.927067|       0.28|        -2.79|
-|   11|A   | 160.30| 168.71| 16.190000|      -2.56|        -5.85|
-|   12|D   | 172.10| 168.71|  3.416667|       5.04|        -1.65|
-|   13|D   | 175.40| 168.71|  3.416667|       5.04|         1.65|
-|   14|D   | 175.30| 168.71|  3.416667|       5.04|         1.55|
-|   15|B   | 170.60| 168.71| 28.996667|      -2.76|         4.65|
-|   16|D   | 172.20| 168.71|  3.416667|       5.04|        -1.55|
+\begin{tabular}{r|l|r|r|r|r|r}
+\hline
+plot & trt & yield & mu & trt\_var & trt\_effect & error\_effect\\
+\hline
+1 & A & 166.80 & 168.71 & 16.190000 & -2.56 & 0.65\\
+\hline
+2 & C & 169.90 & 168.71 & 19.927067 & 0.28 & 0.91\\
+\hline
+3 & B & 170.60 & 168.71 & 28.996667 & -2.76 & 4.65\\
+\hline
+4 & C & 174.90 & 168.71 & 19.927067 & 0.28 & 5.91\\
+\hline
+5 & B & 161.80 & 168.71 & 28.996667 & -2.76 & -4.15\\
+\hline
+6 & A & 168.30 & 168.71 & 16.190000 & -2.56 & 2.15\\
+\hline
+7 & A & 169.20 & 168.71 & 16.190000 & -2.56 & 3.05\\
+\hline
+8 & C & 164.96 & 168.71 & 19.927067 & 0.28 & -4.03\\
+\hline
+9 & B & 160.80 & 168.71 & 28.996667 & -2.76 & -5.15\\
+\hline
+10 & C & 166.20 & 168.71 & 19.927067 & 0.28 & -2.79\\
+\hline
+11 & A & 160.30 & 168.71 & 16.190000 & -2.56 & -5.85\\
+\hline
+12 & D & 172.10 & 168.71 & 3.416667 & 5.04 & -1.65\\
+\hline
+13 & D & 175.40 & 168.71 & 3.416667 & 5.04 & 1.65\\
+\hline
+14 & D & 175.30 & 168.71 & 3.416667 & 5.04 & 1.55\\
+\hline
+15 & B & 170.60 & 168.71 & 28.996667 & -2.76 & 4.65\\
+\hline
+16 & D & 172.20 & 168.71 & 3.416667 & 5.04 & -1.55\\
+\hline
+\end{tabular}
 
 When we looks at the ANOVA, we see that the mean square and p-value are approximately the same as they were before the missing value was interpolated.
 
@@ -996,7 +1068,7 @@ wheat_uniformity %>%
   geom_histogram(fill="darkolivegreen", color="black", binwidth = 5) 
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-37-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-37-1.pdf)<!-- --> 
 
 
 ### Rank-Percentile
@@ -1029,7 +1101,7 @@ ranked_wheat %>%                             # this tells R what dataset to use
   geom_point()                               # this will draw the points
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-39-1.pdf)<!-- --> 
 
 We notice two things about this curve.  First, it is not symmetric around the median, reflecting the skewed distribution we observed in the histogram above.  Second, if we were to fit a line to the lower two-thirds of the data, we would notice that the entire 75 - 100 percentile range would be above the line.  This suggests a long tail to the right (above the mean).  That the line dips down at the left side of the curve also suggests that tail is longer than normal. 
 
@@ -1050,7 +1122,7 @@ bean_genotypes %>%                      # dataset to use
   geom_boxplot()                        # draw box and whisker plots
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-41-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-41-1.pdf)<!-- --> 
 
 Often a box plot includes the mean.  We can add this using the *stat_summary()* command and *fun=mean*.  The mean will be represented by a black dot.
 
@@ -1065,7 +1137,7 @@ bean_genotypes %>%                      # dataset to use
 ## Warning: Removed 6 rows containing missing values (geom_segment).
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-42-1.pdf)<!-- --> 
 
 We can replicate the style from the lecture using the code below.  Just change out the variable names in the second line to use it with other datasets.
 
@@ -1078,7 +1150,7 @@ bean_genotypes %>%
   stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-43-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-43-1.pdf)<!-- --> 
 
 
 ### Practice
@@ -1125,7 +1197,7 @@ colapsis %>%
         stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-45-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-45-1.pdf)<!-- --> 
 
 One thing we notice in the plot above is that our applications are not ordered from lowest (control) to highest (triple).  Lets fix that.  We can use the *factor()* function to rearrange the order of our levels.  We tell R to set the "applications" column of the colapsis dataset as the factor format of itself.  The *levels()* argument tells R the order in which the levels should be listed. 
 
@@ -1141,7 +1213,7 @@ colapsis %>%
         stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-46-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-46-1.pdf)<!-- --> 
 
 
 We can see that there is noticable variation in the spread of observed values among treatments, and that the spread of the observed values seems to increase with the mean number of counts.  
@@ -1176,7 +1248,7 @@ colapsis_mean_var %>%
   geom_point()
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-48-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-48-1.pdf)<!-- --> 
 There is a clear trend that variance increases with mean.  We can also see the greatest variance is about 16 times greater than the least variance.  This is problematic -- when we have differences greater than 2X in variances, our analyses may not function properly.
 
 
@@ -1587,7 +1659,7 @@ wheat_missing %>%
   scale_fill_manual(values = c("grey", "tomato"))
 ```
 
-<img src="09-Messy-and-Missing-Data_files/figure-html/unnamed-chunk-79-1.png" width="672" />
+![](09-Messy-and-Missing-Data_files/figure-latex/unnamed-chunk-79-1.pdf)<!-- --> 
 
 #### Mean Imputation
 When we estimate the values of missing data, we *impute* those values.  The simplest way to impute a missing value is to use the mean for that treatment.  For example, we could calculate the mean for each treatment, as we have done below.

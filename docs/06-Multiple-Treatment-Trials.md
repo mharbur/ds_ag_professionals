@@ -77,7 +77,7 @@ hybrid_data %>%
   geom_text(aes(label = Hybrid))
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 The arrangement of treatments above is a *completely randomized design*.  This means the hybrids were assigned at random among all plots -- there was no grouping or pairing of treatments as in our side-by-side trials earlier.
 
@@ -124,7 +124,7 @@ effects_data %>%
   lims(x=c(0.5, 4.5))
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 Our treatment means are shown below:
 
@@ -138,7 +138,7 @@ effects_data %>%
   lims(x=c(0.5, 4.5))
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 We can see the plot effects as well.
 
@@ -152,7 +152,7 @@ effects_data %>%
   lims(x=c(0.5, 4.5))
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 <!-- As we learned earlier, it is sometimes clearer to observe the plot effects in a residual plot: -->
 
@@ -221,7 +221,7 @@ grid.brackets(180, 300, 180, 375, h=0.05, lwd=2, col="red")
 grid.brackets(473, 60, 473, 335, h=0.05, lwd=2, col="red")
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 
 ## Analysis of Variance
@@ -428,11 +428,17 @@ As we can see, our observed F of 38.4 is much greater than what we would need fo
 
 ```r
 library(sjPlot)
+```
 
+```
+## Install package "strengejacke" from GitHub (`devtools::install_github("strengejacke/strengejacke")`) to load all sj-packages at once!
+```
+
+```r
 dist_f(p = 0.01, deg.f1 = 3, deg.f2 = 12, xmax = 10)
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
 
 Our value is also way beyond the F-value we would need for $P\ge0.05$.
 
@@ -675,7 +681,7 @@ ggplot(data=barley_means, aes(x=gen, y=yield_mean)) +
   geom_bar(stat="identity")
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-28-1.pdf)<!-- --> 
 
 There are all sorts of things we can do in R with our plots.  Say we wanted to change the labels on the x or y axes.  We just add those using the "labs()" option:
 
@@ -686,7 +692,7 @@ ggplot(data=barley_means, aes(x=gen, y=yield_mean)) +
   labs(x = "Genotype", y = "Yield Mean")
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-29-1.pdf)<!-- --> 
 
 We can change the bar color by adding the *fill()* command to geom_bar.
 
@@ -697,7 +703,7 @@ ggplot(data=barley_means, aes(x=gen, y=yield_mean)) +
   labs(x = "Genotype", y = "Yield Mean") 
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
 
 
 We can include the actual value above each bar by adding a second geometry, geom_text.  The aes() argument to geom_text tells it what variable to use as the label (it also tells it where to place the label).  In addition to the aes() argument, "vjust=-0.03" tells R to adjust the label upward a few points so it doesn't touch the bar.  The font size is increased with "size = 3.5".
@@ -709,7 +715,7 @@ ggplot(data=barley_means, aes(x=gen, y=yield_mean)) +
   geom_text(aes(label=yield_mean), vjust=-0.3, size=3.5)
 ```
 
-<img src="06-Multiple-Treatment-Trials_files/figure-html/unnamed-chunk-31-1.png" width="672" />
+![](06-Multiple-Treatment-Trials_files/figure-latex/unnamed-chunk-31-1.pdf)<!-- --> 
 
 
 ### Practice: Beet Data

@@ -76,7 +76,7 @@ dataset %>%
   facet_grid(. ~ design)
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 
 In the plot above, the Completely Randomized Design (CRD) is shown on the left, and the Randomized Complete Block Design (RCBD) on the right.  In the Completely Randomized Design, any treatment can occur anywhere in the the plot.  Note that in the left plot, treatment 3 occurs twice in the first column of plots while treatment 2 does not occur at all.  Treatment 2 occurs twice in the second column, but there is no treatment 1.  In the Randomized Complete Block Design, each treatment must occur once, and only once, per column.  In this case, the treatments are blocked on column.
 
@@ -93,7 +93,7 @@ dataset %>%
   theme(legend.position = "none")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 Note that treatment 3 occurs three times in the more productive soils of columns 1 and 2, and only once in the less productive soils of columns 3 and 4.  Conversely, treatment 1 occurs three times in the less productive soils of columns 3 and 4, but only once in the more productive soil of columns 1 or 2.
 
@@ -151,7 +151,7 @@ st_data %>%
   geom_text(aes(label = plot_label))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 #### Linear Additive Model
 In this example, the linear additive model is:
@@ -172,25 +172,43 @@ knitr::kable(st_effects)
 ```
 
 
-
-|Block | row|Treatment |   mu|    B|    T|   BT|    Y|
-|:-----|---:|:---------|----:|----:|----:|----:|----:|
-|1     |   1|D         | 68.3| -2.2|  1.6| -1.1| 66.6|
-|1     |   2|A         | 68.3| -2.2| -1.1| -0.8| 64.2|
-|1     |   3|C         | 68.3| -2.2|  0.8|  0.2| 67.1|
-|1     |   4|B         | 68.3| -2.2| -0.3| -1.5| 64.3|
-|2     |   1|C         | 68.3| -0.8|  0.8| -0.4| 67.9|
-|2     |   2|A         | 68.3| -0.8| -1.1| -0.4| 66.0|
-|2     |   3|D         | 68.3| -0.8|  1.6| -1.3| 67.8|
-|2     |   4|B         | 68.3| -0.8| -0.3| -0.1| 67.1|
-|3     |   1|C         | 68.3|  0.3|  0.8|  1.0| 70.4|
-|3     |   2|B         | 68.3|  0.3| -0.3|  1.5| 69.8|
-|3     |   3|A         | 68.3|  0.3| -1.1|  1.3| 68.8|
-|3     |   4|D         | 68.3|  0.3|  1.6| -1.6| 68.6|
-|4     |   1|A         | 68.3|  1.2| -1.1| -0.1| 68.3|
-|4     |   2|B         | 68.3|  1.2| -0.3|  2.0| 71.2|
-|4     |   3|D         | 68.3|  1.2|  1.6|  0.4| 71.5|
-|4     |   4|C         | 68.3|  1.2|  0.8|  0.1| 70.4|
+\begin{tabular}{l|r|l|r|r|r|r|r}
+\hline
+Block & row & Treatment & mu & B & T & BT & Y\\
+\hline
+1 & 1 & D & 68.3 & -2.2 & 1.6 & -1.1 & 66.6\\
+\hline
+1 & 2 & A & 68.3 & -2.2 & -1.1 & -0.8 & 64.2\\
+\hline
+1 & 3 & C & 68.3 & -2.2 & 0.8 & 0.2 & 67.1\\
+\hline
+1 & 4 & B & 68.3 & -2.2 & -0.3 & -1.5 & 64.3\\
+\hline
+2 & 1 & C & 68.3 & -0.8 & 0.8 & -0.4 & 67.9\\
+\hline
+2 & 2 & A & 68.3 & -0.8 & -1.1 & -0.4 & 66.0\\
+\hline
+2 & 3 & D & 68.3 & -0.8 & 1.6 & -1.3 & 67.8\\
+\hline
+2 & 4 & B & 68.3 & -0.8 & -0.3 & -0.1 & 67.1\\
+\hline
+3 & 1 & C & 68.3 & 0.3 & 0.8 & 1.0 & 70.4\\
+\hline
+3 & 2 & B & 68.3 & 0.3 & -0.3 & 1.5 & 69.8\\
+\hline
+3 & 3 & A & 68.3 & 0.3 & -1.1 & 1.3 & 68.8\\
+\hline
+3 & 4 & D & 68.3 & 0.3 & 1.6 & -1.6 & 68.6\\
+\hline
+4 & 1 & A & 68.3 & 1.2 & -1.1 & -0.1 & 68.3\\
+\hline
+4 & 2 & B & 68.3 & 1.2 & -0.3 & 2.0 & 71.2\\
+\hline
+4 & 3 & D & 68.3 & 1.2 & 1.6 & 0.4 & 71.5\\
+\hline
+4 & 4 & C & 68.3 & 1.2 & 0.8 & 0.1 & 70.4\\
+\hline
+\end{tabular}
 
 In the first row of the table, we see that the observed yield, Y, is:
 
@@ -267,7 +285,7 @@ factorial_trts_1 %>%
         axis.text = element_text(size=14))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 In another example:
 - Factor "Composition" consists of two adjuvant ingredients: guar (G) or an polyacrylamide (P)
@@ -289,7 +307,7 @@ factorial_trts_2 %>%
         axis.text = element_text(size=14))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 ### Case Study 1
 Our case study is a clover forage trial conducted in New Zealand from 1992 to 1994.  This dataset is publically available as part of the *agridat* package in R.  For this first case study, we will focus on a subset of the data.  The two factors were sulfur (S) and phosphorus (P) fertilizer.  Sulfur was applied at 0, 11.25, or 22.5 kg/ha, while phosphorus was applied at 0, 40, and 80 kg/ha.  Yield is reported in tons/hectare.
@@ -312,7 +330,7 @@ factorial_trts_3_combos %>%
         axis.text = element_text(size=14))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 
 
@@ -384,7 +402,7 @@ clover_final %>%
 ## `.groups` argument.
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 These differences are called *interactions* and are the most interesting part of a factorial design.  In this case, it is no surprise that crop yield increases with sulfur fertiliztion in a sulfur soil.  It is interesting, however, that the response to sulfur is appears to be dependent on phosphorus fertilization, and lends support to Liebig's *Law of the Minimum*, which states that addition of a particular nutrient will not increase yield if other nutrients are more deficient.  
 
@@ -401,45 +419,83 @@ knitr::kable(clover_final)
 ```
 
 
-
-| block|sulfur |phosphorus |   mu|     S|     P|    SP| Error| Yield|
-|-----:|:------|:----------|----:|-----:|-----:|-----:|-----:|-----:|
-|     1|0      |0          | 5.72| -2.06| -2.06|  0.37|  -0.1|  1.87|
-|     1|0      |80         | 5.72| -2.06| -2.06| -0.38|   0.2|  1.42|
-|     1|0      |160        | 5.72| -2.06| -2.06|  0.01|   0.1|  1.71|
-|     1|11.25  |0          | 5.72|  0.24|  0.24|  0.29|   0.2|  6.69|
-|     1|11.25  |80         | 5.72|  0.24|  0.24|  0.16|  -0.4|  5.96|
-|     1|11.25  |160        | 5.72|  0.24|  0.24| -0.44|   0.0|  5.76|
-|     1|22.5   |0          | 5.72|  1.81|  1.81| -0.66|   0.6|  9.28|
-|     1|22.5   |80         | 5.72|  1.81|  1.81|  0.23|   0.2|  9.77|
-|     1|22.5   |160        | 5.72|  1.81|  1.81|  0.43|  -0.3|  9.47|
-|     2|0      |0          | 5.72| -2.06| -2.06|  0.37|   0.4|  2.37|
-|     2|0      |80         | 5.72| -2.06| -2.06| -0.38|   0.0|  1.22|
-|     2|0      |160        | 5.72| -2.06| -2.06|  0.01|   0.2|  1.81|
-|     2|11.25  |0          | 5.72|  0.24|  0.24|  0.29|   1.0|  7.49|
-|     2|11.25  |80         | 5.72|  0.24|  0.24|  0.16|   0.1|  6.46|
-|     2|11.25  |160        | 5.72|  0.24|  0.24| -0.44|  -0.4|  5.36|
-|     2|22.5   |0          | 5.72|  1.81|  1.81| -0.66|  -0.2|  8.48|
-|     2|22.5   |80         | 5.72|  1.81|  1.81|  0.23|  -0.1|  9.47|
-|     2|22.5   |160        | 5.72|  1.81|  1.81|  0.43|   0.2|  9.97|
-|     3|0      |0          | 5.72| -2.06| -2.06|  0.37|   0.4|  2.37|
-|     3|0      |80         | 5.72| -2.06| -2.06| -0.38|  -0.1|  1.12|
-|     3|0      |160        | 5.72| -2.06| -2.06|  0.01|   0.7|  2.31|
-|     3|11.25  |0          | 5.72|  0.24|  0.24|  0.29|   0.2|  6.69|
-|     3|11.25  |80         | 5.72|  0.24|  0.24|  0.16|  -0.6|  5.76|
-|     3|11.25  |160        | 5.72|  0.24|  0.24| -0.44|   0.9|  6.66|
-|     3|22.5   |0          | 5.72|  1.81|  1.81| -0.66|   0.4|  9.08|
-|     3|22.5   |80         | 5.72|  1.81|  1.81|  0.23|  -0.3|  9.27|
-|     3|22.5   |160        | 5.72|  1.81|  1.81|  0.43|   0.0|  9.77|
-|     4|0      |0          | 5.72| -2.06| -2.06|  0.37|   0.4|  2.37|
-|     4|0      |80         | 5.72| -2.06| -2.06| -0.38|  -0.6|  0.62|
-|     4|0      |160        | 5.72| -2.06| -2.06|  0.01|   0.4|  2.01|
-|     4|11.25  |0          | 5.72|  0.24|  0.24|  0.29|  -0.2|  6.29|
-|     4|11.25  |80         | 5.72|  0.24|  0.24|  0.16|   0.2|  6.56|
-|     4|11.25  |160        | 5.72|  0.24|  0.24| -0.44|  -0.1|  5.66|
-|     4|22.5   |0          | 5.72|  1.81|  1.81| -0.66|  -0.3|  8.38|
-|     4|22.5   |80         | 5.72|  1.81|  1.81|  0.23|   0.2|  9.77|
-|     4|22.5   |160        | 5.72|  1.81|  1.81|  0.43|  -0.3|  9.47|
+\begin{tabular}{r|l|l|r|r|r|r|r|r}
+\hline
+block & sulfur & phosphorus & mu & S & P & SP & Error & Yield\\
+\hline
+1 & 0 & 0 & 5.72 & -2.06 & -2.06 & 0.37 & -0.1 & 1.87\\
+\hline
+1 & 0 & 80 & 5.72 & -2.06 & -2.06 & -0.38 & 0.2 & 1.42\\
+\hline
+1 & 0 & 160 & 5.72 & -2.06 & -2.06 & 0.01 & 0.1 & 1.71\\
+\hline
+1 & 11.25 & 0 & 5.72 & 0.24 & 0.24 & 0.29 & 0.2 & 6.69\\
+\hline
+1 & 11.25 & 80 & 5.72 & 0.24 & 0.24 & 0.16 & -0.4 & 5.96\\
+\hline
+1 & 11.25 & 160 & 5.72 & 0.24 & 0.24 & -0.44 & 0.0 & 5.76\\
+\hline
+1 & 22.5 & 0 & 5.72 & 1.81 & 1.81 & -0.66 & 0.6 & 9.28\\
+\hline
+1 & 22.5 & 80 & 5.72 & 1.81 & 1.81 & 0.23 & 0.2 & 9.77\\
+\hline
+1 & 22.5 & 160 & 5.72 & 1.81 & 1.81 & 0.43 & -0.3 & 9.47\\
+\hline
+2 & 0 & 0 & 5.72 & -2.06 & -2.06 & 0.37 & 0.4 & 2.37\\
+\hline
+2 & 0 & 80 & 5.72 & -2.06 & -2.06 & -0.38 & 0.0 & 1.22\\
+\hline
+2 & 0 & 160 & 5.72 & -2.06 & -2.06 & 0.01 & 0.2 & 1.81\\
+\hline
+2 & 11.25 & 0 & 5.72 & 0.24 & 0.24 & 0.29 & 1.0 & 7.49\\
+\hline
+2 & 11.25 & 80 & 5.72 & 0.24 & 0.24 & 0.16 & 0.1 & 6.46\\
+\hline
+2 & 11.25 & 160 & 5.72 & 0.24 & 0.24 & -0.44 & -0.4 & 5.36\\
+\hline
+2 & 22.5 & 0 & 5.72 & 1.81 & 1.81 & -0.66 & -0.2 & 8.48\\
+\hline
+2 & 22.5 & 80 & 5.72 & 1.81 & 1.81 & 0.23 & -0.1 & 9.47\\
+\hline
+2 & 22.5 & 160 & 5.72 & 1.81 & 1.81 & 0.43 & 0.2 & 9.97\\
+\hline
+3 & 0 & 0 & 5.72 & -2.06 & -2.06 & 0.37 & 0.4 & 2.37\\
+\hline
+3 & 0 & 80 & 5.72 & -2.06 & -2.06 & -0.38 & -0.1 & 1.12\\
+\hline
+3 & 0 & 160 & 5.72 & -2.06 & -2.06 & 0.01 & 0.7 & 2.31\\
+\hline
+3 & 11.25 & 0 & 5.72 & 0.24 & 0.24 & 0.29 & 0.2 & 6.69\\
+\hline
+3 & 11.25 & 80 & 5.72 & 0.24 & 0.24 & 0.16 & -0.6 & 5.76\\
+\hline
+3 & 11.25 & 160 & 5.72 & 0.24 & 0.24 & -0.44 & 0.9 & 6.66\\
+\hline
+3 & 22.5 & 0 & 5.72 & 1.81 & 1.81 & -0.66 & 0.4 & 9.08\\
+\hline
+3 & 22.5 & 80 & 5.72 & 1.81 & 1.81 & 0.23 & -0.3 & 9.27\\
+\hline
+3 & 22.5 & 160 & 5.72 & 1.81 & 1.81 & 0.43 & 0.0 & 9.77\\
+\hline
+4 & 0 & 0 & 5.72 & -2.06 & -2.06 & 0.37 & 0.4 & 2.37\\
+\hline
+4 & 0 & 80 & 5.72 & -2.06 & -2.06 & -0.38 & -0.6 & 0.62\\
+\hline
+4 & 0 & 160 & 5.72 & -2.06 & -2.06 & 0.01 & 0.4 & 2.01\\
+\hline
+4 & 11.25 & 0 & 5.72 & 0.24 & 0.24 & 0.29 & -0.2 & 6.29\\
+\hline
+4 & 11.25 & 80 & 5.72 & 0.24 & 0.24 & 0.16 & 0.2 & 6.56\\
+\hline
+4 & 11.25 & 160 & 5.72 & 0.24 & 0.24 & -0.44 & -0.1 & 5.66\\
+\hline
+4 & 22.5 & 0 & 5.72 & 1.81 & 1.81 & -0.66 & -0.3 & 8.38\\
+\hline
+4 & 22.5 & 80 & 5.72 & 1.81 & 1.81 & 0.23 & 0.2 & 9.77\\
+\hline
+4 & 22.5 & 160 & 5.72 & 1.81 & 1.81 & 0.43 & -0.3 & 9.47\\
+\hline
+\end{tabular}
 
 
 
@@ -465,13 +521,19 @@ knitr::kable(anova_tab)
 ```
 
 
-
-|term              | df|       sumsq|      meansq|   statistic|   p.value|
-|:-----------------|--:|-----------:|-----------:|-----------:|---------:|
-|sulfur            |  2| 349.0468222| 174.5234111| 1227.117734| 0.0000000|
-|phosphorus        |  2|   0.6720889|   0.3360444|    2.362812| 0.1133374|
-|sulfur:phosphorus |  4|   5.7705111|   1.4426278|   10.143477| 0.0000381|
-|Residuals         | 27|   3.8400000|   0.1422222|          NA|        NA|
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+term & df & sumsq & meansq & statistic & p.value\\
+\hline
+sulfur & 2 & 349.0468222 & 174.5234111 & 1227.117734 & 0.0000000\\
+\hline
+phosphorus & 2 & 0.6720889 & 0.3360444 & 2.362812 & 0.1133374\\
+\hline
+sulfur:phosphorus & 4 & 5.7705111 & 1.4426278 & 10.143477 & 0.0000381\\
+\hline
+Residuals & 27 & 3.8400000 & 0.1422222 & NA & NA\\
+\hline
+\end{tabular}
 
 In the table, we see that the main effect of sulfur is significant at the $P \le 0.05$ level. The phosphorus effect is not significant.  The interaction (sulfur:phosphorus) effect is also significant at the $P\le0.05$ level.
 
@@ -490,15 +552,23 @@ knitr::kable(slice_1)
 ```
 
 
-
-|phosphorus |term      | df|     sumsq|     meansq| statistic| p.value|
-|:----------|:---------|--:|---------:|----------:|---------:|-------:|
-|0          |sulfur    |  2|  90.33447| 45.1672333|  264.8242|       0|
-|0          |Residuals |  9|   1.53500|  0.1705556|        NA|      NA|
-|80         |sulfur    |  2| 145.58927| 72.7946333|  671.9505|       0|
-|80         |Residuals |  9|   0.97500|  0.1083333|        NA|      NA|
-|160        |sulfur    |  2| 118.89360| 59.4468000|  402.2716|       0|
-|160        |Residuals |  9|   1.33000|  0.1477778|        NA|      NA|
+\begin{tabular}{l|l|r|r|r|r|r}
+\hline
+phosphorus & term & df & sumsq & meansq & statistic & p.value\\
+\hline
+0 & sulfur & 2 & 90.33447 & 45.1672333 & 264.8242 & 0\\
+\hline
+0 & Residuals & 9 & 1.53500 & 0.1705556 & NA & NA\\
+\hline
+80 & sulfur & 2 & 145.58927 & 72.7946333 & 671.9505 & 0\\
+\hline
+80 & Residuals & 9 & 0.97500 & 0.1083333 & NA & NA\\
+\hline
+160 & sulfur & 2 & 118.89360 & 59.4468000 & 402.2716 & 0\\
+\hline
+160 & Residuals & 9 & 1.33000 & 0.1477778 & NA & NA\\
+\hline
+\end{tabular}
 
 We see that the effect of sulfur is significant at each level of phosphorus.  We can group analyses of phosphorusby each level of sulfur.
 
@@ -515,15 +585,23 @@ knitr::kable(slice_2)
 ```
 
 
-
-|sulfur |term       | df|    sumsq|    meansq| statistic|   p.value|
-|:------|:----------|--:|--------:|---------:|---------:|---------:|
-|0      |phosphorus |  2| 2.869267| 1.4346333| 17.331141| 0.0008196|
-|0      |Residuals  |  9| 0.745000| 0.0827778|        NA|        NA|
-|11.25  |phosphorus |  2| 1.782067| 0.8910333|  3.734249| 0.0659399|
-|11.25  |Residuals  |  9| 2.147500| 0.2386111|        NA|        NA|
-|22.5   |phosphorus |  2| 1.791267| 0.8956333|  8.507335| 0.0084258|
-|22.5   |Residuals  |  9| 0.947500| 0.1052778|        NA|        NA|
+\begin{tabular}{l|l|r|r|r|r|r}
+\hline
+sulfur & term & df & sumsq & meansq & statistic & p.value\\
+\hline
+0 & phosphorus & 2 & 2.869267 & 1.4346333 & 17.331141 & 0.0008196\\
+\hline
+0 & Residuals & 9 & 0.745000 & 0.0827778 & NA & NA\\
+\hline
+11.25 & phosphorus & 2 & 1.782067 & 0.8910333 & 3.734249 & 0.0659399\\
+\hline
+11.25 & Residuals & 9 & 2.147500 & 0.2386111 & NA & NA\\
+\hline
+22.5 & phosphorus & 2 & 1.791267 & 0.8956333 & 8.507335 & 0.0084258\\
+\hline
+22.5 & Residuals & 9 & 0.947500 & 0.1052778 & NA & NA\\
+\hline
+\end{tabular}
 
 Whoa, what is going on here!  We can now see the phosphorus effect is significant at S=0 and S=22.5, and almost significant at S=11.25.  If we look at the line plot above, we see that phosphorus increases yield when S=0 and S=11.25, but decreases yield when S=22.5.  The positive and negative effects cancelled each out when we looked at the overall analysis of variance -- the interaction *masked* the sulfur effect so that its significance was not reflected in the results.
 
@@ -582,36 +660,65 @@ knitr::kable(turnip_final)
 ```
 
 
-
-| yield|block |spacing |density |   mu|     B|     S|     D|    SD| Error|
-|-----:|:-----|:-------|:-------|----:|-----:|-----:|-----:|-----:|-----:|
-|  2.40|B1    |4       |8       | 2.67| -0.26|  0.02| -0.17|  0.29| -0.16|
-|  2.56|B1    |4       |20      | 2.67| -0.26|  0.02|  0.11|  0.18| -0.16|
-|  2.78|B1    |4       |32      | 2.67| -0.26|  0.02|  0.06|  0.30| -0.31|
-|  2.33|B1    |8       |8       | 2.67| -0.26|  0.08| -0.17|  0.32| -0.32|
-|  2.56|B1    |8       |20      | 2.67| -0.26|  0.08|  0.11|  0.21| -0.26|
-|  3.03|B1    |8       |32      | 2.67| -0.26|  0.08|  0.06|  0.25| -0.27|
-|  5.21|B1    |16      |8       | 2.67| -0.26| -0.10| -0.17|  0.17| -0.30|
-|  2.56|B1    |16      |20      | 2.67| -0.26| -0.10|  0.11|  0.38| -0.25|
-|  1.90|B1    |16      |32      | 2.67| -0.26| -0.10|  0.06|  0.23| -0.30|
-|  2.60|B2    |4       |8       | 2.67|  0.07|  0.02| -0.17| -0.03|  0.04|
-|  2.89|B2    |4       |20      | 2.67|  0.07|  0.02|  0.11| -0.15|  0.17|
-|  3.06|B2    |4       |32      | 2.67|  0.07|  0.02|  0.06| -0.02| -0.03|
-|  2.63|B2    |8       |8       | 2.67|  0.07|  0.08| -0.17| -0.01| -0.02|
-|  2.69|B2    |8       |20      | 2.67|  0.07|  0.08|  0.11| -0.11| -0.13|
-|  3.48|B2    |8       |32      | 2.67|  0.07|  0.08|  0.06| -0.08|  0.18|
-|  5.57|B2    |16      |8       | 2.67|  0.07| -0.10| -0.17| -0.16|  0.06|
-|  3.04|B2    |16      |20      | 2.67|  0.07| -0.10|  0.11|  0.06|  0.23|
-|  2.31|B2    |16      |32      | 2.67|  0.07| -0.10|  0.06| -0.10|  0.11|
-|  2.67|B3    |4       |8       | 2.67|  0.19|  0.02| -0.17| -0.16|  0.11|
-|  2.71|B3    |4       |20      | 2.67|  0.19|  0.02|  0.11| -0.27| -0.01|
-|  3.44|B3    |4       |32      | 2.67|  0.19|  0.02|  0.06| -0.15|  0.35|
-|  2.98|B3    |8       |8       | 2.67|  0.19|  0.08| -0.17| -0.13|  0.33|
-|  3.21|B3    |8       |20      | 2.67|  0.19|  0.08|  0.11| -0.24|  0.39|
-|  3.39|B3    |8       |32      | 2.67|  0.19|  0.08|  0.06| -0.21|  0.09|
-|  5.76|B3    |16      |8       | 2.67|  0.19| -0.10| -0.17| -0.29|  0.25|
-|  2.83|B3    |16      |20      | 2.67|  0.19| -0.10|  0.11| -0.07|  0.02|
-|  2.40|B3    |16      |32      | 2.67|  0.19| -0.10|  0.06| -0.22|  0.20|
+\begin{tabular}{r|l|l|l|r|r|r|r|r|r}
+\hline
+yield & block & spacing & density & mu & B & S & D & SD & Error\\
+\hline
+2.40 & B1 & 4 & 8 & 2.67 & -0.26 & 0.02 & -0.17 & 0.29 & -0.16\\
+\hline
+2.56 & B1 & 4 & 20 & 2.67 & -0.26 & 0.02 & 0.11 & 0.18 & -0.16\\
+\hline
+2.78 & B1 & 4 & 32 & 2.67 & -0.26 & 0.02 & 0.06 & 0.30 & -0.31\\
+\hline
+2.33 & B1 & 8 & 8 & 2.67 & -0.26 & 0.08 & -0.17 & 0.32 & -0.32\\
+\hline
+2.56 & B1 & 8 & 20 & 2.67 & -0.26 & 0.08 & 0.11 & 0.21 & -0.26\\
+\hline
+3.03 & B1 & 8 & 32 & 2.67 & -0.26 & 0.08 & 0.06 & 0.25 & -0.27\\
+\hline
+5.21 & B1 & 16 & 8 & 2.67 & -0.26 & -0.10 & -0.17 & 0.17 & -0.30\\
+\hline
+2.56 & B1 & 16 & 20 & 2.67 & -0.26 & -0.10 & 0.11 & 0.38 & -0.25\\
+\hline
+1.90 & B1 & 16 & 32 & 2.67 & -0.26 & -0.10 & 0.06 & 0.23 & -0.30\\
+\hline
+2.60 & B2 & 4 & 8 & 2.67 & 0.07 & 0.02 & -0.17 & -0.03 & 0.04\\
+\hline
+2.89 & B2 & 4 & 20 & 2.67 & 0.07 & 0.02 & 0.11 & -0.15 & 0.17\\
+\hline
+3.06 & B2 & 4 & 32 & 2.67 & 0.07 & 0.02 & 0.06 & -0.02 & -0.03\\
+\hline
+2.63 & B2 & 8 & 8 & 2.67 & 0.07 & 0.08 & -0.17 & -0.01 & -0.02\\
+\hline
+2.69 & B2 & 8 & 20 & 2.67 & 0.07 & 0.08 & 0.11 & -0.11 & -0.13\\
+\hline
+3.48 & B2 & 8 & 32 & 2.67 & 0.07 & 0.08 & 0.06 & -0.08 & 0.18\\
+\hline
+5.57 & B2 & 16 & 8 & 2.67 & 0.07 & -0.10 & -0.17 & -0.16 & 0.06\\
+\hline
+3.04 & B2 & 16 & 20 & 2.67 & 0.07 & -0.10 & 0.11 & 0.06 & 0.23\\
+\hline
+2.31 & B2 & 16 & 32 & 2.67 & 0.07 & -0.10 & 0.06 & -0.10 & 0.11\\
+\hline
+2.67 & B3 & 4 & 8 & 2.67 & 0.19 & 0.02 & -0.17 & -0.16 & 0.11\\
+\hline
+2.71 & B3 & 4 & 20 & 2.67 & 0.19 & 0.02 & 0.11 & -0.27 & -0.01\\
+\hline
+3.44 & B3 & 4 & 32 & 2.67 & 0.19 & 0.02 & 0.06 & -0.15 & 0.35\\
+\hline
+2.98 & B3 & 8 & 8 & 2.67 & 0.19 & 0.08 & -0.17 & -0.13 & 0.33\\
+\hline
+3.21 & B3 & 8 & 20 & 2.67 & 0.19 & 0.08 & 0.11 & -0.24 & 0.39\\
+\hline
+3.39 & B3 & 8 & 32 & 2.67 & 0.19 & 0.08 & 0.06 & -0.21 & 0.09\\
+\hline
+5.76 & B3 & 16 & 8 & 2.67 & 0.19 & -0.10 & -0.17 & -0.29 & 0.25\\
+\hline
+2.83 & B3 & 16 & 20 & 2.67 & 0.19 & -0.10 & 0.11 & -0.07 & 0.02\\
+\hline
+2.40 & B3 & 16 & 32 & 2.67 & 0.19 & -0.10 & 0.06 & -0.22 & 0.20\\
+\hline
+\end{tabular}
 
 As we did before, we visually inspect the data for insights into how they may interact.
 
@@ -630,7 +737,7 @@ turnip_final %>%
 ## `.groups` argument.
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-16-1.pdf)<!-- --> 
 
 The plot gives critical insight into these data.  Increasing spacing from 4 to 8 to 16 seems to cause a slight increase in yield where density=20.  But where density=8, yield seems to increase rapidly between row spacing 8 and row spacing 16.  Where density = 32, yield increases slighty with row spacing from 4 to 8, and then decreases markedly from 8 to 16. 
 
@@ -649,14 +756,21 @@ knitr::kable(anova_tab)
 ```
 
 
-
-|                | Df|     Sum Sq|   Mean Sq|   F value|   Pr(>F)|
-|:---------------|--:|----------:|---------:|---------:|--------:|
-|block           |  2|  0.9770963| 0.4885481|  25.06684| 1.17e-05|
-|density         |  2|  3.3854519| 1.6927259|  86.85182| 0.00e+00|
-|spacing         |  2|  2.6353852| 1.3176926|  67.60929| 0.00e+00|
-|density:spacing |  4| 16.3880593| 4.0970148| 210.21312| 0.00e+00|
-|Residuals       | 16|  0.3118370| 0.0194898|        NA|       NA|
+\begin{tabular}{l|r|r|r|r|r}
+\hline
+  & Df & Sum Sq & Mean Sq & F value & Pr(>F)\\
+\hline
+block & 2 & 0.9770963 & 0.4885481 & 25.06684 & 1.17e-05\\
+\hline
+density & 2 & 3.3854519 & 1.6927259 & 86.85182 & 0.00e+00\\
+\hline
+spacing & 2 & 2.6353852 & 1.3176926 & 67.60929 & 0.00e+00\\
+\hline
+density:spacing & 4 & 16.3880593 & 4.0970148 & 210.21312 & 0.00e+00\\
+\hline
+Residuals & 16 & 0.3118370 & 0.0194898 & NA & NA\\
+\hline
+\end{tabular}
 
 The planting density and plant spacing main effects were significant, as was their interacton.  
 
@@ -674,15 +788,23 @@ knitr::kable(slice_1)
 ```
 
 
-
-|density |term      | df|      sumsq|    meansq|   statistic|   p.value|
-|:-------|:---------|--:|----------:|---------:|-----------:|---------:|
-|8       |spacing   |  2| 16.9677556| 8.4838778| 125.0694513| 0.0000129|
-|8       |Residuals |  6|  0.4070000| 0.0678333|          NA|        NA|
-|20      |spacing   |  2|  0.0182000| 0.0091000|   0.1341523| 0.8770078|
-|20      |Residuals |  6|  0.4070000| 0.0678333|          NA|        NA|
-|32      |spacing   |  2|  2.0374889| 1.0187444|  12.8701572| 0.0067549|
-|32      |Residuals |  6|  0.4749333| 0.0791556|          NA|        NA|
+\begin{tabular}{l|l|r|r|r|r|r}
+\hline
+density & term & df & sumsq & meansq & statistic & p.value\\
+\hline
+8 & spacing & 2 & 16.9677556 & 8.4838778 & 125.0694513 & 0.0000129\\
+\hline
+8 & Residuals & 6 & 0.4070000 & 0.0678333 & NA & NA\\
+\hline
+20 & spacing & 2 & 0.0182000 & 0.0091000 & 0.1341523 & 0.8770078\\
+\hline
+20 & Residuals & 6 & 0.4070000 & 0.0678333 & NA & NA\\
+\hline
+32 & spacing & 2 & 2.0374889 & 1.0187444 & 12.8701572 & 0.0067549\\
+\hline
+32 & Residuals & 6 & 0.4749333 & 0.0791556 & NA & NA\\
+\hline
+\end{tabular}
 
 We can see above that the effect of spacing on yield is only significant at $P\le0.05$ density=8 and density=32.  If we examining the effect of density separately for each level of spacing:
 
@@ -699,15 +821,23 @@ knitr::kable(slice_2)
 ```
 
 
-
-|spacing |term      | df|      sumsq|    meansq|  statistic|   p.value|
-|:-------|:---------|--:|----------:|---------:|----------:|---------:|
-|4       |density   |  2|  0.4540667| 0.2270333|   4.347447| 0.0680698|
-|4       |Residuals |  6|  0.3133333| 0.0522222|         NA|        NA|
-|8       |density   |  2|  0.6872889| 0.3436444|   3.670979| 0.0909484|
-|8       |Residuals |  6|  0.5616667| 0.0936111|         NA|        NA|
-|16      |density   |  2| 18.6321556| 9.3160778| 135.037365| 0.0000103|
-|16      |Residuals |  6|  0.4139333| 0.0689889|         NA|        NA|
+\begin{tabular}{l|l|r|r|r|r|r}
+\hline
+spacing & term & df & sumsq & meansq & statistic & p.value\\
+\hline
+4 & density & 2 & 0.4540667 & 0.2270333 & 4.347447 & 0.0680698\\
+\hline
+4 & Residuals & 6 & 0.3133333 & 0.0522222 & NA & NA\\
+\hline
+8 & density & 2 & 0.6872889 & 0.3436444 & 3.670979 & 0.0909484\\
+\hline
+8 & Residuals & 6 & 0.5616667 & 0.0936111 & NA & NA\\
+\hline
+16 & density & 2 & 18.6321556 & 9.3160778 & 135.037365 & 0.0000103\\
+\hline
+16 & Residuals & 6 & 0.4139333 & 0.0689889 & NA & NA\\
+\hline
+\end{tabular}
 
 We similarly see that density is only significant at $P\le0.05$ where spacing=16.
 
@@ -736,7 +866,7 @@ dataset %>%
   labs(x="Factor A", legend="Factor B", color="Factor B")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 In a bar plot, it should look like this:
 
@@ -748,7 +878,7 @@ dataset %>%
   labs(x="Factor A", legend="Factor B", fill="Factor B")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
 
 Finally, there will be no change in the ranking of levels within factors.  Rank is the order of levels according to their obseved effects, from least to greatest.  For factor A, the ranking of levels within Factor A is $1 > 2 > 3$, while within Factor B, level T2 always ranks higher than level T1.
 
@@ -771,7 +901,7 @@ dataset %>%
   labs(x="Factor A", legend="Factor B", color="Factor B")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 In the above plot, we can see the levels of Factor A still rank $1<2<3$ in their effect on the observed value Y, for both level T1 and level T2 of Factor B.  We also note that the levels of Factor B rank $T1<T2$ at each level of Factor A. In this spreading interaction, however, the difference between T1 and T2 of factor B increases as the levels of Factor A increase.  Similarly, the differences among levels of Factor A are greater for level T2 than level T1 of Factor B.  
 
@@ -797,7 +927,7 @@ dataset %>%
   labs(x="Factor A", legend="Factor B", color="Factor B")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
 
 In the plot above, the ranking of levels within Factor B is $T2>T1$ for levels 1 and 2 of Factor A, but $T1>T2$ for level 3 of Factor A.  In other words, whether T2 is greater than T1 depends on the level of Factor A.  In addition, the levels of Factor B behave differently in response to the levels of Factor A.  Level T1 of Factor B increases with the level of Factor B, while level T2 decreases.
 
@@ -836,7 +966,7 @@ plot_map %>%
   geom_text(aes(label=sub_factor))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
 
 In the experiment show above, there are two factors: the main factor and the sub-factor.  The main factor has two levels, while the sub-factor has 5 levels.  The design is a randomized complete block design.  As with any randomized complete block design, all treatments must occur once within each block.
 
@@ -943,7 +1073,7 @@ habanero %>%
 ## `.groups` argument.
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
 
 We can see the the total polyphenol concentration was affected by harvest stage in each soil.  Orange habaneros had greater total polyphenos than green ones.  Furthermore, we can see that black soils produced the fewest total polyphenols when habaneros where harvested green, but the most when they were harvested orange.
 
@@ -962,15 +1092,23 @@ knitr::kable(slice_1)
 ```
 
 
-
-|harvest_stage |term      | df|     sumsq|     meansq|  statistic|   p.value|
-|:-------------|:---------|--:|---------:|----------:|----------:|---------:|
-|green         |block     |  3|  312.1119|  104.03731|  0.4324894| 0.7375426|
-|green         |soil      |  2| 5006.9642| 2503.48208| 10.4071271| 0.0112036|
-|green         |Residuals |  6| 1443.3275|  240.55458|         NA|        NA|
-|orange        |block     |  3|   79.2278|   26.40927|  0.1592069| 0.9199513|
-|orange        |soil      |  2| 2253.3551| 1126.67757|  6.7921174| 0.0287564|
-|orange        |Residuals |  6|  995.2810|  165.88017|         NA|        NA|
+\begin{tabular}{l|l|r|r|r|r|r}
+\hline
+harvest\_stage & term & df & sumsq & meansq & statistic & p.value\\
+\hline
+green & block & 3 & 312.1119 & 104.03731 & 0.4324894 & 0.7375426\\
+\hline
+green & soil & 2 & 5006.9642 & 2503.48208 & 10.4071271 & 0.0112036\\
+\hline
+green & Residuals & 6 & 1443.3275 & 240.55458 & NA & NA\\
+\hline
+orange & block & 3 & 79.2278 & 26.40927 & 0.1592069 & 0.9199513\\
+\hline
+orange & soil & 2 & 2253.3551 & 1126.67757 & 6.7921174 & 0.0287564\\
+\hline
+orange & Residuals & 6 & 995.2810 & 165.88017 & NA & NA\\
+\hline
+\end{tabular}
 
 And that harvest stage had a significant effect at each level of soil.
 
@@ -987,18 +1125,29 @@ knitr::kable(slice_2)
 ```
 
 
-
-|soil  |term          | df|       sumsq|      meansq|  statistic|   p.value|
-|:-----|:-------------|--:|-----------:|-----------:|----------:|---------:|
-|black |block         |  3|    79.03859|    26.34620|  0.0555253| 0.9798439|
-|black |harvest_stage |  1| 32872.72483| 32872.72483| 69.2801410| 0.0036344|
-|black |Residuals     |  3|  1423.46960|   474.48987|         NA|        NA|
-|brown |block         |  3|   214.87947|    71.62649|  0.5937286| 0.6605111|
-|brown |harvest_stage |  1|  7062.17490|  7062.17490| 58.5400106| 0.0046367|
-|brown |Residuals     |  3|   361.91529|   120.63843|         NA|        NA|
-|red   |block         |  3|   390.95481|   130.31827|  1.0869202| 0.4734925|
-|red   |harvest_stage |  1|  8122.82365|  8122.82365| 67.7484520| 0.0037542|
-|red   |Residuals     |  3|   359.69045|   119.89682|         NA|        NA|
+\begin{tabular}{l|l|r|r|r|r|r}
+\hline
+soil & term & df & sumsq & meansq & statistic & p.value\\
+\hline
+black & block & 3 & 79.03859 & 26.34620 & 0.0555253 & 0.9798439\\
+\hline
+black & harvest\_stage & 1 & 32872.72483 & 32872.72483 & 69.2801410 & 0.0036344\\
+\hline
+black & Residuals & 3 & 1423.46960 & 474.48987 & NA & NA\\
+\hline
+brown & block & 3 & 214.87947 & 71.62649 & 0.5937286 & 0.6605111\\
+\hline
+brown & harvest\_stage & 1 & 7062.17490 & 7062.17490 & 58.5400106 & 0.0046367\\
+\hline
+brown & Residuals & 3 & 361.91529 & 120.63843 & NA & NA\\
+\hline
+red & block & 3 & 390.95481 & 130.31827 & 1.0869202 & 0.4734925\\
+\hline
+red & harvest\_stage & 1 & 8122.82365 & 8122.82365 & 67.7484520 & 0.0037542\\
+\hline
+red & Residuals & 3 & 359.69045 & 119.89682 & NA & NA\\
+\hline
+\end{tabular}
 
 
 ## Conclusion
@@ -1087,7 +1236,7 @@ Now we can display the plot at any time by running barley_plot:
 barley_plot
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-34-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-34-1.pdf)<!-- --> 
 
 This is so drab!  While I don't want you to get bogged down in formatting plots, let's tweak a few details just so you can see the power of ggplot to make publication-quality plots.
 
@@ -1101,7 +1250,7 @@ barley_plot = ggplot(barley, aes(x=gen, y=yield)) +
 barley_plot
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-35-1.pdf)<!-- --> 
 
 Let's draw a black line around the outside of the bars by adding "color" to our geom_bar statement.
 
@@ -1111,7 +1260,7 @@ barley_plot = ggplot(barley, aes(x=gen, y=yield)) +
 barley_plot
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-36-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-36-1.pdf)<!-- --> 
 
 Let's make the outline a little thicker using the size command:
 
@@ -1121,7 +1270,7 @@ barley_plot = ggplot(barley, aes(x=gen, y=yield)) +
 barley_plot
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-37-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-37-1.pdf)<!-- --> 
 
 The axis titles are little hard to read.  We can change text formatting, legend formatting, and other objects using the "theme" function.  In the theme function below, let's change the "axis.title" size using the "element_text" command and setting the size to 18.
 
@@ -1132,7 +1281,7 @@ barley_plot = ggplot(barley, aes(x=gen, y=yield)) +
 barley_plot
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-38-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-38-1.pdf)<!-- --> 
 
 Let's similarly increase the size of the axis.text (tick labels) to 14pt. 
 
@@ -1144,7 +1293,7 @@ barley_plot = ggplot(barley, aes(x=gen, y=yield)) +
 barley_plot
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-39-1.pdf)<!-- --> 
 
 Finally, let's rename our axis titles using the lab() command.
 
@@ -1157,7 +1306,7 @@ barley_plot = ggplot(barley, aes(x=gen, y=yield)) +
 barley_plot
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-40-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-40-1.pdf)<!-- --> 
 
 Like I said, I don't want you to get too bogged down in formatting your plots.  And, yes, a simple plot like this could be made just as quickly in Excel.  But building the plot in R Studio has multiple advantages.  First, you don't have to cut and paste your data to Excel.  Second, you don't have to copy your completed chart back to R or your report document.  You can include it right in your R Notebook with your data.  That way, if you are working on your creative component, you can have one document, instead of multiple documents all over the place.  Third, if you are working on the multiple plots, you can coordinate them by reusing your theme code from plot to plot, rather than having to click and change each field in each plot.  Finally, and most importantly, you have way more options for creating your plot in R than just about any software I know!
 
@@ -1309,7 +1458,7 @@ grouped_data %>%
   ggplot(aes(x=Innoculation, y=Yield, group=Amendment)) 
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-46-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-46-1.pdf)<!-- --> 
 
 We need to add one more line telling R what shapes (geometries) to draw.  We add the *geom_line* argument.  In it we include an aes() argument to associate line color to with level of Innoclulation.
 
@@ -1320,7 +1469,7 @@ grouped_data %>%
   geom_line(aes(color=Amendment))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-47-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-47-1.pdf)<!-- --> 
 Our plot above reflects our ANOVA results.  Maize yield with most amendments decreased when the crop was un-innoculated.  The maize response was flat or even slightly increased for a few levels of Amendment, but the interaction only had a P-value of about 0.32, so the interaction was not significant.  Similarly, the ranking of Amendments changed somewhat with level of Innoculation, but not enough to be significant.
 
 
@@ -1402,7 +1551,7 @@ ggplot(data=biochar, aes(x=Amendment, y=Yield)) +
   geom_bar(stat="summary", fun="mean")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-50-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-50-1.pdf)<!-- --> 
 
 The treatment names are running together a little, so lets add a theme argument with "angle = " to pitch those at a 45 degree angle to the axis and "hjust=1) to right-justify them from the axis.
 
@@ -1413,7 +1562,7 @@ ggplot(data=biochar, aes(x=Amendment, y=Yield)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-51-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-51-1.pdf)<!-- --> 
 
 We can plot the innoculum effect the same way, just substituting "Innoculation" for "Amendment" in our code above.
 
@@ -1423,7 +1572,7 @@ ggplot(data=biochar, aes(x=Innoculation, y=Yield)) +
   geom_bar(stat="summary", fun="mean")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-52-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-52-1.pdf)<!-- --> 
 
 Of course, in a factorial experiment, we may want to see both treatments together.  In the plot below, we will plot Amendment along the X axis, Yield on the Y axis, and group the bars by level of Innoculation.  Our plot starts out similar to the Amendment plot above.  But in the first line we need to add the argument "group=Innoculation".  This tells R we will group our bars by the level of innoculation.  
 
@@ -1436,7 +1585,7 @@ ggplot(data=biochar, aes(x=Amendment, y=Yield, group=Innoculation)) +  # add gro
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-53-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-53-1.pdf)<!-- --> 
 
 Ok, we've got different colored bars -- but they are stacked!  We want them side-by-side.  So we need to add one more argument to our second line: position="dodge".  This tells R to position the bars so they "dodge" each other.  It's a weird choice of words, but technically it works.
 
@@ -1447,7 +1596,7 @@ ggplot(data=biochar, aes(x=Amendment, y=Yield, group=Innoculation)) +  # add gro
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-54-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-54-1.pdf)<!-- --> 
 
 And Voila, we have our plot.  Whew, those color bars are high-contrast, which is great for accessibility.  If we want to change the colors to something closer to our preferred palate, however, 
 
@@ -1459,7 +1608,7 @@ ggplot(data=biochar, aes(x=Amendment, y=Yield, group=Innoculation)) +  # add gro
   scale_fill_manual(values = c("darkgreen", "orange"))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-55-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-55-1.pdf)<!-- --> 
 
 ### Practice
 For practice we have a dataset inspired by "Plant population and row spacing effects on corn: Plant growth, phenology, and grain yield" (2020), published by Brad J. Bernhard  Frederick E. Below in Agronomy Journal.  The article is open source.
@@ -1673,7 +1822,7 @@ soybean_group %>%
   ggplot(aes(x=tillage, y=yield, group=fungicide))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-62-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-62-1.pdf)<!-- --> 
 
 
 Next we add line geometries to our plot using geom_line().  We use another aes() argument to tell R to differentiate line color by level of fungicide.
@@ -1684,7 +1833,7 @@ soybean_group %>%
   geom_line(aes(color=fungicide))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-63-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-63-1.pdf)<!-- --> 
 
 
 ### Bar plot
@@ -1697,7 +1846,7 @@ soybean %>%
   ggplot(aes(x=tillage, y=yield, group=fungicide))
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-64-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-64-1.pdf)<!-- --> 
 
 Then we add our geometry with the geom_bar() argument.  We will add an aes() argument to tell R that bar color should be matched to fungicide level. We also need to use the *stat="summary"* argument that the statistic to be plotted is a summary statistic to be calculated.  The we need to tell it with *fun="mean"* that the statistic to be calculated is the mean.
 
@@ -1708,7 +1857,7 @@ soybean %>%
   geom_bar(aes(fill=fungicide), stat = "summary", fun="mean")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-65-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-65-1.pdf)<!-- --> 
 
 Whoops!  We need to add a final argument to geom_bar(), to tell it to plot the two levels of fungicide next to each other, instead of stacking them.  We add *position="dodge"* accordingly. 
 
@@ -1719,7 +1868,7 @@ soybean %>%
   geom_bar(aes(fill=fungicide), stat = "summary", fun="mean", position="dodge")
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-66-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-66-1.pdf)<!-- --> 
 
 Finally, if we want, we can add a couple of theme() arguments to increase the font size of the axis titles and labels.
 
@@ -1732,7 +1881,7 @@ soybean %>%
         axis.text = element_text(size=14))  # element_text() tells R we are modifying the font, as opposed to the position of the axis title
 ```
 
-<img src="07-Multiple-Treatment-Designs_files/figure-html/unnamed-chunk-67-1.png" width="672" />
+![](07-Multiple-Treatment-Designs_files/figure-latex/unnamed-chunk-67-1.pdf)<!-- --> 
 
 ### Practice
 The same study above produced a corn dataset.  The main factor was rotation and the sub-factor was fungicide.  

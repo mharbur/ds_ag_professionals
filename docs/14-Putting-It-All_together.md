@@ -46,7 +46,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-2-1.png)<!-- --> 
 
 In the map above, the higher-yielding areas are colored green, while the lower-yielding areas are orange to red.  How would we summarise the yields above for others?
 
@@ -57,7 +57,7 @@ To start with, let's describe the center of the population.  Should we use the m
 hist(logan$Yld_Vol_Dr)
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 We inspect the data to see if it fits a normal distribution ("bell") curve.  This histogram is admittedly ugly, but is roughly symmetrical.  We can also quickly inspect our distribution using the summary command on our yield variable.
 
 
@@ -150,101 +150,48 @@ We know the combine map aboe the true population mean was 211.1, which is includ
 
 Knowing every field has soil variations, you divide a field into 8 pairs of strips.  Each strip in a pair is treated either with the farmer's current system (the control) or the farmer's system *plus* the new product.  You create the following paired plot layout.
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 We observe the following values in our trial:
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> block </th>
-   <th style="text-align:left;"> treatment </th>
-   <th style="text-align:right;"> yield </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 172.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 170.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 168.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 169.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 178.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 144.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 178.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 183.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 177.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 193.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 186.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 176.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 172.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 7 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 196.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:left;"> control </td>
-   <td style="text-align:right;"> 188.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:left;"> treatment </td>
-   <td style="text-align:right;"> 183.7 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|l|r}
+\hline
+block & treatment & yield\\
+\hline
+1 & control & 172.2\\
+\hline
+1 & treatment & 170.9\\
+\hline
+2 & treatment & 168.7\\
+\hline
+2 & control & 169.1\\
+\hline
+3 & treatment & 178.3\\
+\hline
+3 & control & 144.8\\
+\hline
+4 & control & 178.5\\
+\hline
+4 & treatment & 183.5\\
+\hline
+5 & control & 177.6\\
+\hline
+5 & treatment & 193.6\\
+\hline
+6 & treatment & 186.8\\
+\hline
+6 & control & 176.5\\
+\hline
+7 & control & 172.7\\
+\hline
+7 & treatment & 196.0\\
+\hline
+8 & control & 188.9\\
+\hline
+8 & treatment & 183.7\\
+\hline
+\end{tabular}
 
 We run a t-test, as we learned in Units 4 and 5, which calculates the probability the difference between the control and treatment is equal to zero.  Because we, as sales persons, are only interested in whether our treatment produces greater yield, we run a one-sided test.  Our null hypothesis is therefore that the treatment produces yield equal to or less than the control.  Our alternative hypothesis (the one we hope to confirm) is that the treatment yields more than the control.
 
@@ -280,114 +227,44 @@ We also see our confidence interval does not include zero or any positive values
 
 We design and conduct a randomized complete block design experiment in which four fungicides are compared:  
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> plot </th>
-   <th style="text-align:left;"> block </th>
-   <th style="text-align:left;"> fungicide </th>
-   <th style="text-align:right;"> yield </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 101 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> Deadest </td>
-   <td style="text-align:right;"> 174.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> Dead </td>
-   <td style="text-align:right;"> 169.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 103 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> Dead Again </td>
-   <td style="text-align:right;"> 176.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 104 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> Deader </td>
-   <td style="text-align:right;"> 170.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 201 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> Dead Again </td>
-   <td style="text-align:right;"> 175.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 202 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> Deadest </td>
-   <td style="text-align:right;"> 175.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 203 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> Deader </td>
-   <td style="text-align:right;"> 171.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 204 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> Dead </td>
-   <td style="text-align:right;"> 170.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 301 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> Deader </td>
-   <td style="text-align:right;"> 172.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 302 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> Dead Again </td>
-   <td style="text-align:right;"> 178.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 303 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> Dead </td>
-   <td style="text-align:right;"> 170.9 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 304 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> Deadest </td>
-   <td style="text-align:right;"> 175.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 401 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> Deadest </td>
-   <td style="text-align:right;"> 176.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 402 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> Deader </td>
-   <td style="text-align:right;"> 174.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 403 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> Dead Again </td>
-   <td style="text-align:right;"> 177.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 404 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> Dead </td>
-   <td style="text-align:right;"> 170.7 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|l|l|r}
+\hline
+plot & block & fungicide & yield\\
+\hline
+101 & 1 & Deadest & 174.4\\
+\hline
+102 & 1 & Dead & 169.5\\
+\hline
+103 & 1 & Dead Again & 176.9\\
+\hline
+104 & 1 & Deader & 170.6\\
+\hline
+201 & 2 & Dead Again & 175.7\\
+\hline
+202 & 2 & Deadest & 175.5\\
+\hline
+203 & 2 & Deader & 171.9\\
+\hline
+204 & 2 & Dead & 170.9\\
+\hline
+301 & 3 & Deader & 172.5\\
+\hline
+302 & 3 & Dead Again & 178.2\\
+\hline
+303 & 3 & Dead & 170.9\\
+\hline
+304 & 3 & Deadest & 175.6\\
+\hline
+401 & 4 & Deadest & 176.7\\
+\hline
+402 & 4 & Deader & 174.1\\
+\hline
+403 & 4 & Dead Again & 177.8\\
+\hline
+404 & 4 & Dead & 170.7\\
+\hline
+\end{tabular}
 
 We can begin our analysis of results by inspecting the distribution of observations within our treatment. We can take a quick look at our data with the boxplot we learned in Unit 9.  
 
@@ -401,7 +278,7 @@ fungicide_final %>%
         stat_summary(fun=mean, geom="point", shape=23, size=2)
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
 
 Hmmmm, fungicide "Dead" has an outlier.  Shoots.  Let's look more closely at our situation.  First, back to our field notes.  We check our plot notes -- nothing appeared out of the ordinary about that plot.  Second, we notice the "Dead" treatment has a tighter distribution than the other three treatments: our outlier would not be an outlier had it occurred in the distribution of Deader. Finally, we note the outlier differs from from the mean and median of "Dead" by only a few bushels -- a deviation we consider to be reasonable given our knowledge of corn production.  We conclude the outlier can be included in the dataset.  
 
@@ -481,7 +358,7 @@ lsd_groups %>%
   geom_bar(stat = "identity", fill="darkolivegreen", color="black")
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
 
 
 ## Scenario 5: Hybrid Response to Fungicide Trial (ANOVA Factorial or Split Plot)
@@ -489,187 +366,60 @@ lsd_groups %>%
 
 The treatments are arranged in a factorial randomized complete block design, like we learned in Unit 7.
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> plot </th>
-   <th style="text-align:left;"> block </th>
-   <th style="text-align:left;"> fungicide </th>
-   <th style="text-align:left;"> hybrid </th>
-   <th style="text-align:right;"> yield </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 101 </td>
-   <td style="text-align:left;"> R1 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 199.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:left;"> R1 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 172.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 103 </td>
-   <td style="text-align:left;"> R1 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 187.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 104 </td>
-   <td style="text-align:left;"> R1 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 204.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 105 </td>
-   <td style="text-align:left;"> R1 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 195.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 106 </td>
-   <td style="text-align:left;"> R1 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 187.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 201 </td>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 195.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 202 </td>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 200.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 203 </td>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 200.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 204 </td>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 216.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 205 </td>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 185.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 206 </td>
-   <td style="text-align:left;"> R2 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 188.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 301 </td>
-   <td style="text-align:left;"> R3 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 209.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 302 </td>
-   <td style="text-align:left;"> R3 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 198.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 303 </td>
-   <td style="text-align:left;"> R3 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 185.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 304 </td>
-   <td style="text-align:left;"> R3 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 203.6 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 305 </td>
-   <td style="text-align:left;"> R3 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 194.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 306 </td>
-   <td style="text-align:left;"> R3 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 220.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 401 </td>
-   <td style="text-align:left;"> R4 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 198.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 402 </td>
-   <td style="text-align:left;"> R4 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> B </td>
-   <td style="text-align:right;"> 214.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 403 </td>
-   <td style="text-align:left;"> R4 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 219.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 404 </td>
-   <td style="text-align:left;"> R4 </td>
-   <td style="text-align:left;"> treated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 194.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 405 </td>
-   <td style="text-align:left;"> R4 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> A </td>
-   <td style="text-align:right;"> 191.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 406 </td>
-   <td style="text-align:left;"> R4 </td>
-   <td style="text-align:left;"> untreated </td>
-   <td style="text-align:left;"> C </td>
-   <td style="text-align:right;"> 199.6 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|l|l|l|r}
+\hline
+plot & block & fungicide & hybrid & yield\\
+\hline
+101 & R1 & treated & B & 199.1\\
+\hline
+102 & R1 & untreated & A & 172.1\\
+\hline
+103 & R1 & untreated & B & 187.4\\
+\hline
+104 & R1 & treated & C & 204.1\\
+\hline
+105 & R1 & untreated & C & 195.5\\
+\hline
+106 & R1 & treated & A & 187.2\\
+\hline
+201 & R2 & treated & A & 195.7\\
+\hline
+202 & R2 & untreated & C & 200.3\\
+\hline
+203 & R2 & treated & B & 200.3\\
+\hline
+204 & R2 & treated & C & 216.5\\
+\hline
+205 & R2 & untreated & A & 185.0\\
+\hline
+206 & R2 & untreated & B & 188.4\\
+\hline
+301 & R3 & treated & B & 209.4\\
+\hline
+302 & R3 & treated & A & 198.2\\
+\hline
+303 & R3 & untreated & A & 185.6\\
+\hline
+304 & R3 & untreated & C & 203.6\\
+\hline
+305 & R3 & untreated & B & 194.2\\
+\hline
+306 & R3 & treated & C & 220.4\\
+\hline
+401 & R4 & untreated & B & 198.7\\
+\hline
+402 & R4 & treated & B & 214.4\\
+\hline
+403 & R4 & treated & C & 219.2\\
+\hline
+404 & R4 & treated & A & 194.8\\
+\hline
+405 & R4 & untreated & A & 191.0\\
+\hline
+406 & R4 & untreated & C & 199.6\\
+\hline
+\end{tabular}
 
 Our linear additive model is:
 
@@ -708,7 +458,7 @@ fung_hyb %>%
   geom_line(aes(color=fungicide))
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 We can perform means separation on the data the same as we did for our analysis of variance in the previous example.  Since fungicide only has two levels, its significance in the analysis of variance means the two levels ("treated" and "untreated") are significant.  To separate the hybrid levels, we can use the least siginficant difference test.
 
@@ -753,114 +503,44 @@ Our means separation results suggest the three hybrids differ in yield.
 
 The data are below:
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> plot </th>
-   <th style="text-align:left;"> block </th>
-   <th style="text-align:right;"> rate </th>
-   <th style="text-align:right;"> yield </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 101 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 167.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 102 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 168.7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 103 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 169.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 104 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 165.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 201 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 167.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 202 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 164.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 203 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 169.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 204 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 170.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 301 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 167.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 302 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 170.2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 303 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 166.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 304 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 169.8 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 401 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:right;"> 169.3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 402 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:right;"> 171.1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 403 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 4 </td>
-   <td style="text-align:right;"> 171.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 404 </td>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:right;"> 165.1 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|l|r|r}
+\hline
+plot & block & rate & yield\\
+\hline
+101 & 1 & 2 & 167.1\\
+\hline
+102 & 1 & 3 & 168.7\\
+\hline
+103 & 1 & 4 & 169.5\\
+\hline
+104 & 1 & 1 & 165.2\\
+\hline
+201 & 2 & 2 & 167.2\\
+\hline
+202 & 2 & 1 & 164.8\\
+\hline
+203 & 2 & 4 & 169.4\\
+\hline
+204 & 2 & 3 & 170.2\\
+\hline
+301 & 3 & 2 & 167.8\\
+\hline
+302 & 3 & 4 & 170.2\\
+\hline
+303 & 3 & 1 & 166.1\\
+\hline
+304 & 3 & 3 & 169.8\\
+\hline
+401 & 4 & 2 & 169.3\\
+\hline
+402 & 4 & 3 & 171.1\\
+\hline
+403 & 4 & 4 & 171.5\\
+\hline
+404 & 4 & 1 & 165.1\\
+\hline
+\end{tabular}
 
 We should start by plotting our data with a simple scatter plot so we can observe the nature of the relationship between Y and X.  Do their values appear to be associated?  Is their relationship linear or nonlinear?
 
@@ -873,7 +553,7 @@ p = foliar_final %>%
 p
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
 
 The response appears to be nonlinear, but we first try to fit the relationship with simple linear regression, as we learned in Unit 10.  Our regression line is plotted with the data below:
 
@@ -882,7 +562,7 @@ The response appears to be nonlinear, but we first try to fit the relationship w
 p + geom_smooth(method = "lm", se=FALSE)
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
 
 We also run an analysis of variance on the regression, modelling yield as a function of rate, which produces the following results:
 
@@ -920,7 +600,7 @@ Not bad.  The slope (rate effect) is highly significant and the $R^2 = 0.75$.  T
 plot(foliar_linear_model, which = 1)
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-26-1.pdf)<!-- --> 
 
 We see, as we might expect, the residuals are not distributed randomly around the regression line.  The middle two yields are distributed mostly above the regression line, while the highest and lowest yields are distributed mostly below the regression line.  
 
@@ -974,7 +654,7 @@ Finally, we can plot our curve and visually confirm it fits the data better than
 p + geom_line(data = foliar_predicted, aes(x=rate, y=yield), color="tomato")
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
 
 
 
@@ -982,96 +662,24 @@ p + geom_line(data = foliar_predicted, aes(x=rate, y=yield), color="tomato")
 *We grid sample our field and want to visualize the results. We are particularly interested in our soil potassium results.  We want to first visualize the point values, then create a raster map to predict potassium values throughout the field.*     
 
 We start by reading in the shapefile with our results.
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> obs </th>
-   <th style="text-align:right;"> Sample_id </th>
-   <th style="text-align:left;"> SampleDate </th>
-   <th style="text-align:left;"> ReportDate </th>
-   <th style="text-align:right;"> P2 </th>
-   <th style="text-align:left;"> Grower </th>
-   <th style="text-align:left;"> Field </th>
-   <th style="text-align:left;"> attribute </th>
-   <th style="text-align:right;"> measure </th>
-   <th style="text-align:left;"> geometry </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 29 </td>
-   <td style="text-align:right;"> 21 </td>
-   <td style="text-align:left;"> 10/26/2018 </td>
-   <td style="text-align:left;"> 10/30/2018 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> Tom Besch </td>
-   <td style="text-align:left;"> Folie N &amp; SE </td>
-   <td style="text-align:left;"> Om </td>
-   <td style="text-align:right;"> 3.2 </td>
-   <td style="text-align:left;"> POINT (-92.78954 43.9931) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 30 </td>
-   <td style="text-align:right;"> 22 </td>
-   <td style="text-align:left;"> 10/26/2018 </td>
-   <td style="text-align:left;"> 10/30/2018 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> Tom Besch </td>
-   <td style="text-align:left;"> Folie N &amp; SE </td>
-   <td style="text-align:left;"> Om </td>
-   <td style="text-align:right;"> 3.8 </td>
-   <td style="text-align:left;"> POINT (-92.7895 43.9926) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 31 </td>
-   <td style="text-align:right;"> 27 </td>
-   <td style="text-align:left;"> 10/26/2018 </td>
-   <td style="text-align:left;"> 10/30/2018 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> Tom Besch </td>
-   <td style="text-align:left;"> Folie N &amp; SE </td>
-   <td style="text-align:left;"> Om </td>
-   <td style="text-align:right;"> 3.3 </td>
-   <td style="text-align:left;"> POINT (-92.78942 43.98697) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 32 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:left;"> 10/26/2018 </td>
-   <td style="text-align:left;"> 10/30/2018 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> Tom Besch </td>
-   <td style="text-align:left;"> Folie N &amp; SE </td>
-   <td style="text-align:left;"> Om </td>
-   <td style="text-align:right;"> 5.9 </td>
-   <td style="text-align:left;"> POINT (-92.79313 43.99245) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 33 </td>
-   <td style="text-align:right;"> 6 </td>
-   <td style="text-align:left;"> 10/26/2018 </td>
-   <td style="text-align:left;"> 10/30/2018 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> Tom Besch </td>
-   <td style="text-align:left;"> Folie N &amp; SE </td>
-   <td style="text-align:left;"> Om </td>
-   <td style="text-align:right;"> 3.1 </td>
-   <td style="text-align:left;"> POINT (-92.79294 43.99318) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 34 </td>
-   <td style="text-align:right;"> 8 </td>
-   <td style="text-align:left;"> 10/26/2018 </td>
-   <td style="text-align:left;"> 10/30/2018 </td>
-   <td style="text-align:right;"> 0 </td>
-   <td style="text-align:left;"> Tom Besch </td>
-   <td style="text-align:left;"> Folie N &amp; SE </td>
-   <td style="text-align:left;"> Om </td>
-   <td style="text-align:right;"> 1.8 </td>
-   <td style="text-align:left;"> POINT (-92.79145 43.9902) </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|r|l|l|r|l|l|l|r|l}
+\hline
+obs & Sample\_id & SampleDate & ReportDate & P2 & Grower & Field & attribute & measure & geometry\\
+\hline
+29 & 21 & 10/26/2018 & 10/30/2018 & 0 & Tom Besch & Folie N \& SE & Om & 3.2 & POINT (-92.78954 43.9931)\\
+\hline
+30 & 22 & 10/26/2018 & 10/30/2018 & 0 & Tom Besch & Folie N \& SE & Om & 3.8 & POINT (-92.7895 43.9926)\\
+\hline
+31 & 27 & 10/26/2018 & 10/30/2018 & 0 & Tom Besch & Folie N \& SE & Om & 3.3 & POINT (-92.78942 43.98697)\\
+\hline
+32 & 5 & 10/26/2018 & 10/30/2018 & 0 & Tom Besch & Folie N \& SE & Om & 5.9 & POINT (-92.79313 43.99245)\\
+\hline
+33 & 6 & 10/26/2018 & 10/30/2018 & 0 & Tom Besch & Folie N \& SE & Om & 3.1 & POINT (-92.79294 43.99318)\\
+\hline
+34 & 8 & 10/26/2018 & 10/30/2018 & 0 & Tom Besch & Folie N \& SE & Om & 1.8 & POINT (-92.79145 43.9902)\\
+\hline
+\end{tabular}
 Our next step is to filter our results to potassium ("K") only.
 
 ```r
@@ -1108,7 +716,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-34-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-34-1.png)<!-- --> 
 
 Next, we want to create a raster map that predicts soil potassium levels throughout our field.  We first need to define the field boundary, which we do by loading a shapefile that defines a single polygon that outlines our field.
 
@@ -1142,7 +750,7 @@ m = fit.variogram(v, vgm("Sph"))
 plot(v, model = m)
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-37-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-37-1.pdf)<!-- --> 
 
 We are now able to interpolate our data with krigining, which incorporates the results of our variogram in weighting the effect of sample points in the estimate of a cell value.
 
@@ -1171,7 +779,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-39-1.png)<!-- --> 
 
 
 ## Scenario 8: Yield Prediction (Multiple Linear Regression and other Predictive Models)
@@ -1304,75 +912,45 @@ head(county_climates_wide)
 
 First, lets plot the locations of our hybrid trials:
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-43-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-43-1.png)<!-- --> 
 We see our trials were conducted mostly in northern Iowa and southern Minnesota, but also in several other states.  We will want to constrain our predictions to counties in this general area.  That requires a few steps that we didn't cover this semester (the very curious can look up "convex hulls").  Our county dataset has been limited to the appropriate counties for our predictions:
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-44-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-44-1.png)<!-- --> 
 
 Our next step is to develop our random forest model to predict yield.  Recall that the predictor variables in a random forest model are called features.  Our data has the following features:
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> attribute </th>
-   <th style="text-align:left;"> description </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> clay </td>
-   <td style="text-align:left;"> % clay </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> om </td>
-   <td style="text-align:left;"> % organic matter </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> prcp_0_500 </td>
-   <td style="text-align:left;"> precip from 0 to 500 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> prcp_1001_1500 </td>
-   <td style="text-align:left;"> precip from 1001 to 1500 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> prcp_1501_2000 </td>
-   <td style="text-align:left;"> precip from 1501 to 2000 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> prcp_501_1000 </td>
-   <td style="text-align:left;"> precip from 501 to 1000 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> sand </td>
-   <td style="text-align:left;"> % sand </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> silt </td>
-   <td style="text-align:left;"> % silt </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tmean_0_500 </td>
-   <td style="text-align:left;"> mean temp from 0 to 500 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tmean_1001_1500 </td>
-   <td style="text-align:left;"> mean temp from 1001 to 1500 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tmean_1501_2000 </td>
-   <td style="text-align:left;"> mean temp from 1501 to 2000 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> tmean_501_1000 </td>
-   <td style="text-align:left;"> mean temp from 501 to 1000 GDD </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> whc </td>
-   <td style="text-align:left;"> water holding capacity </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{l|l}
+\hline
+attribute & description\\
+\hline
+clay & \% clay\\
+\hline
+om & \% organic matter\\
+\hline
+prcp\_0\_500 & precip from 0 to 500 GDD\\
+\hline
+prcp\_1001\_1500 & precip from 1001 to 1500 GDD\\
+\hline
+prcp\_1501\_2000 & precip from 1501 to 2000 GDD\\
+\hline
+prcp\_501\_1000 & precip from 501 to 1000 GDD\\
+\hline
+sand & \% sand\\
+\hline
+silt & \% silt\\
+\hline
+tmean\_0\_500 & mean temp from 0 to 500 GDD\\
+\hline
+tmean\_1001\_1500 & mean temp from 1001 to 1500 GDD\\
+\hline
+tmean\_1501\_2000 & mean temp from 1501 to 2000 GDD\\
+\hline
+tmean\_501\_1000 & mean temp from 501 to 1000 GDD\\
+\hline
+whc & water holding capacity\\
+\hline
+\end{tabular}
 
 GDD are growing degree days accumulated from the historical average date at which 50% of the corn crop has been planted in each county.  For example, prcp_0_500 is the cumulative precipitation from 0 to 500 GDD after planting.  This would correspond with germination and seedling emergence.
 
@@ -1457,7 +1035,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-50-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-50-1.png)<!-- --> 
 Our hybrid is predicted to yield best in northern Iowa, southern Minnesota, Wisconsin, and Northern Illinois.  It is predicted to perform less well in Western Ohio and Kansas.
 
 One last question: of our features, which had the greatest effect on the yield of this hybrid?  We can answer that by running the vip() function with our model.
@@ -1468,7 +1046,7 @@ library(vip)
 vip(hybridFit)
 ```
 
-<img src="14-Putting-It-All_together_files/figure-html/unnamed-chunk-51-1.png" width="672" />
+![](14-Putting-It-All_together_files/figure-latex/unnamed-chunk-51-1.pdf)<!-- --> 
 
 We see that mean temperature during later-vegetative (1001-1500 GDD) and reproductive (1501-2000 GDD) phases had the most effect in our model, followed by clay content.
 

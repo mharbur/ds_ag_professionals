@@ -242,7 +242,7 @@ yield_predictors = counties_mn_wi %>%
 plot(yield_predictors)
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 To use the matrix, find the intersection between a column and a row containing two variables whose relationship you want to inspect.  For example, in the fourth column, clay is plotted in relationship to the four other predictor variables, plus the response corn, in our model.  In each plot, clay is on the X-axis, and the intersecting variable is on the Y-axis.  Looking at the matrix, we notice the relationship of clay with sand and soil pH (sph) is visible.  We may wonder, then, if the addition of clay to our model is improving our prediction.
 
@@ -554,7 +554,7 @@ exponential_final %>%
 ## Warning: Removed 8 rows containing missing values (geom_smooth).
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-14-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-14-1.pdf)<!-- --> 
 
 Instead, we can fit the data with an exponential model that reduces the bias and increases the precision of our model:
 
@@ -574,7 +574,7 @@ exponential_final %>%
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
 
 
 ### Fitting Nonlinear Responses with Linear Regression
@@ -649,7 +649,7 @@ exponential_final %>%
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-18-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-18-1.pdf)<!-- --> 
 
 We can now fit a linear model to the relationship between infected plants and days after infection.
 
@@ -741,7 +741,7 @@ plant_density_data %>%
   geom_point()
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 The quadratic model is:
 
@@ -837,7 +837,7 @@ test_data$pred = predict(corn_n_mono_asym, test_data)
 p + geom_line(data = test_data, aes(x=n_rate, y=pred), color="tomato")
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-26-1.pdf)<!-- --> 
 
 In the plot above, the points represent observed values, while the red line represents the values predicted by the monomolecular model.  The monomolecular function is often used to represent fertilizer rate or soil nutrient content, since the response to many fertilizers plateaus or "maxes out".  Fertilizer rate recommendations are developed to increase fertilization up to the point where the cost of adding another unit of fertilizer exceeds the benefit of the increase in yield.  The monomolecular function can also measure other "diminishing returns" responses, such as the response of photosynthesis to increasing leaf area.
 
@@ -857,7 +857,7 @@ p_soy = soybean_tdm %>%
 p_soy
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
 
 The "S" shape of the data is very pronounced.  Next, we fit a logistic growth curve to the data:
 
@@ -897,7 +897,7 @@ test_data_soy$pred = predict(soybean_tdm_model, test_data_soy)
 p_soy + geom_line(data = test_data_soy, aes(x=dae, y=pred), color="tomato")
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-29-1.pdf)<!-- --> 
 
 We can see this again illustrated in the next plot, which illustrates the effect of wetting period on the intensity of wheat blast. 
 
@@ -911,7 +911,7 @@ p_wheat = wheat_blast %>%
 p_wheat
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
   
 We fit the data with the logistic model.
 
@@ -948,7 +948,7 @@ test_data_wheat_log$pred = predict(wheat_blast_model_logist, test_data_wheat_log
 p_wheat + geom_line(data=test_data_wheat_log, aes(x=wetting_period, y=pred), color="tomato")
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-32-1.pdf)<!-- --> 
 
 
 #### Starting Variable Values
@@ -1181,7 +1181,7 @@ We can now plot our covariance matrix.
 plot(variables_of_interest)
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-42-1.pdf)<!-- --> 
 
 Right away, we notice a strong relationship between sand and silt. Sand might also be associated with organic matter.  Other potential relationships include precipitation and organic matter, or clay and sand.  Next, we will use partial correlations to quantify the strength of correlations between predictor variables.  
 
@@ -1775,7 +1775,7 @@ p = silage %>%
 p
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-74-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-74-1.pdf)<!-- --> 
 
 Now, let's fit our nonlinear model. The next line of code is particularly ugly, but you can largely plug-and-play with it.  
 
@@ -1950,7 +1950,7 @@ p +
   geom_line(data = silage_predicted, aes(x=population, y=yield), color="tomato")
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-78-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-78-1.pdf)<!-- --> 
 
 
 ### Case Study 2: Logistic Data
@@ -1982,7 +1982,7 @@ pV = velvetleaf %>%
 pV
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-80-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-80-1.pdf)<!-- --> 
 
 Next, we need to fit our nonlinear function to the data.  Similar to the monomolecular function, this is an ugly model, but all you need to know is how to switch out variables so it can fit your dataset.
 
@@ -2099,7 +2099,7 @@ pV +
   geom_line(data = velvetleaf_predicted, aes(x=gdd, y=la), color="tomato")
 ```
 
-<img src="11-Multiple-Linear-and-Nonlinear-Regression_files/figure-html/unnamed-chunk-84-1.png" width="672" />
+![](11-Multiple-Linear-and-Nonlinear-Regression_files/figure-latex/unnamed-chunk-84-1.pdf)<!-- --> 
 
 
 

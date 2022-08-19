@@ -156,7 +156,7 @@ means_plot +
   geom_text(aes(x = Nitrogen + 0.06, y = Yield, label = Yield), size = 5)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 Ta da: our line plot.  If we were to write this as a linear equation, it would be:
 
@@ -213,7 +213,7 @@ means_plot + geom_point(data = centered_original_data_by_trt, aes(x = Nitrogen, 
 ## Warning: Ignoring unknown aesthetics: label
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 The blue points still represent the treatment mean, and the black line represents the difference between treatments.  The red points are the original data -- note how they are distributed around each treatment mean.  Any individual observation is going to add to or subtract from its treatment mean.  The value which each point adds to the treatment mean is show to the right of the point.  This is the error effect for that observation. 
 
@@ -227,7 +227,7 @@ centered_original_data_by_trt %>%
   geom_hline(aes(yintercept = 0), size=1)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 This kind of plot is often called a *residual plot*, because the error can be thought of as the unexplained, leftover (ie "residue") effect after the population mean and and treatment effects are accounted for.  When a correct model is fit to the data, about half the observations for each treatment should be greater than zero, and half below zero.  The residual plot is a valuable tool to inspect and verify this assumption.
 
@@ -290,7 +290,7 @@ grid.brackets(95, 200, 95, 370, h=0.05, lwd=2, col="red")
 grid.brackets(370, 100, 370, 285, h=0.05, lwd=2, col="red")
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 
 
@@ -334,7 +334,7 @@ library(fastGraph)
 shadeDist(xshade=c(-2.3, 2.3), "dt", parm2 = 9, lower.tail = TRUE)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 What does a P-value of 0.047 mean?  It means the probability of us measuring this value, by dumb luck, when the true population mean is 0, is about 4.7%.  Put another way, given the standard error we observed, if the true population mean was zero, we would observe a value equal to or more than 2.3 units away from the mean in less than 5 out of 100 trials.
 
@@ -405,7 +405,7 @@ alpha_05_2side = qt(0.975, 4)
 shadeDist(xshade=c(-alpha_05_2side, alpha_05_2side), "dt", parm2 = 4, lower.tail = TRUE)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 If either $t\le-2.78$ or $t\ge-2.78$ (either of the red areas above), we declare the two populations different.  In other words, the observed t-value can occur in either of the two tails and be significant.  Accordingly, we refer to this as a two-tailed test.
 
@@ -419,7 +419,7 @@ alpha_05_1side = qt(0.975, 4)
 shadeDist(xshade=alpha_05_1side, "dt", parm2 = 4, lower.tail = FALSE)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 Only if the measured t-value falls in the upper tail will the population that receives the new fungicide be considered significantly better than the population that received the old fungicide. We therefor -- you guessed it! -- refer to this test as a one-tailed test.
 
@@ -433,7 +433,7 @@ alpha_05_1side = qt(0.95, 4)
 shadeDist(xshade=alpha_05_1side, "dt", parm2 = 4, lower.tail = FALSE)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 The implication is that the minimum difference between populations to be significant at an alpha=0.05 is lesser than for a two-tailed test.
 
@@ -495,7 +495,7 @@ ggplot(barley_effects) +
   scale_x_continuous(breaks=c(1:10))
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-12-1.png" width="1152" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
 
 If this plot is too big to fit comfortably on this screen, remember you can knit this code using the menu immediately above this window, and either view it in HTML or print it out to use.
 
@@ -516,7 +516,7 @@ The error effect above is an example of a *random effect*.  Its value varies fro
 hist(barley_effects$error_effect)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
 
 ```r
 mean(barley_effects$error_effect)
@@ -615,7 +615,7 @@ ggplot(groundnut_effects) +
   scale_x_continuous(breaks=c(1:10))
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-15-1.png" width="1152" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-15-1.pdf)<!-- --> 
 
 Model plots 1, 5, and 6, using the linear model as we did above.
 
@@ -639,7 +639,7 @@ alpha_05_2side = qt(0.975, 9)
 shadeDist(c(-alpha_05_2side, alpha_05_2side), "dt", parm2 = 9, lower.tail = TRUE)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-16-1.pdf)<!-- --> 
 
 In a one-sided test, a lower difference, between treatments, 1.83, is required for significance at the p < 0.05 level.  
 
@@ -649,7 +649,7 @@ alpha_05_1side = qt(0.95, 9)
 shadeDist(xshade=alpha_05_1side, "dt", parm2 = 9, lower.tail = FALSE)
 ```
 
-<img src="05-Understanding-Statistical-Tests_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](05-Understanding-Statistical-Tests_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
 
 ### Case Study: Groundnut
 In this study, the wet weight of groundnut, in kg/plot, was measured for two genotypes, coded A and C.  The plots were paired.

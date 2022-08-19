@@ -54,7 +54,7 @@ library(sf)
 plot(yield["yield_bu"])
 ```
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 ## The Normal Distribution Model
 
@@ -130,7 +130,7 @@ library(fastGraph)
 plotDist("dnorm", yield_mean, yield_sd)
 ```
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 Let's now shade the area underneath the normal curve corresponding to X values from 70 - 80. This area will represent the proportion of the population where individuals were measured to have values between 70 and 80 bushels. We will use a function in R called `shadeDist` to do this. You will learn more about this function this lesson in the exercise section.
 
@@ -139,7 +139,7 @@ Let's now shade the area underneath the normal curve corresponding to X values f
 shadeDist(xshade=c(70,80), ddist = "dnorm", yield_mean, yield_sd, lower.tail = FALSE)
 ```
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 Pretty cool, huh? The red area is the proportion of the soybean yield population that was between 70 and 80 bushels/acre. At the top of the output, `shadeDist` has also reported the proportion of the curve represented by that area, which it has labelled *Probability*. The probability in this case is 0.3722. What does that number mean?
 
@@ -190,29 +190,29 @@ We will talk more about sampling in the next unit.
 
 The relationship between probability and the normal distribution curve is based on the concept of the Z-distribution. In essence, the **Z-distribution** describes a normal distribution curve with a population mean of 0 and a standard deviation of 1.
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 The Z-distribution helps us understand how probability relates to standard deviation in a normal distribution, regardless of the nature of a study or its measurement units.
 
 For example, the proportion of a population within one standard deviation of the mean is about 68 percent:
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 Similarly, the proportion of a population within 1.96 standard deviations of the mean is about 95 percent:
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 Conversely, the proportion of a population beyond 1.96 standard deviations from the mean is about 5 percent.
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 We refer to the upper and lower ends of the distribution as **tails**. In a normal distribution we would expect about 2.5% of observations to less than -1.96 standard deviations of the mean.
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-12-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-12-1.pdf)<!-- --> 
 
 And 2.5% of the population to be more than +1.96 above the mean:
 
-<img src="02-Distributions-and-Probability_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](02-Distributions-and-Probability_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
 
 ### Important Numbers: 95% and 5%
 

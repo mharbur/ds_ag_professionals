@@ -110,7 +110,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-1-1.png)<!-- --> 
 
 Next up, here is a plot of percentage sand. This is a fascinating map.  We can see the path of the glaciers down through Iowa and the Des Moines lobe.  Areas with low sand (red below) are largely below the southern reach of the glacier.  These areas tend to be high in silt.  Conversely, we can see the outwash areas (green below) of the Nebraska Sand Hills, central Minnesota, northern Wisconsin, and Western Michigan, where rapid glacial melting sorted parent material, leaving them higher in sand and rock fragments.
 
@@ -136,7 +136,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-2-1.png)<!-- --> 
 
 We can continue looking at different variables, and through that process might arrive at a general conclusions.  Counties that are further south or east tend to receive greater precipitation and more growing degree days (GDD). Counties that are further north and east tend to have more sand and less silt or clay in their soils.
 
@@ -171,78 +171,32 @@ cluster_vars_only %>%
 ##   print.webshot webshot2
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> cum_gdd </th>
-   <th style="text-align:right;"> ppt </th>
-   <th style="text-align:right;"> clay </th>
-   <th style="text-align:left;"> geometry </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 3140.368 </td>
-   <td style="text-align:right;"> 598.4478 </td>
-   <td style="text-align:right;"> 33.73933 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-94.70063 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 3145.911 </td>
-   <td style="text-align:right;"> 609.1156 </td>
-   <td style="text-align:right;"> 34.32862 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-94.92759 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2633.780 </td>
-   <td style="text-align:right;"> 599.4642 </td>
-   <td style="text-align:right;"> 28.56537 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-91.61083 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 3241.873 </td>
-   <td style="text-align:right;"> 659.3385 </td>
-   <td style="text-align:right;"> 37.16523 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-93.09759 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2989.952 </td>
-   <td style="text-align:right;"> 598.6462 </td>
-   <td style="text-align:right;"> 30.46776 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-95.09286 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2869.339 </td>
-   <td style="text-align:right;"> 606.5850 </td>
-   <td style="text-align:right;"> 26.67489 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-92.29879 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2796.425 </td>
-   <td style="text-align:right;"> 612.5765 </td>
-   <td style="text-align:right;"> 21.99091 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-92.55449 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2971.723 </td>
-   <td style="text-align:right;"> 611.0333 </td>
-   <td style="text-align:right;"> 21.81959 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-94.1647 42... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2727.186 </td>
-   <td style="text-align:right;"> 618.2398 </td>
-   <td style="text-align:right;"> 21.67287 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-92.55421 4... </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2683.756 </td>
-   <td style="text-align:right;"> 620.8813 </td>
-   <td style="text-align:right;"> 21.66446 </td>
-   <td style="text-align:left;"> MULTIPOLYGON (((-92.08166 4... </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|r|r|l}
+\hline
+cum\_gdd & ppt & clay & geometry\\
+\hline
+3140.368 & 598.4478 & 33.73933 & MULTIPOLYGON (((-94.70063 4...\\
+\hline
+3145.911 & 609.1156 & 34.32862 & MULTIPOLYGON (((-94.92759 4...\\
+\hline
+2633.780 & 599.4642 & 28.56537 & MULTIPOLYGON (((-91.61083 4...\\
+\hline
+3241.873 & 659.3385 & 37.16523 & MULTIPOLYGON (((-93.09759 4...\\
+\hline
+2989.952 & 598.6462 & 30.46776 & MULTIPOLYGON (((-95.09286 4...\\
+\hline
+2869.339 & 606.5850 & 26.67489 & MULTIPOLYGON (((-92.29879 4...\\
+\hline
+2796.425 & 612.5765 & 21.99091 & MULTIPOLYGON (((-92.55449 4...\\
+\hline
+2971.723 & 611.0333 & 21.81959 & MULTIPOLYGON (((-94.1647 42...\\
+\hline
+2727.186 & 618.2398 & 21.67287 & MULTIPOLYGON (((-92.55421 4...\\
+\hline
+2683.756 & 620.8813 & 21.66446 & MULTIPOLYGON (((-92.08166 4...\\
+\hline
+\end{tabular}
 Here are those same 10 counties, with their values for cum_gdd, ppt, and clay scaled.  One of the easiest ways to scale the data are to convert their original values to Z-scores, based on their normal distributions.  We do this exactly the way we calculated Z-scores in Unit 2.
 
 We can see, for each variable, values fall mainly between -1 and 1.
@@ -332,32 +286,18 @@ kmean_silt_gdd$centers %>%
   kableExtra::kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> cluster </th>
-   <th style="text-align:right;"> cum_gdd </th>
-   <th style="text-align:right;"> silt </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> -0.0809096 </td>
-   <td style="text-align:right;"> 0.6244699 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 1.2183990 </td>
-   <td style="text-align:right;"> 1.1785995 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> -0.6229289 </td>
-   <td style="text-align:right;"> -0.9538640 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{l|r|r}
+\hline
+cluster & cum\_gdd & silt\\
+\hline
+1 & -1.3045471 & -1.1556767\\
+\hline
+2 & -0.2557197 & 0.2991182\\
+\hline
+3 & 1.0860757 & 0.9984785\\
+\hline
+\end{tabular}
 The table above contains the final center estimates from the cluster algorithm.  Cluster 1 is warmer and has siltier soil.  Cluster 2 has medium numbers of growing degree days and silt.  Cluster 3 is cooler and has soils lower in clay.
 
 ### County Cluster Analysis
@@ -372,48 +312,18 @@ clusters$centers %>%
   kableExtra::kbl() 
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> whc </th>
-   <th style="text-align:right;"> sand </th>
-   <th style="text-align:right;"> silt </th>
-   <th style="text-align:right;"> clay </th>
-   <th style="text-align:right;"> om </th>
-   <th style="text-align:right;"> ppt </th>
-   <th style="text-align:right;"> cum_gdd </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> -0.0152348 </td>
-   <td style="text-align:right;"> 0.1147455 </td>
-   <td style="text-align:right;"> -0.3219194 </td>
-   <td style="text-align:right;"> 0.2808926 </td>
-   <td style="text-align:right;"> 0.1693996 </td>
-   <td style="text-align:right;"> -0.7947552 </td>
-   <td style="text-align:right;"> -0.6478638 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 0.4188589 </td>
-   <td style="text-align:right;"> -0.7234396 </td>
-   <td style="text-align:right;"> 0.7811347 </td>
-   <td style="text-align:right;"> 0.4051389 </td>
-   <td style="text-align:right;"> -0.4065930 </td>
-   <td style="text-align:right;"> 0.7064892 </td>
-   <td style="text-align:right;"> 0.7585691 </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> -1.0435272 </td>
-   <td style="text-align:right;"> 1.6497023 </td>
-   <td style="text-align:right;"> -1.4394576 </td>
-   <td style="text-align:right;"> -1.5196343 </td>
-   <td style="text-align:right;"> 0.7460924 </td>
-   <td style="text-align:right;"> -0.4326339 </td>
-   <td style="text-align:right;"> -0.8192046 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|r|r|r|r|r|r}
+\hline
+whc & sand & silt & clay & om & ppt & cum\_gdd\\
+\hline
+-0.0152348 & 0.1147455 & -0.3219194 & 0.2808926 & 0.1693996 & -0.7947552 & -0.6478638\\
+\hline
+0.4188589 & -0.7234396 & 0.7811347 & 0.4051389 & -0.4065930 & 0.7064892 & 0.7585691\\
+\hline
+-1.0435272 & 1.6497023 & -1.4394576 & -1.5196343 & 0.7460924 & -0.4326339 & -0.8192046\\
+\hline
+\end{tabular}
 
 
 ```r
@@ -446,52 +356,18 @@ centers %>%
   kableExtra::kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> cluster </th>
-   <th style="text-align:left;"> clay_class </th>
-   <th style="text-align:left;"> gdd_class </th>
-   <th style="text-align:left;"> om_class </th>
-   <th style="text-align:left;"> ppt_class </th>
-   <th style="text-align:left;"> sand_class </th>
-   <th style="text-align:left;"> silt_class </th>
-   <th style="text-align:left;"> whc_class </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 1 </td>
-   <td style="text-align:left;"> ave </td>
-   <td style="text-align:left;"> low </td>
-   <td style="text-align:left;"> ave </td>
-   <td style="text-align:left;"> low </td>
-   <td style="text-align:left;"> ave </td>
-   <td style="text-align:left;"> ave </td>
-   <td style="text-align:left;"> ave </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2 </td>
-   <td style="text-align:left;"> ave </td>
-   <td style="text-align:left;"> high </td>
-   <td style="text-align:left;"> ave </td>
-   <td style="text-align:left;"> high </td>
-   <td style="text-align:left;"> low </td>
-   <td style="text-align:left;"> high </td>
-   <td style="text-align:left;"> ave </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 3 </td>
-   <td style="text-align:left;"> low </td>
-   <td style="text-align:left;"> low </td>
-   <td style="text-align:left;"> high </td>
-   <td style="text-align:left;"> ave </td>
-   <td style="text-align:left;"> high </td>
-   <td style="text-align:left;"> low </td>
-   <td style="text-align:left;"> low </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|l|l|l|l|l|l|l}
+\hline
+cluster & clay\_class & gdd\_class & om\_class & ppt\_class & sand\_class & silt\_class & whc\_class\\
+\hline
+1 & ave & low & ave & low & ave & ave & ave\\
+\hline
+2 & ave & high & ave & high & low & high & ave\\
+\hline
+3 & low & low & high & ave & high & low & low\\
+\hline
+\end{tabular}
 We can now plot our clusters on a map.  Cluster 1, which has a greater growing degree days, precipitation and silt, accounts for much of the lower third of our map.  Cluster 2, which has lower growing degree days and precipitation, accounts for most of northwestern quarter of counties.  Cluster 3, which is most remarkable for its higher sand content, accounts for parts of Nebraska, central Wisconsin and counties to the south and east of Lake Michigan.
   
 
@@ -529,7 +405,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-10-1.png)<!-- --> 
 
 
 
@@ -609,7 +485,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-13-1.png)<!-- --> 
 
 ### Scaling
 Remember, kNN analysis is like cluster analysis in that it is based on the *distance* between observations.  kNN seeks to identify $k$ neighbors that are most similar to the individual for whom we are trying to predict the missing value.  
@@ -775,7 +651,7 @@ testData %>%
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-17-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-17-1.pdf)<!-- --> 
 
 We can see the predicted and actual yields are strongly correlated, as evidenced by their linear distribution and proximity to the regression line.  The regression model statistics are shown below.
 
@@ -794,22 +670,14 @@ glance(model) %>%
   kableExtra::kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> r.squared </th>
-   <th style="text-align:right;"> sigma </th>
-   <th style="text-align:right;"> p.value </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 0.785811 </td>
-   <td style="text-align:right;"> 10.35285 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|r|r}
+\hline
+r.squared & sigma & p.value\\
+\hline
+0.785811 & 10.35285 & 0\\
+\hline
+\end{tabular}
 Above are select statistics for our model.  We see the r.squared, about 0.83 is even better greater than in our cross-validation.  Sigma, the standard deviation, is smaller than in the validation, barely 9 bushels.  Finally, we see the significance of our model is very, very small, meaning the relationship between predicted and actual yield was very strong.  
 
 
@@ -844,7 +712,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-20-1.png)<!-- --> 
 
 
 
@@ -957,7 +825,7 @@ fit = ctree(classes ~., data=x,
 plot(fit)
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
 
 Cumulative growing degree days (cum_gdd) was selected as the root, and the threshold or split value was approximately 2198 GDD.  Counties where the cumulative GDD was less than this threshold tended to have yields in the lower two classes; above this threshold, counties tended to have yields in the greater two classes.
 
@@ -973,7 +841,7 @@ fit = ctree(classes ~., data=x,
 plot(fit)
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 Our tree now has three parts.  The root was discussed before.  At the bottom of the tree, we have four nodes: Node 3, Node 4, Node 6, and Node 7.  These represent the final groupings of our data.
 
@@ -995,7 +863,7 @@ fit = ctree(classes ~., data=x,
 plot(fit)
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-23-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-23-1.pdf)<!-- --> 
 
 
 
@@ -1010,7 +878,7 @@ fit = ctree(corn ~., data=trainData,
 plot(fit)
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
 
 When we add a second level to our tree, we see that observations where precipitation was less than or equal to about 446.5 mm/season, the data was next split by cum_gdd.  Counties with a cum_gdd les than about 2198 had lower yields than counties with a cum_gdd > 2198.  
 
@@ -1023,7 +891,7 @@ fit <- ctree(corn ~ ., data=trainData,
 plot(fit)
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
 
 Like before, we can continue adding branches, although our virtual interpretation of the data will become more challenging.
 
@@ -1096,7 +964,7 @@ testData %>%
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
 
 
 ```r
@@ -1169,7 +1037,7 @@ testData %>%
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-30-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-30-1.pdf)<!-- --> 
 
 
 ```r
@@ -1214,7 +1082,7 @@ library(vip)
 vip(rfFit)
 ```
 
-<img src="13-Machine-Learning_files/figure-html/unnamed-chunk-32-1.png" width="672" />
+![](13-Machine-Learning_files/figure-latex/unnamed-chunk-32-1.pdf)<!-- --> 
 
 After that, we might wonder whether soil biology or texture might be the next most important feature.  Our feature importance ranking suggests that organic matter is slightly more important than clay, followed by water holding capacity.  We might infer that soil fertility which increases with organic matter and clay, was more important than drainage, which would be predicted by water holding capacity and our last variable, sand.
 

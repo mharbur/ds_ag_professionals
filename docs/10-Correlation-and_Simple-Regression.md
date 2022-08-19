@@ -70,7 +70,7 @@ ggplot(cucumber, aes(x=branches, y = leaves)) +
   geom_point()
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 We don't know whether leaves cause more branches.  You might argue that more branches provide more places for leaves to form.  But you could equally argue that the number of leaves affects the production of photosynthates for additional branching.
 
@@ -82,7 +82,7 @@ ggplot(cucumber, aes(x=branches, y=earlyfruit)) +
   geom_point()
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 In both cases, we can see that as one variable increases, so does the other.  But we don't know whether the increase in one causes the increase in the other, or whether there is another variable (measured or unmeasured, that causes both to increase).`
 
@@ -136,7 +136,7 @@ require(gridExtra)
 grid.arrange(plot1, plot2, ncol=2)
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 
 ### How Is r Calcuated (optional reading)
@@ -185,7 +185,7 @@ ggplot(distance_example, aes(x=x, y=y, group=id, label = euclidian_distance)) +
   theme(legend.position = "none")
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 Conversely, in the plot below, each point is the same Euclidean distance (4 units) from the origin ($x=0,y=0$).  The Manhattan distance is shown beside each point.  We can see the Manhattan distance is greatest when the point is at a 45 degree angle from the origin.
 
@@ -211,7 +211,7 @@ ggplot(distance_example_2, aes(x=x, y=y, group=id, label = manhattan_distance)) 
   theme(legend.position = "none")
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 The calculation of the correlation coefficient, $r$, depends on this concept of *covariance* between $x$ and $y$.  The covariance is calculated as:
 
@@ -233,7 +233,7 @@ ggplot(cucumber_cov, aes(x= branches_delta, y=leaves_delta)) +
   lims(x=c(-100, 100), y=c(-700, 700))
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 What we have now are four quandrants.  The differences between them are important important because they affect the *sign* of the covariance.  Remember, the covariance of each point is the product of the x-distance and the y-distance of each point.  
 
@@ -250,7 +250,7 @@ ggplot(cucumber_cov, aes(x= branches_delta, y=leaves_delta)) +
   lims(x=c(-100, 100), y=c(-700, 700))
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 In quadrant I, both the x-distance and y-distance are positive, so their product will be positive.  In quadrant II, the x-distance is still positive but the y-distance is negative, so their product will be negative.  In quadrant III, both x-distance and y-distance are negative, so their negatives will cancel each other and the product will be positive.  Finally, quadrant IV, will have a positve x-distance and negative y-distance and have a negative sign.  
 
@@ -267,7 +267,7 @@ ggplot(cucumber_cov, aes(x= branches_delta, y=leaves_delta)) +
   lims(x=c(-100, 100), y=c(-700, 700))
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 Enough already!  How does all this determine r?  It's simple -- the stronger the association between x and y, the more linear the arrangement of the observations in the plot above.  The more linear the arrangement, the more the points will be in diagonal quadrants.  In the plot above, any observations that fall in quadrant I or III will contribute to the positive value of r.  Any points that fall in quadrants II or IV will subtract from the value or r.
 
@@ -327,7 +327,7 @@ ggplot(data=nitrogen, aes(x=nitro, y=yield)) +
   geom_point()
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 We can see that nitrogen waw applied at three rates.  It is easy to check these five rates using the unique command in R.
 
@@ -365,7 +365,7 @@ ggplot(data=nitrogen, aes(x=nitro, y=yield)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-13-1.pdf)<!-- --> 
 
 The blue line represents the regression model for the relationship between yield and nitro.  Of course, it would be nice to see the linear equation as well, which we can estimate using the *lm()* function of R.
 
@@ -425,7 +425,7 @@ ggplot(data=nitrogen_final, aes(x=nitro, y=yield)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-16-1.png" width="768" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-16-1.pdf)<!-- --> 
 
 In the plot above, the distances of each the four points to the regression line are highlighted by arrows.  The arrows are staggered ("jittered", in plot lingo) so you can see them more easily.  Note how the line falls closely to the middle of the points at each level of R.
 
@@ -576,7 +576,7 @@ library(ggResidpanel)
 resid_panel(regression_model, plots = "resid")
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-20-1.pdf)<!-- --> 
 
 In my mind, the residual plot is roughly equivalent to taking the regression plot above and shifting it so the regression line is horizontal.  There are a few more differences, however.  The horizontal axis is the y-value predicted by the model for each value of x.  The vertical axis is the standardized difference (the actual difference divided by the mean standard deviation across all observations) of each observed value from that predicted for it.  The better the regression model fits the observations the closer the points will fall to the blue line.   
 
@@ -592,7 +592,7 @@ ggplot(complete_nitrogen, aes(x=nitro, y=yield)) +
   geom_point()
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-21-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-21-1.pdf)<!-- --> 
 
 We can see the complete dataset does not follow a linear pattern.  What would a regression line, fit to this data, look like?
 
@@ -607,7 +607,7 @@ ggplot(complete_nitrogen, aes(x=nitro, y=yield)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-22-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-22-1.pdf)<!-- --> 
 
 We can see how the regression line appears seems to overpredict the observed values for at low and high values of nitrogen and underpredict the intermediat values.
 
@@ -658,7 +658,7 @@ The model is still highly significant, even though it is obvious it doesn't fit 
 resid_panel(bad_model, plots="resid")
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-24-1.pdf)<!-- --> 
 
 As we expect, there is a clear pattern to the data.  It curves over the regression line and back down again.  If we want to model the complete nitrogen response curve, we will need to use a nonlinear model, which we will learn in the next unit.  
 
@@ -678,7 +678,7 @@ ggplot(regression_model, aes(x=nitro, y=yield)) +
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-25-1.pdf)<!-- --> 
 
 The dark grey area around the line represents the standard error of the prediction.  The least error in our estimated regression line – and the error in any prediction made from it occurs closer at $\bar{x}$.  As the distance from $\bar{x}$ increases, so does the uncertainty of the Y-value predicted from it.  At first, that increase in uncertainty is small, but it increases rapidly as we approach the outer data points fit with the model.  
 
@@ -721,7 +721,7 @@ The first thing we want to do is to examine our data with a scatterplot.  The qu
 plot(allometry)
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-27-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-27-1.pdf)<!-- --> 
 
 This is called a *scatterplot matrix*.  The variable listed in each column defines the position of the points on the X axis for every plot in that column.  The variable listed in each row defines the position of the points on the Y axis for every plot in that row.  So if we look at the plot directly to the right of yield second plot from left in top column column, its Y-axis is yield and its X axis is total leaves (total leaf biomass).
 
@@ -734,7 +734,7 @@ allometry %>%                                 # the data frame to feed to ggplot
   geom_point()                                # tells ggplot to plot points instead of another shape (geom)
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-28-1.pdf)<!-- --> 
 
 What can we see in this plot?  Yield and total leaves seel to be correlated.  As total_leaves increased, so did yield.
 
@@ -878,7 +878,7 @@ An important step that is easy to forget (in fact, I almost did just now) is to 
 plot(model_yield_total_leaves, which=1)  # the "which=1" argument tells R to plot the residuals
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-35-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-35-1.pdf)<!-- --> 
 
 The red line is not a linear regression line, but a LOESS (locally estimated scatterplot smoothing) -- a nonlinear model that can bend to fit the data more closely.  If a linear model is appropriate to fit the relationship between Y and X, the red line will be close to (but rarely exactly) linear.  The above plot suggests linear regression is appropriate.  What we want to beware of is a red line that rises way above zero on either end and dips way below zero in the middle, or vice versa.  Those scenarios suggest the relationship between Y and X may be curvedinstead of linear.
 
@@ -1093,7 +1093,7 @@ model_circumference %>%
 ## `geom_smooth()` using formula 'y ~ x'
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-51-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-51-1.pdf)<!-- --> 
 
 Above, we first created a scatter plot, based on the stalk circumference and yield associated with each observation.  The first two lines of plot creation, ggplot() and geom_point() shoud be increasingly familiar to you.
 
@@ -1163,7 +1163,7 @@ new_stalk_data %>%
   geom_point()
 ```
 
-<img src="10-Correlation-and_Simple-Regression_files/figure-html/unnamed-chunk-55-1.png" width="672" />
+![](10-Correlation-and_Simple-Regression_files/figure-latex/unnamed-chunk-55-1.pdf)<!-- --> 
 
 ### Practice 1
 What effect does the area of the highest leaf have on yield?  Let's find out.  

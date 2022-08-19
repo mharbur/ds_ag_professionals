@@ -35,7 +35,7 @@ EPSG (EPSG Geodetic Parameter Dataset) is a set of many, many systems used to de
 
 We can map the continental United states using
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 This is the flat map with which most of us are familiar.  Latitude and longitude are drawn as parallel lines on this map.  The map data are in a shapefile, a format we encountered at the beginning of this course.  Let's look at the top few rows of this shapefile.
 
 
@@ -62,18 +62,18 @@ This is a complex dataset, so we will use the Minnesota state boundary as an exa
 ## for which they may not be constant
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-3-1.png)<!-- --> 
 
 Zoom in on Minnesota and click around its borders.  You will notice two things.  First, each point is specified in latitude and longitude. Second, longitude (the first number) is always negative while latitude (the second number) is always positive.
 
 The sign and size of geocordinates in a projection system is defined two things: 1) where it places its origin (its reference point for locating objects on the map) and 2) what measurement units it uses.  In the case of WGS 84, the origin is the intersection of the Prime Meridian and the Equator.  Since all of the continental United States is in the western hemisphere, every state will have a negative longitude and a positive latitude.  Since WGS 84 uses angles, the measurement units will be in degrees, which never exceed the range of (-180, 180) for longitude and (-90,90) for latitude.
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-4-1.png)<!-- --> 
 
 ### Mercator (EPSG: 3857)
 The Mercator System is commonly used to project data onto a sphere.  If you look at the map below, it is very similar (actually related) to the WGS 84 map above but you may be able to see a slight "dome illusion" to the way the map is displayed. This projection is regularly used by online mapping services.
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 Looking at the top few rows of the Minnesota data points, we can see the units are not latitude and longitude.  In this projection, they are easting and northing: measures of the distance east and north of the origin.  Easting and northing are usually measured in meters
 
@@ -98,7 +98,7 @@ The origin for the Mercator projection is again the intersection of Prime Meridi
 
 ### US National Atlas Equal Area (EPSG: 2163)
 As the name suggests, coordinate systems like the US National Atlas Equal Area project data so that the areas of geographic objects are accurate in the map.
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 This system, like the Mercator above, uses northing and easting units.  But whe we look at our Minnesota border coordinates, we now notice our easting vaues are positive!  What happened?
 
@@ -119,7 +119,7 @@ This system, like the Mercator above, uses northing and easting units.  But whe 
 ```
 As you have likely guessed, our origin has change.  For this projection, our origin is in Central South Dakota.
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-9-1.png)<!-- --> 
 
 
 
@@ -127,7 +127,7 @@ As you have likely guessed, our origin has change.  For this projection, our ori
 
 ### UTM Zone 11N (EPSG: 2955)
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-10-1.pdf)<!-- --> 
 
 ```
 ## Simple feature collection with 6 features and 1 field
@@ -161,7 +161,7 @@ Here are the coordinates for the Minnesota border again.
 ## 1.5  Minnesota POINT (2079676 5658008)
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-13-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-13-1.png)<!-- --> 
 
 
 ### Projection Summary
@@ -246,7 +246,7 @@ One of the things we will learn this lesson is to use *Leaflet* to create maps. 
 ## Warning: package 'RColorBrewer' was built under R version 4.1.3
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-16-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-16-1.png)<!-- --> 
 
 
 ### SSURGO
@@ -265,12 +265,12 @@ Here is a SSURGO map of soil organic matter.
 
 
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-19-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-19-1.png)<!-- --> 
 
 
 Here is another map, this time with the percent clay.
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-20-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-20-1.png)<!-- --> 
 
 
 Now that we have our SSURGO data, we can join it with our yield data and ask questions how yields were grouped by quantitative descriptors, such as soil map unit name ("muname"), texture ("texdesc"), drainage class ("drainagecl"), or parent material ("pmkind").
@@ -331,10 +331,10 @@ Say, for example, we applied a foliar fertilizer treatment to part of the field,
 
 
 ```
-## [1] "temp\\file56486d74172b"
+## [1] "temp\\file55b060fd1edd"
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-24-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-24-1.png)<!-- --> 
 
 How might we find out statistics for yield measures within that applied area?
 
@@ -347,7 +347,7 @@ How might we find out statistics for yield measures within that applied area?
 ## [1] 79.74649
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-25-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-25-1.png)<!-- --> 
 
 #### Difference
 What about the yields outside that area?
@@ -357,7 +357,7 @@ What about the yields outside that area?
 ## geometries
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-26-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-26-1.png)<!-- --> 
 
 
 
@@ -372,11 +372,11 @@ mean(field_yield_outside$yield_bu)
 #### Union
 
 What if we had two field plot areas?
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-28-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-28-1.png)<!-- --> 
 
 If we wanted to analyze two areas together, we could use st_union() to combine them:
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-29-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-29-1.png)<!-- --> 
 
 
 
@@ -440,7 +440,7 @@ soil_p_map = leaflet(lzn.kr1[1]) %>%
 
 
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-34-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-34-1.png)<!-- --> 
 
 
 
@@ -454,11 +454,11 @@ In the previous section, we worked with what are often described as vectors or s
 
 A raster is a grid system that we use to describe spatial variation.  In essence, it is a grid system.  Here is the same field we worked with in the previous section, now overlaid with a grid:
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-38-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-38-1.png)<!-- --> 
 
 If you think it looks a little like we took a spreadsheet and trimmed it to fit our field, you are exactly right.  Taking this analogy further, just as a spreadsheet is composed of cells, each containing a different value, so is a raster.  Here it is, filled in with values representing predicted soil P test values:
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-39-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-39-1.png)<!-- --> 
 
 Often, the cells would be colored along a given gradient (say red-yellow-green) according to their values.  This helps us to see spatial trends.
 
@@ -466,16 +466,16 @@ Often, the cells would be colored along a given gradient (say red-yellow-green) 
 ### Interpolation
 To create a raster that represents continuous soil trends across a field, however, we need to do a little modelling.  You see, we start out with a set of soil cores like this:
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-40-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-40-1.png)<!-- --> 
 
 But we are trying to make predictions for each cell of our raster:
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-41-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-41-1.png)<!-- --> 
 Some cells above one measure, others split a measure with a neighboring cell, and yet others contain no measure at all.  In addition, even cells that contain a measure may have it in different locations relative to the cell center.
 
 When we interpolate a raster, we make an educated guess about the values of cells in which no measure was taken, based on the values of the other cells.  In the following example, the middle cell is missing:
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-42-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-42-1.pdf)<!-- --> 
 
 The most basic way to interpolate this missing value would be to estimate it's value as the mean value of all cells adjacent to it (dark grey in plot above).   So the value of the missing cell would be equal to:
 
@@ -533,14 +533,14 @@ Otherwise, this curve is fit with nonlinear regression, just like the others we 
 
 Here is the kridge plot for our soil phosphorus test data.
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-45-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-45-1.pdf)<!-- --> 
 Using this model of the relationship between covariance and distance, then, R can determine how much to weight each observation, based on distance, to estimate values between measurement points.
 
 When we produced our initial raster, the cell size was especially large for simplification of the raster, and to allow the cell values to be shown.  When we build a raster with kriging, however, the cell size can be very small.  This has the effect of getting rid of blockiness and allowing us to better predict and visualize trends in values across the landscape.
 
 Here is our soil phosphorus test map, interpolated by R, using kriging. The red areas are areas of lower P test values.  The green and blue areas have the greatest test values, and the yellow areas are intermediate.
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-46-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-46-1.png)<!-- --> 
 
 ### Operations on Kriged Data
 Of course, to take this example to completion, we would like to know the P-allication rate for each of the cells within our raster.  The University of Minnesota recommended application rate, based on soil P value and yield goal, is:
@@ -553,7 +553,7 @@ $$ P _2 O _5 \text{ recommended rate} = [0.700 - .035 (17)] (\text{200}) = 21$$
 
 Here is the rate recommendation map.
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-47-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-47-1.png)<!-- --> 
 
 The blue areas now have the highest recommended rates.  Yellow are intermediate.  Red areas should receive no P fertilizer.
 
@@ -646,7 +646,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-51-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-51-1.png)<!-- --> 
 
 
 
@@ -666,7 +666,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-52-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-52-1.png)<!-- --> 
 
 
 Next, the blue border detracts from the cells.  We can set its weight to zero so it disappears.
@@ -686,7 +686,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-53-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-53-1.png)<!-- --> 
 
 
 Let's make the points a little smaller using the *radius* argument, so they don't so overwhelm the field.
@@ -706,7 +706,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-54-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-54-1.png)<!-- --> 
 
 
 
@@ -730,7 +730,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-55-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-55-1.png)<!-- --> 
 
 There are thousands of other ways to modify this plot, but this little bit should get you far!
 
@@ -773,7 +773,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-57-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-57-1.png)<!-- --> 
 
 
 
@@ -818,7 +818,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-59-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-59-1.png)<!-- --> 
 
 
 This is the one and only time in this course when I will ask you just to run a chunk of code without explaining it line-by-line.  As long as your spatial feature object (the field shapefile) is named "field", just run this chunk as it is.
@@ -924,7 +924,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-63-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-63-1.png)<!-- --> 
 
 
 
@@ -1017,7 +1017,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-67-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-67-1.png)<!-- --> 
 
 
 #### Build a Grid
@@ -1059,7 +1059,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-70-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-70-1.png)<!-- --> 
 
 We won't be able to see the individual cells -- they are tiny -- but we can see it matches the shape of our field.
 
@@ -1084,7 +1084,7 @@ m = fit.variogram(v, vgm("Sph"))
 plot(v, model = m)
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-71-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-71-1.pdf)<!-- --> 
 The *fit.variogram* function takes two arguments.  The first is the name of the data.frame to which the distance, variance ("gamma"), and other statistics should be saved.
 
 The second argument, vgm("Sph"), tells R to fit the variances with a spherical model.  There are several different models that could be used, but the spherical model is perhaps the most common.
@@ -1132,7 +1132,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-74-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-74-1.png)<!-- --> 
 
 We can now add our raster (stars) image to the map using addStarsImage.  We will set the opacity=0.5 so we can see both the field and the test zones.
 
@@ -1151,7 +1151,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-75-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-75-1.png)<!-- --> 
 
 
 
@@ -1200,7 +1200,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-78-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-78-1.png)<!-- --> 
 
 
 The green areas above are the ones we should "Go" on -- lime should be applied to them.
@@ -1240,7 +1240,7 @@ m = fit.variogram(v, vgm("Sph"))
 plot(v, model = m)
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-81-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-81-1.pdf)<!-- --> 
 
 4) Krige the data and extract the predicted (or interpolated) values,
 
@@ -1269,7 +1269,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-83-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-83-1.png)<!-- --> 
 
 
 
@@ -1298,7 +1298,7 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-85-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-85-1.png)<!-- --> 
 
 
 
@@ -1330,7 +1330,7 @@ m = fit.variogram(v, vgm("Sph"))
 plot(v, model = m)
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-88-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-88-1.pdf)<!-- --> 
 
 4) Krige the data and extract the predicted (or interpolated) values.
 
@@ -1359,5 +1359,5 @@ saveWidget(m, "temp.html", selfcontained = FALSE)
 webshot("temp.html", cliprect = "viewport")
 ```
 
-<img src="12-Spatial-Statistics_files/figure-html/unnamed-chunk-90-1.png" width="672" />
+![](12-Spatial-Statistics_files/figure-latex/unnamed-chunk-90-1.png)<!-- --> 
 

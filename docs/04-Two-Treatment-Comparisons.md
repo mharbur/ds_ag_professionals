@@ -13,11 +13,11 @@ Until now, we have worked with a single population. To recap our progress: -
 
 In this unit, we will finally put our statistical knowledge to work to test treatment differences. We will work with a simple but important experimental design -- the two-treatment comparison. Here in Ohio, this is referred to as a side-by-side trial, but you may have a different term for it where you work. If you work in retail agronomy, you have probably conducted these trials. Typically, you would split one or more fields into treated and untreated fields. For example, you might "stripe" an individual field with treated and untreated areas:
 
-<img src="04-Two-Treatment-Comparisons_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](04-Two-Treatment-Comparisons_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 
 Or, you might divide multiple fields in half like this:
 
-<img src="04-Two-Treatment-Comparisons_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+![](04-Two-Treatment-Comparisons_files/figure-latex/unnamed-chunk-2-1.pdf)<!-- --> 
 
 In either case, a side-by-side trial deals with two treatments and can be analyzed using a t-test. In these next two units we will compare different designs for side-by-side (or paired) trials, use R to randomly assign treatments, understand how the t-distribution allows us to test for significance, and run these tests in R.
 
@@ -31,11 +31,11 @@ It is also important to randomize treatments in order to reduce intentional or u
 
 That said, reality sometimes intervenes intervenes. Soil types change across a field, as do microclimates around field edges and management histories (e.g. an old feedlot). Though randomization reduces the likelihood that treatments are concentrated in one areas, it may not produce as even a distribution of treatments across the experimental area as we would like. We could conceivably end up with all replicates of a treatment level concentrated in one half of the field:
 
-<img src="04-Two-Treatment-Comparisons_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](04-Two-Treatment-Comparisons_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 Similarly, if we are using multiple fields, both halves of a field could receive the same treatment in a randomized design
 
-<img src="04-Two-Treatment-Comparisons_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](04-Two-Treatment-Comparisons_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 **Blocked** experimental designs place a restriction on the random assignment of treatments to plots. Instead of assigning treatments randomly within a field or across a state. We instead force both treatments to occur within a field section or in the same field, so that our treatment maps look more those we showed in the first two figures of this unit.
 
@@ -58,7 +58,7 @@ An in-furrow corn starter (*6-24-6 plus micronutrients*) was tested against a co
 corn_starter = read.csv("data-unit-4/corn_starter.csv")
 ```
 
-<img src="04-Two-Treatment-Comparisons_files/figure-html/unnamed-chunk-6-1.png" width="672" />
+![](04-Two-Treatment-Comparisons_files/figure-latex/unnamed-chunk-6-1.pdf)<!-- --> 
 
 Here are the first six rows of our dataset.
 
@@ -92,7 +92,7 @@ ggplot(data = corn_starter, aes(x=yield)) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="04-Two-Treatment-Comparisons_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](04-Two-Treatment-Comparisons_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 The mean yield of the sample from the population that received starter is greater than the mean yield of the sample of the population that received the control (no starter).
 
@@ -143,7 +143,7 @@ In this new population, individuals with a positive value indicate a block where
 ## Warning: Removed 2 rows containing missing values (geom_bar).
 ```
 
-<img src="04-Two-Treatment-Comparisons_files/figure-html/unnamed-chunk-11-1.png" width="672" />
+![](04-Two-Treatment-Comparisons_files/figure-latex/unnamed-chunk-11-1.pdf)<!-- --> 
 
 Most of the individuals in this new population are greater than 0. The population mean, indicated by the vertical red line, is 5.6 bushels/acre. So far, our starter shows promise: a 5.6 bushel/acre mean *increase* in yield. Of course, this immediately raises the next questions:
 

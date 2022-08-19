@@ -93,7 +93,7 @@ Almost all of you have seen a yield map somewhat like the one below. In
 this map, blue circles represent lower yields, while yellow and orange
 circles represent higher yields.
 
-<img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+![](01-Introduction-and-Population-Statistics_files/figure-latex/unnamed-chunk-1-1.pdf)<!-- --> 
 
 We will learn in the Exercises portion of this lesson how to create a
 map like this using just a few lines of code.
@@ -114,117 +114,24 @@ examine the first 6 rows of the dataset using R.
 ##     group_rows
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:right;"> DISTANCE </th>
-   <th style="text-align:right;"> SWATHWIDTH </th>
-   <th style="text-align:right;"> VRYIELDVOL </th>
-   <th style="text-align:right;"> Crop </th>
-   <th style="text-align:right;"> WetMass </th>
-   <th style="text-align:right;"> Moisture </th>
-   <th style="text-align:left;"> Time </th>
-   <th style="text-align:right;"> Heading </th>
-   <th style="text-align:left;"> VARIETY </th>
-   <th style="text-align:right;"> Elevation </th>
-   <th style="text-align:left;"> IsoTime </th>
-   <th style="text-align:right;"> yield_bu </th>
-   <th style="text-align:left;"> geometry </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:right;"> 0.9202733 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 57.38461 </td>
-   <td style="text-align:right;"> 174 </td>
-   <td style="text-align:right;"> 3443.652 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:left;"> 9/19/2016 4:45:46 PM </td>
-   <td style="text-align:right;"> 300.1584 </td>
-   <td style="text-align:left;"> 23A42 </td>
-   <td style="text-align:right;"> 786.8470 </td>
-   <td style="text-align:left;"> 2016-09-19T16:45:46.001Z </td>
-   <td style="text-align:right;"> 65.97034 </td>
-   <td style="text-align:left;"> POINT (-93.15026 41.66641) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2.6919269 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 55.88097 </td>
-   <td style="text-align:right;"> 174 </td>
-   <td style="text-align:right;"> 3353.411 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:left;"> 9/19/2016 4:45:48 PM </td>
-   <td style="text-align:right;"> 303.6084 </td>
-   <td style="text-align:left;"> 23A42 </td>
-   <td style="text-align:right;"> 786.6140 </td>
-   <td style="text-align:left;"> 2016-09-19T16:45:48.004Z </td>
-   <td style="text-align:right;"> 64.24158 </td>
-   <td style="text-align:left;"> POINT (-93.15028 41.66641) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2.6263101 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 80.83788 </td>
-   <td style="text-align:right;"> 174 </td>
-   <td style="text-align:right;"> 4851.075 </td>
-   <td style="text-align:right;"> 0.00 </td>
-   <td style="text-align:left;"> 9/19/2016 4:45:49 PM </td>
-   <td style="text-align:right;"> 304.3084 </td>
-   <td style="text-align:left;"> 23A42 </td>
-   <td style="text-align:right;"> 786.1416 </td>
-   <td style="text-align:left;"> 2016-09-19T16:45:49.007Z </td>
-   <td style="text-align:right;"> 92.93246 </td>
-   <td style="text-align:left;"> POINT (-93.15028 41.66642) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2.7575437 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 71.76773 </td>
-   <td style="text-align:right;"> 174 </td>
-   <td style="text-align:right;"> 4306.777 </td>
-   <td style="text-align:right;"> 6.22 </td>
-   <td style="text-align:left;"> 9/19/2016 4:45:51 PM </td>
-   <td style="text-align:right;"> 306.2084 </td>
-   <td style="text-align:left;"> 23A42 </td>
-   <td style="text-align:right;"> 785.7381 </td>
-   <td style="text-align:left;"> 2016-09-19T16:45:51.002Z </td>
-   <td style="text-align:right;"> 77.37348 </td>
-   <td style="text-align:left;"> POINT (-93.1503 41.66642) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 2.3966513 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 91.03274 </td>
-   <td style="text-align:right;"> 174 </td>
-   <td style="text-align:right;"> 5462.851 </td>
-   <td style="text-align:right;"> 12.22 </td>
-   <td style="text-align:left;"> 9/19/2016 4:45:54 PM </td>
-   <td style="text-align:right;"> 309.2284 </td>
-   <td style="text-align:left;"> 23A42 </td>
-   <td style="text-align:right;"> 785.5937 </td>
-   <td style="text-align:left;"> 2016-09-19T16:45:54.002Z </td>
-   <td style="text-align:right;"> 91.86380 </td>
-   <td style="text-align:left;"> POINT (-93.15032 41.66644) </td>
-  </tr>
-  <tr>
-   <td style="text-align:right;"> 3.1840529 </td>
-   <td style="text-align:right;"> 5 </td>
-   <td style="text-align:right;"> 65.59037 </td>
-   <td style="text-align:right;"> 174 </td>
-   <td style="text-align:right;"> 3951.056 </td>
-   <td style="text-align:right;"> 13.33 </td>
-   <td style="text-align:left;"> 9/19/2016 4:45:55 PM </td>
-   <td style="text-align:right;"> 309.7584 </td>
-   <td style="text-align:left;"> 23A42 </td>
-   <td style="text-align:right;"> 785.7512 </td>
-   <td style="text-align:left;"> 2016-09-19T16:45:55.005Z </td>
-   <td style="text-align:right;"> 65.60115 </td>
-   <td style="text-align:left;"> POINT (-93.15033 41.66644) </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{r|r|r|r|r|r|l|r|l|r|l|r|l}
+\hline
+DISTANCE & SWATHWIDTH & VRYIELDVOL & Crop & WetMass & Moisture & Time & Heading & VARIETY & Elevation & IsoTime & yield\_bu & geometry\\
+\hline
+0.9202733 & 5 & 57.38461 & 174 & 3443.652 & 0.00 & 9/19/2016 4:45:46 PM & 300.1584 & 23A42 & 786.8470 & 2016-09-19T16:45:46.001Z & 65.97034 & POINT (-93.15026 41.66641)\\
+\hline
+2.6919269 & 5 & 55.88097 & 174 & 3353.411 & 0.00 & 9/19/2016 4:45:48 PM & 303.6084 & 23A42 & 786.6140 & 2016-09-19T16:45:48.004Z & 64.24158 & POINT (-93.15028 41.66641)\\
+\hline
+2.6263101 & 5 & 80.83788 & 174 & 4851.075 & 0.00 & 9/19/2016 4:45:49 PM & 304.3084 & 23A42 & 786.1416 & 2016-09-19T16:45:49.007Z & 92.93246 & POINT (-93.15028 41.66642)\\
+\hline
+2.7575437 & 5 & 71.76773 & 174 & 4306.777 & 6.22 & 9/19/2016 4:45:51 PM & 306.2084 & 23A42 & 785.7381 & 2016-09-19T16:45:51.002Z & 77.37348 & POINT (-93.1503 41.66642)\\
+\hline
+2.3966513 & 5 & 91.03274 & 174 & 5462.851 & 12.22 & 9/19/2016 4:45:54 PM & 309.2284 & 23A42 & 785.5937 & 2016-09-19T16:45:54.002Z & 91.86380 & POINT (-93.15032 41.66644)\\
+\hline
+3.1840529 & 5 & 65.59037 & 174 & 3951.056 & 13.33 & 9/19/2016 4:45:55 PM & 309.7584 & 23A42 & 785.7512 & 2016-09-19T16:45:55.005Z & 65.60115 & POINT (-93.15033 41.66644)\\
+\hline
+\end{tabular}
 
 Each row in the above dataset is a **case**, sometimes called an
 **instance**. It is an single observation taken within a soybean field.
@@ -266,7 +173,7 @@ Do the observed values make general sense?
 One of the easiest and most informative things for us to do is to create
 a particular bar chart known as a **histogram**.
 
-<img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+![](01-Introduction-and-Population-Statistics_files/figure-latex/unnamed-chunk-3-1.pdf)<!-- --> 
 
 In the histogram above, each bar represents range of values. This range
 is often referred to as a *bin*. The lowest bin includes values from 50
@@ -283,7 +190,7 @@ middle value in each range. For the bin that includes values from 50 to
 In the plot above, the midpoint for each bar is indicated by the orange
 bar beneath it.
 
-<img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+![](01-Introduction-and-Population-Statistics_files/figure-latex/unnamed-chunk-4-1.pdf)<!-- --> 
 
 There are many ways in which we can draw a histogram -- and other
 visualizations -- in R. We will learn more in this course about an R
@@ -296,7 +203,7 @@ ggplot(data=yield, aes(x=yield_bu)) +
   geom_histogram(breaks=seq(50, 110, 10), fill="tomato", color="black")
 ```
 
-<img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+![](01-Introduction-and-Population-Statistics_files/figure-latex/unnamed-chunk-5-1.pdf)<!-- --> 
 
 Varying the *bin width* provides us with different perspectives on our
 distribution. Wide bins, which each include a greater range of values,
@@ -363,7 +270,7 @@ it is called a *bell curve*; in school, it is the *Curve* that many
 students count on to bring up their grades. We will learn more about
 this distribution in *Lesson 2*.
 
-<img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+![](01-Introduction-and-Population-Statistics_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
 
 In a perfect scenario, our curve would pass through the midpoint of each
 bar. This rarely happens with real-world data, and especially in
@@ -409,7 +316,7 @@ $$
 The mean yield for our field is about 80.09 bushels per acre. This
 isrepresented by the red line in the histogram below.
 
-<img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+![](01-Introduction-and-Population-Statistics_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
 
 Earlier, you were introduced to the median. As discussed, the **median**
 is a number such that half of the individuals in the population are
@@ -426,7 +333,7 @@ $$\{1,2,3,4,5,6\} \\ median = 3.5 $$
 
 Let's add a blue line to our histogram to represent the median.
 
-<img src="01-Introduction-and-Population-Statistics_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+![](01-Introduction-and-Population-Statistics_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
 
 As you can see, they are practically identical. When the mean and median
 are similar, the number of individuals measuring greater and less than
@@ -498,47 +405,24 @@ first_resid_table %>%
   kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> individuals </th>
-   <th style="text-align:left;"> mean </th>
-   <th style="text-align:right;"> residual </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> -2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> -1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{l|l|r}
+\hline
+individuals & mean & residual\\
+\hline
+1 & 3 & -2\\
+\hline
+2 & 3 & -1\\
+\hline
+3 & 3 & 0\\
+\hline
+4 & 3 & 1\\
+\hline
+5 & 3 & 2\\
+\hline
+Total &  & 0\\
+\hline
+\end{tabular}
 
 The first column of the above dataset contains the individual
 observations. The second column contains the population mean, repeated
@@ -571,72 +455,34 @@ second_resid_table %>%
   kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> yield </th>
-   <th style="text-align:left;"> mean </th>
-   <th style="text-align:right;"> residual </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 83.61 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> 7.09 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 86.82 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> 10.30 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 68.39 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> -8.13 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 81.91 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> 5.39 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 80.75 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> 4.23 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 57.06 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> -19.46 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 62.58 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> -13.94 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 86.6 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> 10.08 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 80.05 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> 3.53 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 77.42 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:right;"> 0.90 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:right;"> -0.01 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{l|l|r}
+\hline
+yield & mean & residual\\
+\hline
+83.61 & 76.52 & 7.09\\
+\hline
+86.82 & 76.52 & 10.30\\
+\hline
+68.39 & 76.52 & -8.13\\
+\hline
+81.91 & 76.52 & 5.39\\
+\hline
+80.75 & 76.52 & 4.23\\
+\hline
+57.06 & 76.52 & -19.46\\
+\hline
+62.58 & 76.52 & -13.94\\
+\hline
+86.6 & 76.52 & 10.08\\
+\hline
+80.05 & 76.52 & 3.53\\
+\hline
+77.42 & 76.52 & 0.90\\
+\hline
+Total &  & -0.01\\
+\hline
+\end{tabular}
 
 If we sum up all the yield residuals, we get -0.04. Not exactly zero,
 but close. The difference from zero is the result of rounding errors
@@ -659,54 +505,24 @@ first_squares_table %>%
   kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> individuals </th>
-   <th style="text-align:left;"> mean </th>
-   <th style="text-align:left;"> residual </th>
-   <th style="text-align:right;"> square </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> -2 </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> -1 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:right;"> 10 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{l|l|l|r}
+\hline
+individuals & mean & residual & square\\
+\hline
+1 & 3 & -2 & 4\\
+\hline
+2 & 3 & -1 & 1\\
+\hline
+3 & 3 & 0 & 0\\
+\hline
+4 & 3 & 1 & 1\\
+\hline
+5 & 3 & 2 & 4\\
+\hline
+Total &  &  & 10\\
+\hline
+\end{tabular}
 
 And for our yield data:
 
@@ -725,84 +541,34 @@ second_squares_table %>%
   kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> yield </th>
-   <th style="text-align:left;"> mean </th>
-   <th style="text-align:left;"> residual </th>
-   <th style="text-align:right;"> square </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 83.61 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> 7.09 </td>
-   <td style="text-align:right;"> 50.27 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 86.82 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> 10.3 </td>
-   <td style="text-align:right;"> 106.09 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 68.39 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> -8.13 </td>
-   <td style="text-align:right;"> 66.10 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 81.91 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> 5.39 </td>
-   <td style="text-align:right;"> 29.05 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 80.75 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> 4.23 </td>
-   <td style="text-align:right;"> 17.89 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 57.06 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> -19.46 </td>
-   <td style="text-align:right;"> 378.69 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 62.58 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> -13.94 </td>
-   <td style="text-align:right;"> 194.32 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 86.6 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> 10.08 </td>
-   <td style="text-align:right;"> 101.61 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 80.05 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> 3.53 </td>
-   <td style="text-align:right;"> 12.46 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 77.42 </td>
-   <td style="text-align:left;"> 76.52 </td>
-   <td style="text-align:left;"> 0.9 </td>
-   <td style="text-align:right;"> 0.81 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:right;"> 957.29 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{l|l|l|r}
+\hline
+yield & mean & residual & square\\
+\hline
+83.61 & 76.52 & 7.09 & 50.27\\
+\hline
+86.82 & 76.52 & 10.3 & 106.09\\
+\hline
+68.39 & 76.52 & -8.13 & 66.10\\
+\hline
+81.91 & 76.52 & 5.39 & 29.05\\
+\hline
+80.75 & 76.52 & 4.23 & 17.89\\
+\hline
+57.06 & 76.52 & -19.46 & 378.69\\
+\hline
+62.58 & 76.52 & -13.94 & 194.32\\
+\hline
+86.6 & 76.52 & 10.08 & 101.61\\
+\hline
+80.05 & 76.52 & 3.53 & 12.46\\
+\hline
+77.42 & 76.52 & 0.9 & 0.81\\
+\hline
+Total &  &  & 957.29\\
+\hline
+\end{tabular}
 
 #### Variance
 
@@ -834,84 +600,34 @@ double_squares_table %>%
   kbl()
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> individuals </th>
-   <th style="text-align:left;"> mean </th>
-   <th style="text-align:left;"> residual </th>
-   <th style="text-align:right;"> square </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> -2 </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> -1 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> -2 </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> -1 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 0 </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 4 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 1 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 5 </td>
-   <td style="text-align:left;"> 3 </td>
-   <td style="text-align:left;"> 2 </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Total </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:right;"> 20 </td>
-  </tr>
-</tbody>
-</table>
+
+\begin{tabular}[t]{l|l|l|r}
+\hline
+individuals & mean & residual & square\\
+\hline
+1 & 3 & -2 & 4\\
+\hline
+2 & 3 & -1 & 1\\
+\hline
+3 & 3 & 0 & 0\\
+\hline
+4 & 3 & 1 & 1\\
+\hline
+5 & 3 & 2 & 4\\
+\hline
+1 & 3 & -2 & 4\\
+\hline
+2 & 3 & -1 & 1\\
+\hline
+3 & 3 & 0 & 0\\
+\hline
+4 & 3 & 1 & 1\\
+\hline
+5 & 3 & 2 & 4\\
+\hline
+Total &  &  & 20\\
+\hline
+\end{tabular}
 
 You will notice the sum of squares increases to 20. The spread of the
 data did not change: we recorded the same five values. The only
